@@ -23,9 +23,20 @@ import Container from '../components/Container.astro';
               <span class="relative text-base font-semibold text-primary dark:text-white">Book a Demo</span>
             </a>
           </div>
-          <div class="mt-16 flex justify-center">
-            <img src="/images/placeholder-hero.png" alt="AI hiring dashboard" class="rounded-xl shadow-lg w-full max-w-2xl" />
-          </div>
+          <div class="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
+            <div class="text-left">
+                <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Fastest Hiring Process</h6>
+                <p class="mt-2 text-gray-500">Screen, assess, shortlist instantly</p>
+            </div>
+            <div class="text-left">
+                <h6 class="text-lg font-semibold text-gray-700 dark:text-white">AI-Powered Evaluations</h6>
+                <p class="mt-2 text-gray-500">Objective, smart, skill-based</p>
+            </div>
+            <div class="text-left">
+                <h6 class="text-lg font-semibold text-gray-700 dark:text-white">Best ROI in Hiring</h6>
+                <p class="mt-2 text-gray-500">Save time, reduce costs</p>
+            </div>
+        </div>
         </div>
       </Container>
     </section>
@@ -107,28 +118,30 @@ import Container from '../components/Container.astro';
     <section id="testimonials" class="py-20">
       <Container>
         <div class="mb-12 text-center">
-          <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">Hear from Our Users</h2>
+          <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">Why Recruiters Love QualifyMe</h2>
         </div>
-        <div class="md:columns-2 lg:columns-3 gap-8 space-y-8">
-          <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-            <div class="flex gap-4">
-              <img class="w-12 h-12 rounded-full" src="/images/avatars/avatar.webp" alt="user avatar" />
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar-4.webp" alt="Sanjay avatar" />
               <div>
-                <h6 class="text-lg font-medium text-gray-700 dark:text-white">Sanjay</h6>
-                <p class="text-sm text-gray-500 dark:text-gray-300">CTO at Growthloop</p>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Sanjay</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">CTO at Growthloop</span>
               </div>
             </div>
-            <p class="mt-8">"QualifyMe helped us hire 3 developers in under 10 days with minimal effort. Game-changer for our startup."</p>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"QualifyMe helped us hire 3 developers in under 10 days with minimal effort. Game-changer for our startup."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
           </div>
-          <div class="aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none">
-            <div class="flex gap-4">
-              <img class="w-12 h-12 rounded-full" src="/images/avatars/avatar-1.webp" alt="user avatar" />
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar.webp" alt="Shruti avatar" />
               <div>
-                <h6 class="text-lg font-medium text-gray-700 dark:text-white">Shruti</h6>
-                <p class="text-sm text-gray-500 dark:text-gray-300">Hiring Manager at Zeek.ai</p>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Shruti</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Hiring Manager at Zeek.ai</span>
               </div>
             </div>
-            <p class="mt-8">"Our shortlisting process is now automated. I don’t review resumes anymore. Just results."</p>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"Our shortlisting process is now automated. I don’t review resumes anymore. Just results."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
           </div>
         </div>
       </Container>
@@ -174,7 +187,7 @@ import Container from '../components/Container.astro';
       <Container>
         <div class="mx-auto text-center md:w-2/3 lg:w-1/2">
           <h2 class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl mb-4">AI Interview Avatar <span class="text-base font-semibold text-primary">(Beta)</span></h2>
-          <img src="/images/placeholder-ai-avatar.png" alt="AI Interview Avatar" class="mx-auto mb-6 w-32 h-32 rounded-full shadow-lg" />
+          <img src="/images/AI-interview-avatar.jpg" alt="AI Interview Avatar" class="mx-auto mb-6 rounded-full shadow-lg" />
           <p class="text-gray-600 dark:text-gray-300 text-lg mb-4">Let AI Conduct the Interview</p>
           <p class="text-gray-600 dark:text-gray-300 mb-4">QualifyMe’s talking avatar conducts interviews in real-time, evaluates candidate responses, and gives you a full-fitment score—instantly.</p>
           <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full font-semibold">Coming soon. Be among the first to try.</span>
