@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+---
+
+<Layout title="Pricing - QualifyMe">
+  <main class="space-y-32 mb-32">
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h1 class="text-4xl font-bold text-gray-800 md:text-5xl dark:text-white">Pricing</h1>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">Flexible, transparent plans for startups, agencies, and enterprises. Start free, upgrade as you grow.</p>
+        </div>
+        {/* Subscription Plans Table */}
+        <div class="overflow-x-auto mb-16">
+          <table class="min-w-full text-sm text-left text-gray-700 dark:text-gray-200 border rounded-2xl overflow-hidden">
+            <thead class="bg-gray-100 dark:bg-gray-800">
+              <tr>
+                <th class="px-6 py-4">Plan</th>
+                <th class="px-6 py-4">Price</th>
+                <th class="px-6 py-4">Applications</th>
+                <th class="px-6 py-4">Recruiters</th>
+                <th class="px-6 py-4">Job Posts</th>
+                <th class="px-6 py-4">Custom Branding</th>
+                <th class="px-6 py-4">Custom Domain</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4 font-bold">Free Plan</td>
+                <td class="px-6 py-4">₹ 4,500/mo (billed annually) – Valid for 1 month</td>
+                <td class="px-6 py-4">50</td>
+                <td class="px-6 py-4">1 recruiter</td>
+                <td class="px-6 py-4">1</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">×</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4 font-bold">Basic Plan</td>
+                <td class="px-6 py-4">₹ 5,000/mo (₹ 4,500/mo early bird) (billed annually)</td>
+                <td class="px-6 py-4">1,000</td>
+                <td class="px-6 py-4">Up to 3</td>
+                <td class="px-6 py-4">3</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">×</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4 font-bold">Premium Plan</td>
+                <td class="px-6 py-4">₹ 15,000/mo (₹ 14,500/mo early bird) (billed annually)</td>
+                <td class="px-6 py-4">5,000</td>
+                <td class="px-6 py-4">Unlimited</td>
+                <td class="px-6 py-4">10</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-bold">Enterprise</td>
+                <td class="px-6 py-4">Custom pricing—contact us</td>
+                <td class="px-6 py-4">Unlimited</td>
+                <td class="px-6 py-4">Unlimited</td>
+                <td class="px-6 py-4">Unlimited</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="mb-8 text-center text-gray-600 dark:text-gray-300">
+          <p><strong>Early‑bird pricing available</strong> on annual subscriptions—ask about current offers!</p>
+          <p>Start with a free trial and upgrade any time.</p>
+          <p>Enterprise users get fully flexible limits and premium support.</p>
+        </div>
+        {/* Feature Comparison Table */}
+        <div class="overflow-x-auto mb-16">
+          <table class="min-w-full text-sm text-left text-gray-700 dark:text-gray-200 border rounded-2xl overflow-hidden">
+            <thead class="bg-gray-100 dark:bg-gray-800">
+              <tr>
+                <th class="px-6 py-4">Features</th>
+                <th class="px-6 py-4">Basic</th>
+                <th class="px-6 py-4">Premium</th>
+                <th class="px-6 py-4">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Custom Assessment Templates</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Auto‑Resume Screening</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">AI‑Generated Quiz & Coding Rounds</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Video / Avatar Interviews</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Misconduct Detection & Proctoring</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">AI‑Driven Candidate Scoring</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Instant Scorecards & Reports</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Calendar Integration & Scheduling</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Advanced Analytics & Funnel Insights</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">✓</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Talent Pool / Reverse‑Hiring Mode</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Custom Branding & Subdomain</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">Branding only</td>
+                <td class="px-6 py-4">Full custom domain</td>
+              </tr>
+              <tr class="border-b dark:border-gray-700">
+                <td class="px-6 py-4">Dedicated Account Manager</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4">API & Webhooks Access</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">×</td>
+                <td class="px-6 py-4">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {/* FAQ Section */}
+        <div class="mb-16">
+          <h2 class="text-2xl font-bold text-primary mb-6">Frequently Asked Questions</h2>
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">What exactly does QualifyMe do?</h3>
+              <p class="text-gray-600 dark:text-gray-300">QualifyMe uses AI to automate resume screening, conduct structured interviews (MCQ, coding, and video-based), evaluate candidates, and deliver ranked shortlists—freeing your team from repetitive tasks.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">How accurate is the AI evaluation?</h3>
+              <p class="text-gray-600 dark:text-gray-300">Our AI evaluates both structured (coding, multiple‑choice) and unstructured (video/text) responses using NLP and scoring algorithms trained to predict real hiring outcomes. While it's not 100% perfect, it's rigorously validated to align with ideal candidate fit.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">How does QualifyMe support unbiased hiring?</h3>
+              <p class="text-gray-600 dark:text-gray-300">By design, our AI ignores age, gender, ethnicity, and other demographic cues—focusing solely on skills, experience, and performance to ensure fair, objective evaluation.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">Can QualifyMe work with my current HR tools?</h3>
+              <p class="text-gray-600 dark:text-gray-300">Yes—integrate QualifyMe seamlessly with your existing ATS (e.g. Greenhouse, Zoho Recruit, Lever) or use APIs and webhooks for custom workflows. Enterprise plans include full integration support.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">Will AI replace recruiters?</h3>
+              <p class="text-gray-600 dark:text-gray-300">No. QualifyMe enhances recruitment efficiency—not replaces humans. Recruiters still make hiring decisions. AI handles initial screening and screening steps so your team can focus on final assessment and cultural fit.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">How easy is set‑up and adoption?</h3>
+              <p class="text-gray-600 dark:text-gray-300">Extremely user-friendly. Onboard in just a few steps. Our team is available for guidance throughout your trial. No technical setup required for most features.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">What about data privacy?</h3>
+              <p class="text-gray-600 dark:text-gray-300">We use end-to-end encryption and comply with global standards like GDPR. Candidate data is stored securely and used only for recruitment.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2">Can I cancel anytime? Will I get a refund?</h3>
+              <p class="text-gray-600 dark:text-gray-300">Yes—you can cancel anytime from your account settings or via support. No refunds for partial months or years. Refunds may be considered within 7 days for annual plans or under billing error or downtime situations.</p>
+            </div>
+          </div>
+        </div>
+        {/* Plan Recommendation Section */}
+        <div class="mb-16 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">Which plan should you choose?</h2>
+          <ul class="space-y-2 text-gray-700 dark:text-gray-200 inline-block text-left">
+            <li><strong>Just starting out?</strong> Try the <strong>Free plan</strong>—ideal for one job and a lean team.</li>
+            <li><strong>Hiring across teams?</strong> The <strong>Basic plan</strong> offers more scale with up to 1,000 applications and 3 recruiters.</li>
+            <li><strong>Growing fast or need full branding?</strong> Choose <strong>Premium</strong> for higher volume, unlimited recruiters, and customizable branding.</li>
+            <li><strong>Need full control and integration?</strong> Go <strong>Enterprise</strong>—tailored limits, APIs, premium support, and advanced analytics.</li>
+          </ul>
+        </div>
+        <div class="text-center mt-12">
+          <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max mx-auto">
+            <span class="relative text-base font-semibold text-white dark:text-dark">Start Your Free Trial</span>
+          </a>
+          <a href="/contact" class="relative flex h-12 w-full items-center justify-center px-8 mt-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max mx-auto">
+            <span class="relative text-base font-semibold text-white dark:text-dark">Book a Demo</span>
+          </a>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout> 

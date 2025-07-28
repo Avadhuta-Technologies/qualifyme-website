@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+---
+
+<Layout title="How It Works - QualifyMe">
+  <main class="space-y-32 mb-32">
+    {/* Hero Section */}
+    <section class="relative pt-36 pb-24 bg-gradient-to-br from-primary/10 to-purple-100 dark:from-blue-950 dark:to-gray-900">
+      <Container>
+        <div class="relative text-center mx-auto lg:w-2/3">
+          <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl mb-6">How QualifyMe Works</h1>
+          <p class="mt-4 text-gray-700 dark:text-gray-300 text-xl mb-8">See how QualifyMe streamlines hiring for recruiters and candidates using advanced AI.</p>
+        </div>
+      </Container>
+    </section>
+    {/* For Recruiters - Stepper Layout */}
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2 justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>For Recruiters</h2>
+        </div>
+        <ol class="relative border-l border-primary dark:border-primary/60 max-w-3xl mx-auto">
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Create a Job Post</h3>
+            <p class="text-gray-600 dark:text-gray-300">Use AI-assisted tools to define the role, must-have skills, and interview process. Choose from pre-built templates or create your own multi-round assessments (MCQ, coding, video, etc.).</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2M12 12v.01M12 16h.01M8 12v.01M8 16h.01M16 12v.01M16 16h.01" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Share Assessment</h3>
+            <p class="text-gray-600 dark:text-gray-300">Share the candidate portal link via your careers page, LinkedIn, Naukri, or email. QualifyMe auto-screens resumes and invites eligible candidates to take the test.</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Automated Screening & Evaluation</h3>
+            <p class="text-gray-600 dark:text-gray-300">Candidates take asynchronous AI-powered assessments. Responses are auto-evaluated based on logic, clarity, confidence, and fluency.</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2l1 2h13" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Review Smart Reports</h3>
+            <p class="text-gray-600 dark:text-gray-300">Get AI-generated scores, insights, and candidate recommendations. Dig into detailed reports, override AI decisions if needed, and move the best ones forward.</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Schedule Interviews</h3>
+            <p class="text-gray-600 dark:text-gray-300">Qualified candidates can pick a time directly from your synced team calendar. Eliminate back-and-forth emails.</p>
+          </li>
+          <li class="ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 10c-4.418 0-8-1.79-8-4V7c0-2.21 3.582-4 8-4s8 1.79 8 4v7c0 2.21-3.582 4-8 4z" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Collaborate & Hire</h3>
+            <p class="text-gray-600 dark:text-gray-300">Add hiring managers to review reports. Make fast, confident hiring decisions backed by data.</p>
+          </li>
+        </ol>
+      </Container>
+    </section>
+    {/* For Candidates - Stepper Layout */}
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2 justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>For Candidates</h2>
+        </div>
+        <ol class="relative border-l border-primary dark:border-primary/60 max-w-3xl mx-auto">
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Apply in One Click</h3>
+            <p class="text-gray-600 dark:text-gray-300">Upload your resume via a shared link or careers portal. No long application forms—QualifyMe extracts the info it needs.</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Take the Assessment</h3>
+            <p class="text-gray-600 dark:text-gray-300">Receive an invitation if you're eligible. Take the test anytime, anywhere (mobile-friendly, no downloads).</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A2 2 0 0020 6.382V5a2 2 0 00-2-2H6a2 2 0 00-2 2v1.382a2 2 0 00.447 1.342L9 10m6 0v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4m6 0l-4.553-2.276A2 2 0 014 6.382V5a2 2 0 012-2h12a2 2 0 012 2v1.382a2 2 0 01-.447 1.342L15 10z" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">AI-Powered Interview</h3>
+            <p class="text-gray-600 dark:text-gray-300">Answer structured questions through a video or text-based format. Optional: interact with our AI Avatar for a fully simulated interview.</p>
+          </li>
+          <li class="mb-10 ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2l1 2h13" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Instant Feedback</h3>
+            <p class="text-gray-600 dark:text-gray-300">Get acknowledgement immediately after the test. If shortlisted, you’ll be invited to schedule an interview directly with the company.</p>
+          </li>
+          <li class="ml-6">
+            <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-primary/10 dark:ring-primary/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+            </span>
+            <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-1">Smooth Interview Scheduling</h3>
+            <p class="text-gray-600 dark:text-gray-300">Choose an available time that works for you—no phone calls needed.</p>
+          </li>
+        </ol>
+      </Container>
+    </section>
+    {/* AI Technology Explained */}
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2 justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h-1v-4h-1m4 0h-1v-4h-1" /></svg>AI Technology Explained</h2>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-md flex flex-col items-start">
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 10c-4.418 0-8-1.79-8-4V7c0-2.21 3.582-4 8-4s8 1.79 8 4v7c0 2.21-3.582 4-8 4z" /></svg>Resume Screening</h3>
+              <p class="text-gray-600 dark:text-gray-300">Uses NLP (Natural Language Processing) to parse resumes and match them with job-specific criteria. Flags missing skills, irrelevant experience, and top matches instantly.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-md flex flex-col items-start">
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2l1 2h13" /></svg>Question Generation</h3>
+              <p class="text-gray-600 dark:text-gray-300">Automatically creates domain-specific technical, behavioral, and coding questions. Tailors complexity based on experience level.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-md flex flex-col items-start">
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>Response Analysis</h3>
+              <p class="text-gray-600 dark:text-gray-300">Evaluates text and video responses for technical accuracy, clarity & structure, confidence & fluency, and soft skill indicators.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-md flex flex-col items-start">
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A2 2 0 0020 6.382V5a2 2 0 00-2-2H6a2 2 0 00-2 2v1.382a2 2 0 00.447 1.342L9 10m6 0v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4m6 0l-4.553-2.276A2 2 0 014 6.382V5a2 2 0 012-2h12a2 2 0 012 2v1.382a2 2 0 01-.447 1.342L15 10z" /></svg>Misconduct Detection</h3>
+              <p class="text-gray-600 dark:text-gray-300">AI-enabled proctoring monitors for camera presence, suspicious behavior, and cheating indicators.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-md flex flex-col items-start">
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 10c-4.418 0-8-1.79-8-4V7c0-2.21 3.582-4 8-4s8 1.79 8 4v7c0 2.21-3.582 4-8 4z" /></svg>Scoring Engine (QualifyMeScore)</h3>
+              <p class="text-gray-600 dark:text-gray-300">Aggregates multiple signals (resume, test, interview) to compute a unified score. Provides an explainable breakdown of strengths, concerns, and recommendations.</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-md flex flex-col items-start">
+              <h3 class="font-semibold text-lg text-gray-700 dark:text-white mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2l1 2h13" /></svg>Coming Soon</h3>
+              <p class="text-gray-600 dark:text-gray-300">Adaptive Questioning that adjusts based on real-time candidate performance. AI Coaching for Interviewers to improve human-led interviews.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+    {/* CTA Section */}
+    <section class="relative py-24">
+      <div aria-hidden="true" class="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+        <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+      </div>
+      <Container>
+        <div class="relative text-center space-y-6 md:w-8/12 lg:w-7/12 mx-auto">
+          <h2 class="text-4xl font-bold text-gray-800 dark:text-white md:text-5xl">Ready to simplify your hiring?</h2>
+          <p class="text-xl text-gray-600 dark:text-gray-300">Start your free trial or book a demo and experience the future of recruitment with QualifyMe.</p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+              <span class="relative text-base font-semibold text-white dark:text-dark">Start Free Trial</span>
+            </a>
+            <a href="/contact" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+              <span class="relative text-base font-semibold text-white dark:text-dark">Book a Demo</span>
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout> 
