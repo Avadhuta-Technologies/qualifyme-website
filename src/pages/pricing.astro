@@ -5,72 +5,93 @@ import Container from '../components/Container.astro';
 
 <Layout title="Pricing - QualifyMe">
   <main class="space-y-32 mb-32">
+    {/* Hero Section */}
+    <section class="relative pt-36 pb-24 bg-gradient-to-br from-primary/10 to-purple-100 dark:from-blue-950 dark:to-gray-900">
+      <Container>
+        <div class="relative text-center mx-auto lg:w-2/3">
+          <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl mb-6">Pricing</h1>
+          <p class="mt-4 text-gray-700 dark:text-gray-300 text-xl mb-8">Flexible, transparent plans for startups, agencies, and enterprises. Start free, upgrade as you grow.</p>
+        </div>
+      </Container>
+    </section>
+    {/* Pricing Plans as Cards */}
     <section class="py-20">
       <Container>
         <div class="mb-12 text-center">
-          <h1 class="text-4xl font-bold text-gray-800 md:text-5xl dark:text-white">Pricing</h1>
-          <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">Flexible, transparent plans for startups, agencies, and enterprises. Start free, upgrade as you grow.</p>
+          <h2 class="text-2xl font-bold text-primary mb-6">Our Subscription Plans</h2>
         </div>
-        {/* Subscription Plans Table */}
-        <div class="overflow-x-auto mb-16">
-          <table class="min-w-full text-sm text-left text-gray-700 dark:text-gray-200 border rounded-2xl overflow-hidden">
-            <thead class="bg-gray-100 dark:bg-gray-800">
-              <tr>
-                <th class="px-6 py-4">Plan</th>
-                <th class="px-6 py-4">Price</th>
-                <th class="px-6 py-4">Applications</th>
-                <th class="px-6 py-4">Recruiters</th>
-                <th class="px-6 py-4">Job Posts</th>
-                <th class="px-6 py-4">Custom Branding</th>
-                <th class="px-6 py-4">Custom Domain</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b dark:border-gray-700">
-                <td class="px-6 py-4 font-bold">Free Plan</td>
-                <td class="px-6 py-4">₹ 4,500/mo (billed annually) – Valid for 1 month</td>
-                <td class="px-6 py-4">50</td>
-                <td class="px-6 py-4">1 recruiter</td>
-                <td class="px-6 py-4">1</td>
-                <td class="px-6 py-4">×</td>
-                <td class="px-6 py-4">×</td>
-              </tr>
-              <tr class="border-b dark:border-gray-700">
-                <td class="px-6 py-4 font-bold">Basic Plan</td>
-                <td class="px-6 py-4">₹ 5,000/mo (₹ 4,500/mo early bird) (billed annually)</td>
-                <td class="px-6 py-4">1,000</td>
-                <td class="px-6 py-4">Up to 3</td>
-                <td class="px-6 py-4">3</td>
-                <td class="px-6 py-4">✓</td>
-                <td class="px-6 py-4">×</td>
-              </tr>
-              <tr class="border-b dark:border-gray-700">
-                <td class="px-6 py-4 font-bold">Premium Plan</td>
-                <td class="px-6 py-4">₹ 15,000/mo (₹ 14,500/mo early bird) (billed annually)</td>
-                <td class="px-6 py-4">5,000</td>
-                <td class="px-6 py-4">Unlimited</td>
-                <td class="px-6 py-4">10</td>
-                <td class="px-6 py-4">✓</td>
-                <td class="px-6 py-4">✓</td>
-              </tr>
-              <tr>
-                <td class="px-6 py-4 font-bold">Enterprise</td>
-                <td class="px-6 py-4">Custom pricing—contact us</td>
-                <td class="px-6 py-4">Unlimited</td>
-                <td class="px-6 py-4">Unlimited</td>
-                <td class="px-6 py-4">Unlimited</td>
-                <td class="px-6 py-4">✓</td>
-                <td class="px-6 py-4">✓</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl flex flex-col items-center border-2 border-primary">
+            <h2 class="text-2xl font-bold text-primary mb-2">Free Plan</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">For small teams</p>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Free Trial <br><span class="text-lg font-normal">(7 days)</span></div>
+            <ul class="mb-6 space-y-2 text-gray-700 dark:text-gray-200">
+              <li>50 applications</li>
+              <li>1 recruiter</li>
+              <li>1 job post</li>
+              <li>Custom Branding: ×</li>
+              <li>Custom Domain: ×</li>
+            </ul>
+            <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+              <span class="relative text-base font-semibold text-white dark:text-dark">Start Free Trial</span>
+            </a>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl flex flex-col items-center border-2 border-primary scale-105">
+            <h2 class="text-2xl font-bold text-primary mb-2">Basic Plan</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">For growing teams</p>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-4">₹ 5,000/mo <span class="text-lg font-normal">(₹ 4,500/mo early bird)</span></div>
+            <ul class="mb-6 space-y-2 text-gray-700 dark:text-gray-200">
+              <li>1,000 applications</li>
+              <li>Up to 3 recruiters</li>
+              <li>3 job posts</li>
+              <li>Custom Branding: ✓</li>
+              <li>Custom Domain: ×</li>
+            </ul>
+            <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+              <span class="relative text-base font-semibold text-white dark:text-dark">Start Basic Trial</span>
+            </a>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl flex flex-col items-center border-2 border-primary">
+            <h2 class="text-2xl font-bold text-primary mb-2">Premium Plan</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">For high-volume hiring</p>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-4">₹ 15,000/mo <span class="text-lg font-normal">(₹ 14,500/mo early bird)</span></div>
+            <ul class="mb-6 space-y-2 text-gray-700 dark:text-gray-200">
+              <li>5,000 applications</li>
+              <li>Unlimited recruiters</li>
+              <li>10 job posts</li>
+              <li>Custom Branding: ✓</li>
+              <li>Custom Domain: ✓</li>
+            </ul>
+            <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+              <span class="relative text-base font-semibold text-white dark:text-dark">Start Premium Trial</span>
+            </a>
+          </div>
+          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-2xl flex flex-col items-center border-2 border-primary">
+            <h2 class="text-2xl font-bold text-primary mb-2">Enterprise</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">For custom needs</p>
+            <div class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Custom</div>
+            <ul class="mb-6 space-y-2 text-gray-700 dark:text-gray-200">
+              <li>Unlimited applications</li>
+              <li>Unlimited recruiters</li>
+              <li>Unlimited job posts</li>
+              <li>Custom Branding: ✓</li>
+              <li>Custom Domain: ✓</li>
+            </ul>
+            <a href="/contact" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+              <span class="relative text-base font-semibold text-white dark:text-dark">Contact Sales</span>
+            </a>
+          </div>
         </div>
-        <div class="mb-8 text-center text-gray-600 dark:text-gray-300">
+        <div class="mb-8 text-center text-gray-600 dark:text-gray-300 mt-12">
           <p><strong>Early‑bird pricing available</strong> on annual subscriptions—ask about current offers!</p>
           <p>Start with a free trial and upgrade any time.</p>
           <p>Enterprise users get fully flexible limits and premium support.</p>
         </div>
-        {/* Feature Comparison Table */}
+      </Container>
+    </section>
+    {/* Feature Comparison Table, FAQ, Plan Recommendation, CTA */}
+    <section class="py-20">
+      <Container>
         <div class="overflow-x-auto mb-16">
           <table class="min-w-full text-sm text-left text-gray-700 dark:text-gray-200 border rounded-2xl overflow-hidden">
             <thead class="bg-gray-100 dark:bg-gray-800">
@@ -163,7 +184,6 @@ import Container from '../components/Container.astro';
             </tbody>
           </table>
         </div>
-        {/* FAQ Section */}
         <div class="mb-16">
           <h2 class="text-2xl font-bold text-primary mb-6">Frequently Asked Questions</h2>
           <div class="space-y-6">
@@ -201,7 +221,6 @@ import Container from '../components/Container.astro';
             </div>
           </div>
         </div>
-        {/* Plan Recommendation Section */}
         <div class="mb-16 text-center">
           <h2 class="text-2xl font-bold text-primary mb-6">Which plan should you choose?</h2>
           <ul class="space-y-2 text-gray-700 dark:text-gray-200 inline-block text-left">
@@ -212,12 +231,24 @@ import Container from '../components/Container.astro';
           </ul>
         </div>
         <div class="text-center mt-12">
-          <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max mx-auto">
-            <span class="relative text-base font-semibold text-white dark:text-dark">Start Your Free Trial</span>
-          </a>
-          <a href="/contact" class="relative flex h-12 w-full items-center justify-center px-8 mt-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max mx-auto">
-            <span class="relative text-base font-semibold text-white dark:text-dark">Book a Demo</span>
-          </a>
+          <section class="relative py-24">
+            <div aria-hidden="true" class="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+              <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+              <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+            </div>
+            <div class="relative text-center space-y-6 md:w-8/12 lg:w-7/12 mx-auto">
+              <h2 class="text-4xl font-bold text-gray-800 dark:text-white md:text-5xl">Ready to get started?</h2>
+              <p class="text-xl text-gray-600 dark:text-gray-300">Start your free trial or book a demo and experience the future of recruitment with QualifyMe.</p>
+              <div class="flex flex-wrap justify-center gap-6">
+                <a href="/register" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+                  <span class="relative text-base font-semibold text-white dark:text-dark">Start Free Trial</span>
+                </a>
+                <a href="/contact" class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+                  <span class="relative text-base font-semibold text-white dark:text-dark">Book a Demo</span>
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
       </Container>
     </section>
