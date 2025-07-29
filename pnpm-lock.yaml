@@ -10,13 +10,22 @@ importers:
     dependencies:
       '@tailwindcss/vite':
         specifier: 4.0.0-beta.8
-        version: 4.0.0-beta.8(vite@6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0))
+        version: 4.0.0-beta.8(vite@6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0))
+      '@types/nodemailer':
+        specifier: ^6.4.17
+        version: 6.4.17
       astro:
         specifier: ^5.1.3
-        version: 5.1.3(jiti@2.4.2)(lightningcss@1.29.0)(rollup@4.30.1)(typescript@5.7.3)(yaml@2.7.0)
+        version: 5.1.3(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(rollup@4.30.1)(typescript@5.7.3)(yaml@2.7.0)
       astro-font:
         specifier: ^0.0.72
         version: 0.0.72
+      dotenv:
+        specifier: ^17.2.1
+        version: 17.2.1
+      nodemailer:
+        specifier: ^7.0.5
+        version: 7.0.5
       tailwindcss:
         specifier: 4.0.0-beta.8
         version: 4.0.0-beta.8
@@ -695,6 +704,12 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
+  '@types/node@24.1.0':
+    resolution: {integrity: sha512-ut5FthK5moxFKH2T1CUOC6ctR67rQRvvHdFLCD2Ql6KXmMuCrjsSsRI9UsLCm9M18BMwClv4pn327UvB7eeO1w==}
+
+  '@types/nodemailer@6.4.17':
+    resolution: {integrity: sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww==}
+
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
@@ -890,6 +905,10 @@ packages:
 
   dlv@1.1.3:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
+
+  dotenv@17.2.1:
+    resolution: {integrity: sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ==}
+    engines: {node: '>=12'}
 
   dset@3.1.4:
     resolution: {integrity: sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA==}
@@ -1345,6 +1364,10 @@ packages:
   node-fetch-native@1.6.4:
     resolution: {integrity: sha512-IhOigYzAKHd244OC0JIMIUrjzctirCmPkaIfhDeGcEETWof5zKYUW7e7MYvChGWh/4CJeXEgsRyGzuF334rOOQ==}
 
+  nodemailer@7.0.5:
+    resolution: {integrity: sha512-nsrh2lO3j4GkLLXoeEksAMgAOqxOv6QumNRVQTJwKH4nuiww6iC2y7GyANs9kRAxCexg3+lTWM3PZ91iLlVjfg==}
+    engines: {node: '>=6.0.0'}
+
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
@@ -1605,6 +1628,9 @@ packages:
 
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
+
+  undici-types@7.8.0:
+    resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
 
   unenv@1.10.0:
     resolution: {integrity: sha512-wY5bskBQFL9n3Eca5XnhH6KbUo/tfvkwm9OpcdCvLaeA7piBNbavbOKJySEwQ1V0RH6HvNlSAFRTpvTqgKRQXQ==}
@@ -2267,13 +2293,13 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.0.0-beta.8
       '@tailwindcss/oxide-win32-x64-msvc': 4.0.0-beta.8
 
-  '@tailwindcss/vite@4.0.0-beta.8(vite@6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0))':
+  '@tailwindcss/vite@4.0.0-beta.8(vite@6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0))':
     dependencies:
       '@tailwindcss/node': 4.0.0-beta.8
       '@tailwindcss/oxide': 4.0.0-beta.8
       lightningcss: 1.29.0
       tailwindcss: 4.0.0-beta.8
-      vite: 6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)
+      vite: 6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)
 
   '@types/cookie@0.6.0': {}
 
@@ -2296,6 +2322,14 @@ snapshots:
   '@types/nlcst@2.0.3':
     dependencies:
       '@types/unist': 3.0.3
+
+  '@types/node@24.1.0':
+    dependencies:
+      undici-types: 7.8.0
+
+  '@types/nodemailer@6.4.17':
+    dependencies:
+      '@types/node': 24.1.0
 
   '@types/unist@3.0.3': {}
 
@@ -2330,7 +2364,7 @@ snapshots:
 
   astro-font@0.0.72: {}
 
-  astro@5.1.3(jiti@2.4.2)(lightningcss@1.29.0)(rollup@4.30.1)(typescript@5.7.3)(yaml@2.7.0):
+  astro@5.1.3(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(rollup@4.30.1)(typescript@5.7.3)(yaml@2.7.0):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
@@ -2382,8 +2416,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.14.4
       vfile: 6.0.3
-      vite: 6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)
-      vitefu: 1.0.5(vite@6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0))
+      vite: 6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)
+      vitefu: 1.0.5(vite@6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0))
       which-pm: 3.0.0
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
@@ -2548,6 +2582,8 @@ snapshots:
   diff@5.2.0: {}
 
   dlv@1.1.3: {}
+
+  dotenv@17.2.1: {}
 
   dset@3.1.4: {}
 
@@ -3237,6 +3273,8 @@ snapshots:
 
   node-fetch-native@1.6.4: {}
 
+  nodemailer@7.0.5: {}
+
   normalize-path@3.0.0: {}
 
   ofetch@1.4.1:
@@ -3576,6 +3614,8 @@ snapshots:
 
   uncrypto@0.1.3: {}
 
+  undici-types@7.8.0: {}
+
   unenv@1.10.0:
     dependencies:
       consola: 3.3.3
@@ -3662,20 +3702,21 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0):
+  vite@6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
       rollup: 4.30.1
     optionalDependencies:
+      '@types/node': 24.1.0
       fsevents: 2.3.3
       jiti: 2.4.2
       lightningcss: 1.29.0
       yaml: 2.7.0
 
-  vitefu@1.0.5(vite@6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)):
+  vitefu@1.0.5(vite@6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)):
     optionalDependencies:
-      vite: 6.0.7(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)
+      vite: 6.0.7(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.29.0)(yaml@2.7.0)
 
   web-namespaces@2.0.1: {}
 
