@@ -60,29 +60,42 @@ import Container from '../components/Container.astro';
     {/* Key Benefits/Features */}
     <section id="features" class="py-20">
       <Container>
-        <div class="mb-12 text-center">
-          <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">Key Benefits</h2>
-        </div>
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10 rounded-3xl p-8 flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-            <h5 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">Cut Hiring Time by 70%</h5>
-            <p class="text-gray-600 dark:text-gray-300">Automated workflows mean fewer manual steps. Qualify, shortlist, and move candidates to interviews in hours—not weeks.</p>
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <img src="/images/qualifyme-scores.avif" alt="QualifyMe Key Benefits" class="rounded-2xl shadow-xl w-full max-w-md dark:bg-gray-800 bg-white" />
           </div>
-          <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10 rounded-3xl p-8 flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>
-            <h5 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">AI That Does the Screening</h5>
-            <p class="text-gray-600 dark:text-gray-300">From MCQs to coding to AI interviews, QualifyMe auto-generates questions and evaluates responses with precision.</p>
-          </div>
-          <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10 rounded-3xl p-8 flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 10c-4.418 0-8-1.79-8-4V7c0-2.21 3.582-4 8-4s8 1.79 8 4v7c0 2.21-3.582 4-8 4z" /></svg>
-            <h5 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">Customizable Hiring Workflows</h5>
-            <p class="text-gray-600 dark:text-gray-300">Create rounds tailored to each role—combine technical tests, soft skill evaluations, and even human-reviewed interviews.</p>
-          </div>
-          <div class="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10 rounded-3xl p-8 flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2l1 2h13" /></svg>
-            <h5 class="text-xl font-semibold text-gray-700 dark:text-white mb-2">Actionable Insights & Scorecards</h5>
-            <p class="text-gray-600 dark:text-gray-300">Instant access to ranked candidates, AI-generated feedback, and downloadable reports for team discussion.</p>
+          <div class="w-full lg:w-1/2">
+            <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white mb-8">Key Benefits</h2>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">Cut Hiring Time by 70%</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Automated workflows mean fewer manual steps. Qualify, shortlist, and move candidates to interviews in hours—not weeks.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">AI That Does the Screening</h5>
+                  <p class="text-gray-600 dark:text-gray-300">From MCQs to coding to AI interviews, QualifyMe auto-generates questions and evaluates responses with precision.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 10c-4.418 0-8-1.79-8-4V7c0-2.21 3.582-4 8-4s8 1.79 8 4v7c0 2.21-3.582 4-8 4z" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">Customizable Hiring Workflows</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Create rounds tailored to each role—combine technical tests, soft skill evaluations, and even human-reviewed interviews.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h2l1 2h13" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">Actionable Insights & Scorecards</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Instant access to ranked candidates, AI-generated feedback, and downloadable reports for team discussion.</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </Container>
@@ -91,24 +104,35 @@ import Container from '../components/Container.astro';
     {/* How It Works */}
     <section id="how-it-works" class="py-20">
       <Container>
-        <div class="mb-12 text-center">
-          <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white">How QualifyMe Works</h2>
-        </div>
-        <div class="grid gap-8 md:grid-cols-3">
-          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
-            <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-2">Create & Configure</h5>
-            <p class="text-gray-600 dark:text-gray-300">Set up your job, choose assessment types, and configure workflows in minutes.</p>
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+          <div class="w-full lg:w-1/2 flex justify-center">
+            <img src="/images/qualifyme-portal.avif" alt="How QualifyMe Works" class="rounded-2xl shadow-xl w-full max-w-md dark:bg-gray-800 bg-white" />
           </div>
-          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2M12 12v.01M12 16h.01M8 12v.01M8 16h.01M16 12v.01M16 16h.01" /></svg>
-            <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-2">Invite & Assess</h5>
-            <p class="text-gray-600 dark:text-gray-300">Invite candidates, let them complete assessments at their convenience, and let AI do the screening.</p>
-          </div>
-          <div class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg>
-            <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-2">Review & Hire</h5>
-            <p class="text-gray-600 dark:text-gray-300">Get instant insights, collaborate with your team, and move the best candidates forward—fast.</p>
+          <div class="w-full lg:w-1/2">
+            <h2 class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white mb-8">How QualifyMe Works</h2>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">Create & Configure</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Set up your job, choose assessment types, and configure workflows in minutes.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2M12 12v.01M12 16h.01M8 12v.01M8 16h.01M16 12v.01M16 16h.01" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">Invite & Assess</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Invite candidates, let them complete assessments at their convenience, and let AI do the screening.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 018 0v2m-4-4a4 4 0 100-8 4 4 0 000 8z" /></svg></span>
+                <div>
+                  <h5 class="text-lg font-semibold text-gray-700 dark:text-white mb-1">Review & Hire</h5>
+                  <p class="text-gray-600 dark:text-gray-300">Get instant insights, collaborate with your team, and move the best candidates forward—fast.</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </Container>
@@ -140,7 +164,73 @@ import Container from '../components/Container.astro';
                 <span class="text-sm text-gray-500 dark:text-gray-300">Hiring Manager at Zeek.ai</span>
               </div>
             </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"Our shortlisting process is now automated. I don’t review resumes anymore. Just results."</p>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"Our shortlisting process is now automated. I don't review resumes anymore. Just results."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
+          </div>
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar-1.webp" alt="Amit avatar" />
+              <div>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Amit D.</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Founder, FinTech Startup</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"We cut our hiring time by 75%. With QualifyMe, we went from screening manually for days to shortlisting in just hours. It's like having a full hiring team powered by AI."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
+          </div>
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar-2.webp" alt="Shruti P. avatar" />
+              <div>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Shruti P.</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Talent Manager, HealthTech Company</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"The AI insights were spot on. The automated candidate scoring was incredibly accurate. We found candidates who didn't look great on paper but were top performers."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
+          </div>
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar-3.webp" alt="Karan V. avatar" />
+              <div>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Karan V.</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Head of HR, SaaS Product Firm</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"The entire process runs on autopilot. We integrated the widget into our site, and the system handles everything—from screening to scheduling. Zero manual work."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
+          </div>
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar-4.webp" alt="Ritika S. avatar" />
+              <div>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Ritika S.</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Tech Lead, EdTech Company</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"The coding tests are excellent. We hired 4 developers using QualifyMe's coding rounds. The built-in code editor and AI evaluation saved us hours per candidate."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
+          </div>
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar.webp" alt="Neha R. avatar" />
+              <div>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Neha R.</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Co-founder, D2C Brand</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1"> "Loved the custom branding. The branded candidate portal looked super professional. It gave our small startup a big-company feel."</p>
+            <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
+          </div>
+          <div class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center gap-4 mb-6">
+              <img class="w-14 h-14 rounded-full border-2 border-primary" src="/images/avatars/avatar-1.webp" alt="Ravi K. avatar" />
+              <div>
+                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">Ravi K.</h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300">Senior Recruiter, IT Services Firm</span>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">"Our whole team collaborates better. I can easily share AI reports with hiring managers and finalize decisions without long meetings. It keeps us aligned and fast."</p>
             <svg class="absolute right-8 top-8 w-8 h-8 text-primary opacity-20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4H7zm10 0a4 4 0 01-4-4V7a4 4 0 014-4h3a4 4 0 014 4v6a4 4 0 01-4 4h-3z"/></svg>
           </div>
         </div>
