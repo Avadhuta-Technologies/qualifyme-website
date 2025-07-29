@@ -77,11 +77,24 @@ const {
         <!-- Preconnect to external domains for performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
         
         <!-- Preload critical resources -->
         <link rel="preload" href="/images/qualifyme-scores.avif" as="image" />
         <link rel="preload" href="/images/qualifyme-portal.avif" as="image" />
         <link rel="dns-prefetch" href="//console.qualifyme.ai" />
+        
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WEQNSDS8LS"></script>
+        <script>
+            /* eslint-disable */
+            /* @ts-nocheck */
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WEQNSDS8LS');
+        </script>
         
         <!-- Structured Data -->
         <script type="application/ld+json">
