@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+---
+
+<Layout 
+    title="Page Not Found - QualifyMe"
+    description="The page you're looking for doesn't exist. Return to QualifyMe's homepage to explore our AI-powered hiring solutions."
+    noindex={true}
+>
+  <main class="min-h-screen flex items-center justify-center">
+    <Container>
+      <div class="text-center">
+        <div class="mb-8">
+          <h1 class="text-6xl font-bold text-primary mb-4">404</h1>
+          <h2 class="text-2xl font-semibold text-gray-800 dark:text-white mb-4">Page Not Found</h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-8">
+            The page you're looking for doesn't exist. Let's get you back on track.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/" class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
+            <span class="relative text-base font-semibold text-white">Go Home</span>
+          </a>
+          <a href="/contact" class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max">
+            <span class="relative text-base font-semibold text-primary dark:text-white">Contact Support</span>
+          </a>
+        </div>
+        
+        <div class="mt-12 text-gray-500 dark:text-gray-400">
+          <p>Popular pages:</p>
+          <div class="flex flex-wrap justify-center gap-4 mt-4">
+            <a href="/features" class="text-primary hover:underline">Features</a>
+            <a href="/pricing" class="text-primary hover:underline">Pricing</a>
+            <a href="/how-it-works" class="text-primary hover:underline">How It Works</a>
+            <a href="/contact" class="text-primary hover:underline">Contact</a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </main>
+</Layout> 

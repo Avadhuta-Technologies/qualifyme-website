@@ -1,0 +1,13 @@
+/* TEAM */
+    Developer: QualifyMe Team
+    Contact: support@qualifyme.ai
+    From: Remote-first company
+
+/* SITE */
+    Last update: 2025/01/15
+    Language: English
+    Doctype: HTML5
+    IDE: Visual Studio Code
+    Standards: HTML5, CSS3, JavaScript ES6+
+    Components: Astro, Tailwind CSS
+    Software: Node.js, npm 
