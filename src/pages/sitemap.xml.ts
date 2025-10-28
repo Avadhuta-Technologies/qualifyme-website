@@ -29,6 +29,12 @@ export const GET: APIRoute = async ({ site }) => {
       priority: 0.8
     },
     {
+      url: '/resources',
+      lastmod: new Date().toISOString(),
+      changefreq: 'weekly',
+      priority: 0.8
+    },
+    {
       url: '/contact',
       lastmod: new Date().toISOString(),
       changefreq: 'monthly',

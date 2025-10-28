@@ -1,0 +1,448 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import { getFileType, getS3PublicUrl } from "../../utils/resources-helpers";
+import { resourcesArticles } from "../../data/resources-articles";
+import DOMPurify from "isomorphic-dompurify";
+
+export async function getStaticPaths() {
+    // Generate static paths for all resource articles
+    return resourcesArticles.map((resource) => {
+        const slug = resource.title
+            .toLowerCase()
+            .replaceAll(/[^a-zA-Z0-9\s]/g, "")
+            .replaceAll(/\s+/g, "-")
+            .trim();
+
+        return {
+            params: { slug },
+            props: { resource },
+        };
+    });
+}
+
+// Get article data from props (passed by getStaticPaths)
+const { resource: resourceArticle } = Astro.props;
+const { slug } = Astro.params;
+
+if (!resourceArticle || !slug) {
+    return Astro.redirect("/resources");
+}
+
+// Generate article metadata
+const articleTitle = resourceArticle.title;
+const baseFileName = resourceArticle.title
+    .replaceAll(/[^a-zA-Z0-9\s]/g, "")
+    .replaceAll(/\s+/g, "-");
+const extension = resourceArticle.fileExtension ?? "html";
+const fileName = `${baseFileName}.${extension}`;
+const fileType = extension as "html" | "pdf";
+const articleUrl = getS3PublicUrl("hiring-assistant-assets", fileName);
+
+// Fetch article content from S3
+let articleContent = "";
+let contentError = "";
+
+try {
+    console.log("DEBUG - articleContent =", articleContent);
+
+    if (fileType === "pdf") {
+        articleContent = articleUrl; // Always trust fileExtension, not URL format
+    } else {
+        const response = await fetch(articleUrl);
+        if (response.ok) {
+            // Use header for robustness, but trust fileType
+            const contentType = response.headers.get("content-type") || "";
+            if (fileType === "html" || contentType.includes("text/html")) {
+                articleContent = await response.text();
+                articleContent = DOMPurify.sanitize(articleContent, {
+                    ALLOWED_TAGS: [
+                        "h1",
+                        "h2",
+                        "h3",
+                        "h4",
+                        "h5",
+                        "h6",
+                        "p",
+                        "br",
+                        "strong",
+                        "em",
+                        "u",
+                        "ul",
+                        "ol",
+                        "li",
+                        "a",
+                        "img",
+                        "blockquote",
+                        "code",
+                        "pre",
+                        "table",
+                        "thead",
+                        "tbody",
+                        "tr",
+                        "th",
+                        "td",
+                        "div",
+                        "span",
+                        "section",
+                        "article",
+                        "figure",
+                        "figcaption",
+                        "hr",
+                    ],
+                    ALLOWED_ATTR: [
+                        "href",
+                        "src",
+                        "alt",
+                        "title",
+                        "width",
+                        "height",
+                        "target",
+                        "rel",
+                    ],
+                    // Remove inline styles and classes to prevent conflicts with Tailwind
+                    FORBID_ATTR: ["style", "class"],
+                    // Remove all classes to prevent conflicts
+                    FORBID_TAGS: [],
+                });
+            } else if (
+                fileType === "pdf" ||
+                contentType.includes("application/pdf")
+            ) {
+                articleContent = articleUrl;
+            } else {
+                // fallback in case a mismatch
+                contentError = "Unrecognized file type for article.";
+            }
+        } else if (
+            !resourceArticle.fileExtension &&
+            response.status === 404 &&
+            extension === "html"
+        ) {
+            // If fileExtension wasn't set and HTML is missing, try PDF as fallback
+            const pdfFileName = `${baseFileName}.pdf`;
+            const pdfUrl = getS3PublicUrl(
+                "hiring-assistant-assets",
+                pdfFileName,
+            );
+            const pdfResponse = await fetch(pdfUrl);
+            if (pdfResponse.ok) {
+                articleContent = pdfUrl;
+            } else {
+                contentError = "Article content not found";
+            }
+        } else {
+            contentError = `Failed to load article content (${response.status}: ${response.statusText})`;
+        }
+    }
+} catch (error) {
+    contentError = "Failed to load article content";
+    console.error("Error fetching article content:", error);
+}
+---
+
+<Layout
+    title={`${articleTitle} - QualifyMe Resources`}
+    description={`Learn about ${articleTitle} in our comprehensive guide. Get answers and best practices for using QualifyMe's AI-powered hiring platform.`}
+    keywords={`${articleTitle}, QualifyMe help, hiring guide, AI recruitment, QualifyMe resources`}
+    ogImage="/images/qualifyme-portal.avif"
+>
+    <main class="space-y-20 mb-20">
+        {/* Article Header */}
+        <section class="pt-20">
+            <Container>
+                {/* Breadcrumb Navigation */}
+                <nav
+                    class="text-sm text-gray-600 dark:text-gray-300 mb-8"
+                    aria-label="Breadcrumb"
+                >
+                    <ol class="flex items-center space-x-2">
+                        <li>
+                            <a
+                                href="/"
+                                class="hover:text-primary transition-colors"
+                                >Home</a
+                            >
+                        </li>
+                        <li class="flex items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-4 h-4 mx-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <a
+                                href="/resources"
+                                class="hover:text-primary transition-colors"
+                                >Resources</a
+                            >
+                        </li>
+                        <li class="flex items-center">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-4 h-4 mx-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-gray-500 dark:text-gray-400"
+                                >{articleTitle}</span
+                            >
+                        </li>
+                    </ol>
+                </nav>
+
+                {/* Article Title */}
+                <div class="max-w-3xl mx-auto mb-12">
+                    <div class="text-center">
+                        <h1
+                            class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white my-4"
+                        >
+                            {articleTitle}
+                        </h1>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Last updated: {
+                                new Date().toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })
+                            }
+                        </p>
+                    </div>
+                </div>
+            </Container>
+        </section>
+
+        {/* Article Content */}
+        <section class="pb-10">
+            <Container>
+                <div class="max-w-3xl mx-auto">
+                    {
+                        contentError ? (
+                            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-3xl p-8 text-center">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-12 h-12 text-red-500 mx-auto mb-4"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                                <h3 class="text-lg font-semibold text-red-800 dark:text-red-200 mb-2">
+                                    Unable to Load Article
+                                </h3>
+                                <p class="text-red-600 dark:text-red-300 mb-4">
+                                    {contentError}
+                                </p>
+                                <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 text-left">
+                                    <h4 class="font-semibold text-gray-800 dark:text-white mb-2">
+                                        Article Overview
+                                    </h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        {resourceArticle.description}
+                                    </p>
+                                </div>
+                                <a
+                                    href={articleUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center text-primary hover:underline mt-4"
+                                >
+                                    <span>Try Direct Link</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="w-4 h-4 ml-1"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+                        ) : fileType === "pdf" ? (
+                            // PDF content
+                            <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                                <div class="p-6 border-b border-gray-100 dark:border-gray-700">
+                                    <div class="flex items-center justify-between">
+                                        <h3 class="text-lg font-semibold text-gray-800 dark:text-white">
+                                            PDF Document
+                                        </h3>
+                                        <a
+                                            href={articleContent}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-flex items-center px-4 py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="w-4 h-4 mr-2"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                />
+                                            </svg>
+                                            Download PDF
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="p-4">
+                                    {console.log(
+                                        "DEBUG PDF URL:",
+                                        articleContent,
+                                    )}
+                                    <div class="text-center p-8">
+                                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                            Click the download button above to view the PDF document.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            // HTML content
+                            <div class="max-w-4xl mx-auto">
+                                <article class="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-800 dark:prose-headings:text-white prose-p:text-gray-600 dark:prose-p:text-gray-300 prose-a:text-primary hover:prose-a:text-primary/80 prose-strong:text-gray-800 dark:prose-strong:text-white prose-code:text-primary prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800 prose-blockquote:border-primary prose-blockquote:bg-gray-50 dark:prose-blockquote:bg-gray-800/50" id="article-content">
+                                    <div set:html={articleContent} />
+                                </article>
+                            </div>
+                        )
+                    }
+                </div>
+            </Container>
+        </section>
+
+        {/* Navigation */}
+        <section class="py-10">
+            <Container>
+                <div class="max-w-3xl mx-auto">
+                    <div
+                        class="flex flex-col sm:flex-row items-center justify-between gap-4"
+                    >
+                        <a
+                            href="/resources"
+                            class="inline-flex items-center text-primary hover:underline font-semibold"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="w-5 h-5 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Back to Resources
+                        </a>
+
+                        <div class="flex items-center gap-4">
+                            <a
+                                href="/contact"
+                                class="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-4 h-4 mr-2"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    ></path>
+                                </svg>
+                                Need Help?
+                            </a>
+                            <a
+                                href="https://console.qualifyme.ai"
+                                class="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-semibold"
+                            >
+                                <span>Try QualifyMe</span>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-4 h-4 ml-1"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </Container>
+        </section>
+    </main>
+</Layout>
+
+
+<!-- Structured Data for SEO -->
+<script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: articleTitle,
+        description: `Learn about ${articleTitle} in our comprehensive guide. Get answers and best practices for using QualifyMe's AI-powered hiring platform.`,
+        author: {
+            "@type": "Organization",
+            name: "QualifyMe",
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "QualifyMe",
+            logo: {
+                "@type": "ImageObject",
+                url: "https://qualifyme.ai/logo_white.png",
+            },
+        },
+        datePublished: new Date().toISOString(),
+        dateModified: new Date().toISOString(),
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://qualifyme.ai/resources/${slug}`,
+        },
+    })}
+/>

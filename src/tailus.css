@@ -5,3 +5,315 @@
     --color-secondary : var(--color-orange-600);
     --color-info : var(--color-blue-600);
 }
+
+/* Force styling for S3 HTML content in resources */
+#article-content h1,
+#article-content h2,
+#article-content h3,
+#article-content h4,
+#article-content h5,
+#article-content h6 {
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    margin-top: 2rem !important;
+    line-height: 1.5 !important;
+    font-family: inherit !important;
+}
+
+.dark #article-content h1,
+.dark #article-content h2,
+.dark #article-content h3,
+.dark #article-content h4,
+.dark #article-content h5,
+.dark #article-content h6 {
+    color: #ffffff !important;
+}
+
+#article-content p {
+    color: #4b5563 !important;
+    line-height: 1.75 !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 1rem !important;
+    font-family: inherit !important;
+}
+
+.dark #article-content p {
+    color: #d1d5db !important;
+}
+
+#article-content a {
+    color: #3b82f6 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+#article-content a:hover {
+    color: #2563eb !important;
+}
+
+#article-content strong {
+    color: #1f2937 !important;
+    font-weight: 600 !important;
+}
+
+.dark #article-content strong {
+    color: #ffffff !important;
+}
+
+#article-content ul,
+#article-content ol {
+    color: #4b5563 !important;
+    margin-bottom: 1.25rem !important;
+    padding-left: 1.5rem !important;
+}
+
+.dark #article-content ul,
+.dark #article-content ol {
+    color: #d1d5db !important;
+}
+
+#article-content li {
+    color: #4b5563 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.dark #article-content li {
+    color: #d1d5db !important;
+}
+
+#article-content blockquote {
+    border-left: 4px solid #3b82f6 !important;
+    background-color: #f9fafb !important;
+    padding: 1rem !important;
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+    margin: 1.5rem 0 !important;
+}
+
+.dark #article-content blockquote {
+    background-color: rgba(31, 41, 55, 0.5) !important;
+}
+
+#article-content code {
+    background-color: #f3f4f6 !important;
+    color: #3b82f6 !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 0.25rem !important;
+    font-size: 0.875rem !important;
+}
+
+.dark #article-content code {
+    background-color: #1f2937 !important;
+}
+
+#article-content pre {
+    background-color: #f3f4f6 !important;
+    padding: 1rem !important;
+    border-radius: 0.5rem !important;
+    overflow-x: auto !important;
+    margin: 1.5rem 0 !important;
+}
+
+.dark #article-content pre {
+    background-color: #1f2937 !important;
+}
+
+#article-content img {
+    border-radius: 0.5rem !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    margin: 1.5rem 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+#article-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #d1d5db !important;
+    margin: 1.5rem 0 !important;
+}
+
+.dark #article-content table {
+    border-color: #4b5563 !important;
+}
+
+#article-content th,
+#article-content td {
+    border: 1px solid #d1d5db !important;
+    padding: 0.75rem 1rem !important;
+    text-align: left !important;
+}
+
+.dark #article-content th,
+.dark #article-content td {
+    border-color: #4b5563 !important;
+}
+
+#article-content th {
+    background-color: #f3f4f6 !important;
+    font-weight: 600 !important;
+}
+
+.dark #article-content th {
+    background-color: #1f2937 !important;
+}
+
+/* Specific heading sizes */
+#article-content h1 { font-size: 2.25rem !important; }
+#article-content h2 { font-size: 1.875rem !important; }
+#article-content h3 { font-size: 1.5rem !important; }
+#article-content h4 { font-size: 1.25rem !important; }
+#article-content h5 { font-size: 1.125rem !important; }
+#article-content h6 { font-size: 1rem !important; }
+
+/* Reset any conflicting styles from S3 content */
+#article-content * {
+    font-family: inherit !important;
+    box-sizing: border-box !important;
+}
+
+/* Override any inline styles that might be present */
+#article-content [style] {
+    color: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    margin: inherit !important;
+    padding: inherit !important;
+}
+
+/* Nuclear option - override everything with maximum specificity */
+#article-content h1[style],
+#article-content h2[style],
+#article-content h3[style],
+#article-content h4[style],
+#article-content h5[style],
+#article-content h6[style] {
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    font-size: inherit !important;
+    line-height: 1.5 !important;
+    margin: 2rem 0 1rem 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-family: inherit !important;
+}
+
+.dark #article-content h1[style],
+.dark #article-content h2[style],
+.dark #article-content h3[style],
+.dark #article-content h4[style],
+.dark #article-content h5[style],
+.dark #article-content h6[style] {
+    color: #ffffff !important;
+}
+
+#article-content p[style] {
+    color: #4b5563 !important;
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    margin: 0 0 1.25rem 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-family: inherit !important;
+}
+
+.dark #article-content p[style] {
+    color: #d1d5db !important;
+}
+
+/* Even more aggressive - target any element with any attribute */
+#article-content *[style*="color"] {
+    color: inherit !important;
+}
+
+#article-content *[style*="font-size"] {
+    font-size: inherit !important;
+}
+
+#article-content *[style*="font-weight"] {
+    font-weight: inherit !important;
+}
+
+#article-content *[style*="margin"] {
+    margin: inherit !important;
+}
+
+#article-content *[style*="padding"] {
+    padding: inherit !important;
+}
+
+/* Force specific styling for common elements regardless of inline styles */
+#article-content h1,
+#article-content h1[style],
+#article-content h1[class],
+#article-content h1[style][class] {
+    color: #1f2937 !important;
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    margin: 2rem 0 1rem 0 !important;
+    padding: 0 !important;
+    font-family: inherit !important;
+}
+
+#article-content h2,
+#article-content h2[style],
+#article-content h2[class],
+#article-content h2[style][class] {
+    color: #1f2937 !important;
+    font-size: 1.875rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    margin: 2rem 0 1rem 0 !important;
+    padding: 0 !important;
+    font-family: inherit !important;
+}
+
+#article-content h3,
+#article-content h3[style],
+#article-content h3[class],
+#article-content h3[style][class] {
+    color: #1f2937 !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    margin: 2rem 0 1rem 0 !important;
+    padding: 0 !important;
+    font-family: inherit !important;
+}
+
+#article-content p,
+#article-content p[style],
+#article-content p[class],
+#article-content p[style][class] {
+    color: #4b5563 !important;
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+    margin: 0 0 1.25rem 0 !important;
+    padding: 0 !important;
+    font-family: inherit !important;
+}
+
+/* Dark mode overrides */
+.dark #article-content h1,
+.dark #article-content h1[style],
+.dark #article-content h1[class],
+.dark #article-content h1[style][class],
+.dark #article-content h2,
+.dark #article-content h2[style],
+.dark #article-content h2[class],
+.dark #article-content h2[style][class],
+.dark #article-content h3,
+.dark #article-content h3[style],
+.dark #article-content h3[class],
+.dark #article-content h3[style][class] {
+    color: #ffffff !important;
+}
+
+.dark #article-content p,
+.dark #article-content p[style],
+.dark #article-content p[class],
+.dark #article-content p[style][class] {
+    color: #d1d5db !important;
+}

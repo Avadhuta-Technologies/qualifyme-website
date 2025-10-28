@@ -1,0 +1,278 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import type { Article } from '../utils/resources-helpers';
+import { getS3PublicUrl } from '../utils/resources-helpers';
+
+// Fetch articles from our API
+let articles: Article[] = [];
+let error: string | null = null;
+
+try {
+  const response = await fetch(`${Astro.url.origin}/api/resources`);
+  if (response.ok) {
+    const data = await response.json();
+    articles = data.articles || [];
+  } else {
+    error = 'Failed to load articles';
+  }
+} catch (err) {
+  error = 'Failed to load articles';
+  console.error('Error fetching articles:', err);
+}
+
+// Helper function to get article URL
+function getArticleUrl(article: Article) {
+  if (article.type === 'pdf') {
+    // For PDFs, generate direct S3 URL using the helper function
+    const baseFileName = article.title
+      .replaceAll(/[^a-zA-Z0-9\s]/g, "")
+      .replaceAll(/\s+/g, "-");
+    const fileName = `${baseFileName}.pdf`;
+    return getS3PublicUrl("hiring-assistant-assets", fileName);
+  }
+  return `/resources/${article.slug}`;
+}
+---
+
+<Layout
+    title="Resources & Knowledge Base - QualifyMe Help Center"
+    description="Browse our comprehensive knowledge base to learn how to use QualifyMe effectively. Find answers to common questions about AI-powered hiring and recruitment automation."
+    keywords="QualifyMe resources, help center, knowledge base, hiring questions, recruitment help, AI interview guide, QualifyMe support"
+    ogImage="/images/qualifyme-portal.avif"
+>
+  <main class="space-y-40">
+    {/* Hero Section */}
+    <section class="relative pt-40 py-20">
+      <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+        <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+      </div>
+      <Container>
+        <div class="relative text-center mx-auto lg:w-2/3">
+          <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl mb-6">
+            Resources
+          </h1>
+          <p class="text-gray-700 dark:text-gray-300 text-xl mb-8">
+            Find answers to common questions and learn how to get the most out of QualifyMe's AI-powered hiring platform.
+          </p>
+          
+          {/* Search Bar */}
+          <div class="max-w-2xl mx-auto">
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for an article.."
+                class="block w-full pl-10 pr-3 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl leading-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+              />
+            </div>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+              <span id="resultCount">{articles.length}</span> articles found
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* Articles Grid */}
+    <section class="pb-8">
+      <Container>
+        {error ? (
+          <div class="text-center py-20">
+            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-3xl p-8 max-w-md mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-red-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h3 class="text-lg font-semibold text-red-800 dark:text-red-200 mb-2">Unable to Load Articles</h3>
+              <p class="text-red-600 dark:text-red-300">Please try refreshing the page or contact support if the issue persists.</p>
+            </div>
+          </div>
+        ) : articles.length === 0 ? (
+          <div class="text-center py-20">
+            <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 max-w-md mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">No Articles Available</h3>
+              <p class="text-gray-600 dark:text-gray-300">Check back soon for helpful guides and documentation.</p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div id="articlesGrid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {articles.map((article) => (
+                <a 
+                  href={getArticleUrl(article)}
+                  target={article.type === 'pdf' ? '_blank' : undefined}
+                  rel={article.type === 'pdf' ? 'noopener noreferrer' : undefined}
+                  class="article-card group block bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md hover:shadow-xl transition-all hover:scale-105 border border-gray-100 dark:border-gray-700"
+                  data-title={article.title.toLowerCase()}
+                  data-description={article.description.toLowerCase()}
+                >
+                  <div class="text-center">
+                    {/* Article Icon */}
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+                      {article.type === 'pdf' ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      )}
+                    </div>
+                    
+                    {/* Article Title */}
+                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-3 group-hover:text-primary transition-colors">
+                      {article.title}
+                    </h3>
+                    
+                    {/* Article Description */}
+                    {article.description && (
+                      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+                        {article.description}
+                      </p>
+                    )}
+                    
+                    {/* Article Type Badge */}
+                    <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-4 bg-primary/10 text-primary">
+                      {article.type.toUpperCase()}
+                    </div>
+                    
+                    {/* Read More / Open PDF Indicator */}
+                    <div class="flex items-center justify-center text-primary font-semibold group-hover:translate-x-1 transition-transform">
+                      <span>{article.type === 'pdf' ? 'Open PDF' : 'Read More'}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        {article.type === 'pdf' ? (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        ) : (
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        )}
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+      </Container>
+    </section>
+
+    {/* Help Section */}
+    <section class="py-20">
+      <Container>
+        <div class="bg-gradient-to-br from-primary/10 to-purple-100 dark:from-blue-950 dark:to-gray-900 rounded-3xl p-12 text-center">
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+            Still Need Help?
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Can't find what you're looking for? Our support team is here to help you get the most out of QualifyMe.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href="/contact" 
+              class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95"
+            >
+              <span class="relative text-base font-semibold text-white">Contact Support</span>
+            </a>
+            <a 
+              href="https://console.qualifyme.ai" 
+              class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800"
+            >
+              <span class="relative text-base font-semibold text-primary dark:text-white">Try QualifyMe</span>
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Search functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const articlesGrid = document.getElementById('articlesGrid');
+    const resultCount = document.getElementById('resultCount');
+    const articleCards = document.querySelectorAll('.article-card');
+    
+    if (!searchInput || !articlesGrid || !resultCount) return;
+    
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase().trim();
+      let visibleCount = 0;
+      
+      articleCards.forEach(card => {
+        const title = card.getAttribute('data-title') || '';
+        const description = card.getAttribute('data-description') || '';
+        
+        if (searchTerm === '' || 
+            title.includes(searchTerm) || 
+            description.includes(searchTerm)) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // Update result count
+      resultCount.textContent = visibleCount;
+      
+      // Show no results message if needed
+      if (visibleCount === 0 && searchTerm !== '') {
+        if (!document.getElementById('noResultsMessage')) {
+          const noResultsDiv = document.createElement('div');
+          noResultsDiv.id = 'noResultsMessage';
+          noResultsDiv.className = 'col-span-full text-center py-12';
+          noResultsDiv.innerHTML = `
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 max-w-md mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">No articles found</h3>
+              <p class="text-gray-600 dark:text-gray-300">Try adjusting your search terms or browse all articles.</p>
+            </div>
+          `;
+          articlesGrid.appendChild(noResultsDiv);
+        }
+      } else {
+        const noResultsMessage = document.getElementById('noResultsMessage');
+        if (noResultsMessage) {
+          noResultsMessage.remove();
+        }
+      }
+    });
+    
+    // Clear search on Escape key
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        this.value = '';
+        this.dispatchEvent(new Event('input'));
+        this.blur();
+      }
+    });
+  });
+</script>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": articles.map(article => ({
+    "@type": "Question",
+    "name": article.title,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": `Learn about ${article.title} in our comprehensive guide.`
+    }
+  }))
+})} />
