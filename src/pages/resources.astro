@@ -9,16 +9,36 @@ let articles: Article[] = [];
 let error: string | null = null;
 
 try {
-  const response = await fetch(`${Astro.url.origin}/api/resources`);
-  if (response.ok) {
-    const data = await response.json();
-    articles = data.articles || [];
-  } else {
-    error = 'Failed to load articles';
-  }
+  // Use the resources data directly instead of fetching from API during SSR
+  const { resourcesArticles } = await import('../data/resources-articles');
+  const { getS3PublicUrl } = await import('../utils/resources-helpers');
+  
+  // Process the data directly
+  articles = resourcesArticles.map((resource) => {
+    const slug = resource.title
+      .toLowerCase()
+      .replaceAll(/[^a-zA-Z0-9\s]/g, '')
+      .replaceAll(/\s+/g, '-')
+      .trim();
+    const extension = resource.fileExtension ?? 'html';
+    const baseFileName = resource.title.replaceAll(/[^a-zA-Z0-9\s]/g, '').replaceAll(/\s+/g, '-');
+    const fileName = `${baseFileName}.${extension}`;
+    const type = extension as 'html' | 'pdf';
+    const url = getS3PublicUrl("hiring-assistant-assets", fileName);
+    
+    return {
+      slug,
+      title: resource.title,
+      fileName,
+      type,
+      url,
+      lastModified: new Date(),
+      description: resource.description
+    };
+  });
 } catch (err) {
   error = 'Failed to load articles';
-  console.error('Error fetching articles:', err);
+  console.error('Error loading articles:', err);
 }
 
 // Helper function to get article URL
