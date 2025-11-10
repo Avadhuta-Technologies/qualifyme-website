@@ -1,0 +1,378 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Container from '../../../components/Container.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import BlogFilters from '../../../components/BlogFilters.astro';
+import {
+  getAllBlogs,
+  getAllCategories,
+  getAllTags,
+  getBlogCountByCategory,
+  getFeaturedBlogs,
+} from '../../../utils/blog-helpers';
+
+// Get all blog data
+const allBlogs = await getAllBlogs();
+const categories = await getAllCategories();
+const tags = await getAllTags();
+const categoryCounts = await getBlogCountByCategory();
+const featuredBlogs = await getFeaturedBlogs(3);
+
+// Get URL search params for filters
+const url = Astro.url;
+const searchParams = url.searchParams;
+const searchQuery = searchParams.get('search') || '';
+const selectedCategory = searchParams.get('category') || '';
+const selectedTagsParam = searchParams.get('tags') || '';
+const selectedTags = selectedTagsParam ? selectedTagsParam.split(',') : [];
+
+// Filter blogs based on search params
+let filteredBlogs = allBlogs;
+
+// Filter by category
+if (selectedCategory) {
+  filteredBlogs = filteredBlogs.filter(
+    (post) => post.data.category === selectedCategory
+  );
+}
+
+// Filter by tags
+if (selectedTags.length > 0) {
+  filteredBlogs = filteredBlogs.filter((post) => {
+    if (!post.data.tags) return false;
+    return selectedTags.some((tag) => post.data.tags!.includes(tag));
+  });
+}
+
+// Filter by search query
+if (searchQuery) {
+  const query = searchQuery.toLowerCase();
+  filteredBlogs = filteredBlogs.filter((post) => {
+    const titleMatch = post.data.title.toLowerCase().includes(query);
+    const descriptionMatch = post.data.description.toLowerCase().includes(query);
+    const contentMatch = post.body.toLowerCase().includes(query);
+    const tagsMatch =
+      post.data.tags?.some((tag) => tag.toLowerCase().includes(query)) || false;
+    return titleMatch || descriptionMatch || contentMatch || tagsMatch;
+  });
+}
+
+// Separate featured and regular blogs
+const regularBlogs = filteredBlogs.filter((post) => !post.data.featured);
+const featuredInFiltered = filteredBlogs.filter((post) => post.data.featured);
+---
+
+<Layout
+  title="Blog - QualifyMe Resources"
+  description="Read the latest insights on AI-powered recruitment, hiring best practices, product updates, and industry trends from QualifyMe."
+  keywords="QualifyMe blog, AI recruitment blog, hiring tips, recruitment insights, HR technology blog, talent acquisition"
+  ogImage="/images/qualifyme-portal.avif"
+>
+  <main class="space-y-20 mb-20">
+    {/* Hero Section */}
+    <section class="relative pt-40 py-20">
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
+      >
+        <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+      </div>
+      <Container>
+        <div class="relative text-center mx-auto lg:w-2/3">
+          <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl mb-6">
+            Blog
+          </h1>
+          <p class="text-gray-700 dark:text-gray-300 text-xl mb-8">
+            Discover insights on AI-powered recruitment, hiring best practices,
+            and the future of talent acquisition.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    {/* Filters Section */}
+    <section class="pb-8">
+      <Container>
+        <BlogFilters
+          categories={categories}
+          tags={tags}
+          categoryCounts={categoryCounts}
+          selectedCategory={selectedCategory}
+          selectedTags={selectedTags}
+          searchQuery={searchQuery}
+        />
+      </Container>
+    </section>
+
+    {/* Featured Blogs Section */}
+    {featuredInFiltered.length > 0 && (
+      <section class="pb-8">
+        <Container>
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-8">
+            Featured Posts
+          </h2>
+          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+            {featuredInFiltered.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        </Container>
+      </section>
+    )}
+
+    {/* All Blogs Section */}
+    <section class="pb-8">
+      <Container>
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white">
+            {selectedCategory || selectedTags.length > 0 || searchQuery
+              ? 'Filtered Posts'
+              : 'All Posts'}
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400">
+            <span id="resultCount">{filteredBlogs.length}</span> post
+            {filteredBlogs.length !== 1 ? 's' : ''} found
+          </p>
+        </div>
+
+        {filteredBlogs.length === 0 ? (
+          <div class="text-center py-20">
+            <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 max-w-md mx-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-12 h-12 text-gray-400 mx-auto mb-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+                No posts found
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Try adjusting your search terms or filters.
+              </p>
+              <a
+                href="/resources/blog"
+                class="inline-flex items-center text-primary dark:text-primary hover:underline font-semibold"
+              >
+                View all posts
+              </a>
+            </div>
+          </div>
+        ) : (
+          <div
+            id="blogsGrid"
+            class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {regularBlogs.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        )}
+      </Container>
+    </section>
+
+    {/* Help Section */}
+    <section class="py-20">
+      <Container>
+        <div class="bg-gradient-to-br from-primary/10 to-purple-100 dark:from-blue-950 dark:to-gray-900 rounded-3xl p-12 text-center">
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+            Want to Contribute?
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Have insights on recruitment, AI, or hiring best practices? We'd love
+            to hear from you.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/contact"
+              class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95"
+            >
+              <span class="relative text-base font-semibold text-white">
+                Contact Us
+              </span>
+            </a>
+            <a
+              href="https://console.qualifyme.ai"
+              class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800"
+            >
+              <span class="relative text-base font-semibold text-primary dark:text-white">
+                Try QualifyMe
+              </span>
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Search functionality
+  document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('blogSearchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const categoryFilterBtns = document.querySelectorAll('.category-filter-btn');
+    const tagFilterBtns = document.querySelectorAll('.tag-filter-btn');
+    const clearCategoryBtns = document.querySelectorAll('.clear-category-filter');
+    const clearTagBtns = document.querySelectorAll('.clear-tag-filter');
+    const clearAllFiltersBtn = document.getElementById('clearAllFiltersBtn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    const resultCount = document.getElementById('resultCount');
+
+    // Update URL with search params
+    function updateURL() {
+      const url = new URL(window.location.href);
+      const searchValue = searchInput?.value.trim() || '';
+      const activeCategory =
+        document.querySelector('.category-filter-btn.bg-primary')?.getAttribute(
+          'data-category'
+        ) || '';
+      const activeTags = Array.from(
+        document.querySelectorAll('.tag-filter-btn.bg-primary')
+      )
+        .map((btn) => btn.getAttribute('data-tag'))
+        .filter(Boolean);
+
+      // Update search param
+      if (searchValue) {
+        url.searchParams.set('search', searchValue);
+      } else {
+        url.searchParams.delete('search');
+      }
+
+      // Update category param
+      if (activeCategory) {
+        url.searchParams.set('category', activeCategory);
+      } else {
+        url.searchParams.delete('category');
+      }
+
+      // Update tags param
+      if (activeTags.length > 0) {
+        url.searchParams.set('tags', activeTags.join(','));
+      } else {
+        url.searchParams.delete('tags');
+      }
+
+      // Reload page with new params
+      window.location.href = url.toString();
+    }
+
+    // Search input handler
+    let searchTimeout: ReturnType<typeof setTimeout>;
+    searchInput?.addEventListener('input', function () {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        updateURL();
+      }, 500); // Debounce search
+    });
+
+    // Enter key to search immediately
+    searchInput?.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        clearTimeout(searchTimeout);
+        updateURL();
+      }
+    });
+
+    // Clear search
+    clearSearchBtn?.addEventListener('click', function () {
+      if (searchInput) {
+        searchInput.value = '';
+        updateURL();
+      }
+    });
+
+    // Category filter buttons
+    categoryFilterBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        updateURL();
+      });
+    });
+
+    // Tag filter buttons
+    tagFilterBtns.forEach((btn) => {
+      btn.addEventListener('click', function () {
+        updateURL();
+      });
+    });
+
+    // Clear category filter
+    clearCategoryBtns.forEach((btn) => {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const url = new URL(window.location.href);
+        url.searchParams.delete('category');
+        window.location.href = url.toString();
+      });
+    });
+
+    // Clear tag filter
+    clearTagBtns.forEach((btn) => {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const tag = btn.getAttribute('data-tag');
+        if (tag) {
+          const url = new URL(window.location.href);
+          const currentTags =
+            url.searchParams.get('tags')?.split(',') || [];
+          const newTags = currentTags.filter((t) => t !== tag);
+          if (newTags.length > 0) {
+            url.searchParams.set('tags', newTags.join(','));
+          } else {
+            url.searchParams.delete('tags');
+          }
+          window.location.href = url.toString();
+        }
+      });
+    });
+
+    // Clear all filters
+    clearAllFiltersBtn?.addEventListener('click', function () {
+      window.location.href = '/resources/blog';
+    });
+  });
+</script>
+
+<!-- Structured Data for SEO -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'QualifyMe Blog',
+    description:
+      'Insights on AI-powered recruitment, hiring best practices, and the future of talent acquisition.',
+    url: 'https://qualifyme.ai/resources/blog',
+    publisher: {
+      '@type': 'Organization',
+      name: 'QualifyMe',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://qualifyme.ai/logo_white.png',
+      },
+    },
+    blogPost: filteredBlogs.slice(0, 10).map((post) => ({
+      '@type': 'BlogPosting',
+      headline: post.data.title,
+      description: post.data.description,
+      datePublished: post.data.publishDate.toISOString(),
+      author: {
+        '@type': 'Organization',
+        name: post.data.author || 'QualifyMe Team',
+      },
+      url: `https://qualifyme.ai/resources/blog/${post.slug}`,
+    })),
+  })}
+/>
+

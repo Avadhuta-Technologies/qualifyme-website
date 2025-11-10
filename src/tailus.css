@@ -317,3 +317,301 @@
 .dark #article-content p[style][class] {
     color: #d1d5db !important;
 }
+
+/* Blog content dark mode styles - with higher specificity to override prose classes */
+/* IMPORTANT: Light mode styles - must come first */
+#blog-content p {
+    color: #4b5563 !important;
+}
+
+/* CRITICAL: Override prose plugin generated CSS - prose generates .prose p and .dark .prose p */
+/* We need to match and override the exact selectors prose uses */
+.prose p {
+    color: #374151 !important;
+}
+
+/* DARK MODE OVERRIDES - Must come after light mode and have higher specificity */
+/* Override prose plugin's dark mode styles FIRST - this is critical */
+.dark .prose p,
+.dark .prose-lg p,
+.dark .prose.prose-lg p {
+    color: #d1d5db !important;
+}
+
+/* Then override our specific blog-content element */
+.dark #blog-content p,
+.dark #blog-content p.prose-p,
+.dark #blog-content .prose p,
+.dark body #blog-content p,
+.dark body #blog-content.prose p,
+.dark html body #blog-content p,
+.dark html body #blog-content.prose p,
+.dark html #blog-content p,
+.dark html #blog-content.prose p {
+    color: #d1d5db !important;
+}
+
+/* Even more specific to override any prose classes */
+.dark #blog-content.prose p,
+.dark #blog-content.prose-lg p,
+.dark #blog-content.prose.prose-lg p {
+    color: #d1d5db !important;
+}
+
+/* Override prose plugin's dark mode styles directly */
+.dark .prose #blog-content p,
+.dark .prose-lg #blog-content p,
+.dark .prose.prose-lg #blog-content p {
+    color: #d1d5db !important;
+}
+
+/* FINAL OVERRIDE - Must be last to ensure it overrides everything */
+.dark .prose p,
+.dark .prose-lg p,
+.dark .prose.prose-lg p,
+.dark #blog-content.prose p,
+.dark #blog-content.prose-lg p,
+.dark #blog-content.prose.prose-lg p {
+    color: #d1d5db !important;
+}
+
+#blog-content h1,
+#blog-content h2,
+#blog-content h3,
+#blog-content h4,
+#blog-content h5,
+#blog-content h6 {
+    color: #1f2937 !important;
+}
+
+.dark #blog-content h1,
+.dark #blog-content h2,
+.dark #blog-content h3,
+.dark #blog-content h4,
+.dark #blog-content h5,
+.dark #blog-content h6,
+.dark #blog-content .prose h1,
+.dark #blog-content .prose h2,
+.dark #blog-content .prose h3,
+.dark #blog-content .prose h4,
+.dark #blog-content .prose h5,
+.dark #blog-content .prose h6 {
+    color: #ffffff !important;
+}
+
+#blog-content strong {
+    color: #1f2937 !important;
+}
+
+.dark #blog-content strong,
+.dark #blog-content .prose strong {
+    color: #ffffff !important;
+}
+
+#blog-content li,
+#blog-content ul,
+#blog-content ol {
+    color: #4b5563 !important;
+}
+
+.dark #blog-content li,
+.dark #blog-content ul,
+.dark #blog-content ol,
+.dark #blog-content .prose li,
+.dark #blog-content .prose ul,
+.dark #blog-content .prose ol {
+    color: #d1d5db !important;
+}
+
+#blog-content blockquote {
+    color: #4b5563 !important;
+}
+
+.dark #blog-content blockquote,
+.dark #blog-content .prose blockquote {
+    color: #d1d5db !important;
+}
+
+#blog-content code {
+    color: #3b82f6 !important;
+}
+
+.dark #blog-content code,
+.dark #blog-content .prose code {
+    color: #e5e7eb !important;
+}
+
+#blog-content pre {
+    color: #1f2937 !important;
+}
+
+.dark #blog-content pre,
+.dark #blog-content .prose pre {
+    color: #e5e7eb !important;
+}
+
+/* Ensure all text elements in blog content have proper dark mode colors */
+/* Override any black text colors in dark mode - this ensures all text is visible */
+.dark #blog-content,
+.dark #blog-content.prose {
+    color: #d1d5db !important;
+}
+
+.dark #blog-content p,
+.dark #blog-content div,
+.dark #blog-content span,
+.dark #blog-content li,
+.dark #blog-content td,
+.dark #blog-content th,
+.dark #blog-content .prose p,
+.dark #blog-content .prose div,
+.dark #blog-content .prose span,
+.dark #blog-content .prose li {
+    color: #d1d5db !important;
+}
+
+/* Override prose classes that might be setting text color to black */
+.dark #blog-content.prose p,
+.dark #blog-content.prose div,
+.dark #blog-content.prose span,
+.dark #blog-content.prose li,
+.dark #blog-content.prose ul,
+.dark #blog-content.prose ol {
+    color: #d1d5db !important;
+}
+
+/* Ensure nested text elements also get dark mode colors */
+.dark #blog-content p *,
+.dark #blog-content div *,
+.dark #blog-content span *,
+.dark #blog-content li *,
+.dark #blog-content .prose p *,
+.dark #blog-content .prose div *,
+.dark #blog-content .prose span *,
+.dark #blog-content .prose li * {
+    color: inherit;
+}
+
+/* Force dark mode colors for all direct children and nested elements */
+.dark #blog-content > *,
+.dark #blog-content > * > *,
+.dark #blog-content > * > * > * {
+    color: inherit;
+}
+
+/* Specific override for any element that might have black text - highest specificity */
+.dark #blog-content.prose *:not(a):not(code):not(pre):not(strong):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(blockquote) {
+    color: #d1d5db !important;
+}
+
+/* But allow prose-specific elements to use their own colors */
+.dark #blog-content a,
+.dark #blog-content.prose a {
+    color: #3b82f6 !important;
+}
+
+.dark #blog-content code,
+.dark #blog-content.prose code {
+    color: #e5e7eb !important;
+}
+
+.dark #blog-content strong,
+.dark #blog-content.prose strong {
+    color: #ffffff !important;
+}
+
+.dark #blog-content h1,
+.dark #blog-content h2,
+.dark #blog-content h3,
+.dark #blog-content h4,
+.dark #blog-content h5,
+.dark #blog-content h6,
+.dark #blog-content.prose h1,
+.dark #blog-content.prose h2,
+.dark #blog-content.prose h3,
+.dark #blog-content.prose h4,
+.dark #blog-content.prose h5,
+.dark #blog-content.prose h6 {
+    color: #ffffff !important;
+}
+
+/* Final catch-all for any remaining black text in dark mode */
+.dark body #blog-content,
+.dark body #blog-content.prose {
+    color: #d1d5db !important;
+}
+
+.dark body #blog-content *,
+.dark body #blog-content.prose * {
+    color: inherit;
+}
+
+.dark body #blog-content p,
+.dark body #blog-content div,
+.dark body #blog-content span,
+.dark body #blog-content li,
+.dark body #blog-content.prose p,
+.dark body #blog-content.prose div,
+.dark body #blog-content.prose span,
+.dark body #blog-content.prose li {
+    color: #d1d5db !important;
+}
+
+/* Maximum specificity override for paragraphs in dark mode - must be last */
+.dark html body #blog-content p,
+.dark html body #blog-content.prose p,
+.dark html body #blog-content.prose-lg p,
+.dark html body #blog-content.prose.prose-lg p,
+.dark html #blog-content p,
+.dark html #blog-content.prose p,
+.dark html #blog-content.prose-lg p,
+.dark html #blog-content.prose.prose-lg p {
+    color: #d1d5db !important;
+}
+
+/* Final nuclear option - target all p tags inside blog-content in dark mode */
+html.dark #blog-content p,
+html.dark #blog-content.prose p,
+html.dark #blog-content.prose-lg p,
+html.dark #blog-content.prose.prose-lg p,
+body.dark #blog-content p,
+body.dark #blog-content.prose p,
+body.dark #blog-content.prose-lg p,
+body.dark #blog-content.prose.prose-lg p {
+    color: #d1d5db !important;
+}
+
+/* Absolute maximum specificity - this should override everything */
+.dark #blog-content.prose.prose-lg p,
+.dark #blog-content.prose.prose-lg.prose p,
+.dark body #blog-content.prose.prose-lg p,
+.dark html body #blog-content.prose.prose-lg p,
+.dark html body #blog-content.prose.prose-lg.prose p {
+    color: #d1d5db !important;
+}
+
+/* Target any p element regardless of classes */
+.dark #blog-content article p,
+.dark #blog-content article.prose p,
+.dark #blog-content article.prose-lg p {
+    color: #d1d5db !important;
+}
+
+/* Override prose-p utility classes directly */
+.dark #blog-content.prose p[class*="prose-p"],
+.dark #blog-content.prose-lg p[class*="prose-p"],
+.dark #blog-content.prose.prose-lg p[class*="prose-p"] {
+    color: #d1d5db !important;
+}
+
+/* Most aggressive - target all p elements inside blog-content when dark mode is active */
+.dark #blog-content p,
+.dark #blog-content.prose p,
+.dark #blog-content.prose-lg p,
+.dark #blog-content.prose.prose-lg p,
+.dark #blog-content p[class],
+.dark #blog-content.prose p[class],
+.dark #blog-content.prose-lg p[class],
+.dark #blog-content.prose.prose-lg p[class] {
+    color: #d1d5db !important;
+}

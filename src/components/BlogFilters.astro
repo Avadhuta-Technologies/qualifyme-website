@@ -1,0 +1,191 @@
+---
+import Container from './Container.astro';
+
+interface Props {
+  categories: string[];
+  tags: string[];
+  categoryCounts: Record<string, number>;
+  selectedCategory?: string;
+  selectedTags?: string[];
+  searchQuery?: string;
+}
+
+const {
+  categories,
+  tags,
+  categoryCounts,
+  selectedCategory = '',
+  selectedTags = [],
+  searchQuery = '',
+} = Astro.props;
+---
+
+<div class="blog-filters space-y-6">
+  {/* Search Bar */}
+  <div class="relative">
+    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5 text-gray-400"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        />
+      </svg>
+    </div>
+    <input
+      type="text"
+      id="blogSearchInput"
+      placeholder="Search blogs by title, description, or tags..."
+      value={searchQuery}
+      class="block w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-2xl leading-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+    />
+    {searchQuery && (
+      <button
+        id="clearSearchBtn"
+        class="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+        aria-label="Clear search"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+    )}
+  </div>
+
+  {/* Category Filters */}
+  <div>
+    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+      Categories
+    </h3>
+    <div class="flex flex-wrap gap-2">
+      <button
+        class="category-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border-2 {selectedCategory === '' ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
+        data-category=""
+      >
+        All ({Object.values(categoryCounts).reduce((a, b) => a + b, 0)})
+      </button>
+      {categories.map((category) => (
+        <button
+          class="category-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border-2 {selectedCategory === category ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
+          data-category={category}
+        >
+          {category} ({categoryCounts[category] || 0})
+        </button>
+      ))}
+    </div>
+  </div>
+
+  {/* Tag Filters */}
+  {tags.length > 0 && (
+    <div>
+      <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+        Tags
+      </h3>
+      <div class="flex flex-wrap gap-2">
+        {tags.map((tag) => {
+          const isSelected = selectedTags.includes(tag);
+          return (
+            <button
+              class="tag-filter-btn px-3 py-1 rounded-full text-xs font-medium transition-all border {isSelected ? 'bg-primary text-white border-primary' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
+              data-tag={tag}
+            >
+              #{tag}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  )}
+
+  {/* Active Filters Display */}
+  {(selectedCategory || selectedTags.length > 0 || searchQuery) && (
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-sm text-gray-600 dark:text-gray-400">Active filters:</span>
+      {selectedCategory && (
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+          Category: {selectedCategory}
+          <button
+            class="clear-category-filter"
+            data-category={selectedCategory}
+            aria-label="Remove category filter"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-3 w-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </span>
+      )}
+      {selectedTags.map((tag) => (
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+          #{tag}
+          <button
+            class="clear-tag-filter"
+            data-tag={tag}
+            aria-label="Remove tag filter"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-3 w-3"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </span>
+      ))}
+      {searchQuery && (
+        <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">
+          Search: "{searchQuery}"
+        </span>
+      )}
+      <button
+        id="clearAllFiltersBtn"
+        class="text-sm text-primary dark:text-primary hover:underline font-medium"
+      >
+        Clear all
+      </button>
+    </div>
+  )}
+</div>
+
+<script>
+  // Filter functionality will be handled by the parent page
+  // This component provides the UI structure
+</script>
+

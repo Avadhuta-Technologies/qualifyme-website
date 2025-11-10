@@ -1,9 +1,17 @@
 ---
-layout: blog
 title: QualifyMe Blog Test
-date: 2025-11-10T18:58:00.000+05:30
+description: In the AI-era of recruitment, what many recruiters are missing is the shift from "processing candidates" to "profiling job-ecosystems". Learn how AI tools are changing the recruiter's role and what it means for the future of hiring.
+publishDate: 2025-11-10T18:58:00.000+05:30
+category: AI & Technology
+tags:
+  - ai-recruitment
+  - hiring-automation
+  - recruitment-strategy
+  - industry-trends
 thumbnail: https://www.qualifyme.ai/images/AI-interview-avatar.jpg
-rating: 5
+author: QualifyMe Team
+draft: false
+featured: true
 ---
 # **🔍 Insight: In the AI-era of recruitment, what many recruiters are missing is the shift from “processing candidates” to “profiling job-ecosystems”**
 
