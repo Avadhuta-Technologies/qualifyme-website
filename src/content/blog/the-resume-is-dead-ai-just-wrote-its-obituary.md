@@ -8,7 +8,7 @@ tags:
   - FutureOfHiring
   - RecruitmentTechnology
   - AIHiring
-thumbnail: /public/images/uploads/broken-resume.jpg
+thumbnail: /images/uploads/broken-resume.jpg
 author: QualifyMe Team
 draft: false
 featured: true
