@@ -20,6 +20,54 @@ const {
 } = Astro.props;
 ---
 
+<style is:global>
+  /* Force light mode colors for blog filters - must override dark mode */
+  /* Light mode - dark text for visibility */
+  .blog-filters .category-filter-btn:not(.bg-primary) {
+    color: #111827 !important; /* gray-900 - dark for light mode */
+  }
+  
+  .blog-filters .tag-filter-btn:not(.bg-primary) {
+    color: #111827 !important; /* gray-900 - dark for light mode */
+  }
+  
+  .blog-filters h3 {
+    color: #111827 !important; /* gray-900 - dark for light mode */
+  }
+  
+  /* Dark mode overrides - must come after light mode and have higher specificity */
+  /* Use maximum specificity to override any conflicting styles */
+  html.dark .blog-filters .category-filter-btn:not(.bg-primary),
+  html.dark body .blog-filters .category-filter-btn:not(.bg-primary),
+  body.dark .blog-filters .category-filter-btn:not(.bg-primary),
+  body.dark html .blog-filters .category-filter-btn:not(.bg-primary),
+  .dark .blog-filters .category-filter-btn:not(.bg-primary),
+  .dark html .blog-filters .category-filter-btn:not(.bg-primary),
+  .dark body .blog-filters .category-filter-btn:not(.bg-primary) {
+    color: #ffffff !important; /* white - maximum contrast in dark mode */
+  }
+  
+  html.dark .blog-filters .tag-filter-btn:not(.bg-primary),
+  html.dark body .blog-filters .tag-filter-btn:not(.bg-primary),
+  body.dark .blog-filters .tag-filter-btn:not(.bg-primary),
+  body.dark html .blog-filters .tag-filter-btn:not(.bg-primary),
+  .dark .blog-filters .tag-filter-btn:not(.bg-primary),
+  .dark html .blog-filters .tag-filter-btn:not(.bg-primary),
+  .dark body .blog-filters .tag-filter-btn:not(.bg-primary) {
+    color: #ffffff !important; /* white - maximum contrast in dark mode */
+  }
+  
+  html.dark .blog-filters h3,
+  html.dark body .blog-filters h3,
+  body.dark .blog-filters h3,
+  body.dark html .blog-filters h3,
+  .dark .blog-filters h3,
+  .dark html .blog-filters h3,
+  .dark body .blog-filters h3 {
+    color: #ffffff !important; /* white - maximum contrast in dark mode */
+  }
+</style>
+
 <div class="blog-filters space-y-6">
   {/* Search Bar */}
   <div class="relative">
@@ -72,19 +120,19 @@ const {
 
   {/* Category Filters */}
   <div>
-    <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+    <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-300 mb-3">
       Categories
     </h3>
     <div class="flex flex-wrap gap-2">
       <button
-        class="category-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border-2 {selectedCategory === '' ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
+        class="category-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border-2 {selectedCategory === '' ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
         data-category=""
       >
         All ({Object.values(categoryCounts).reduce((a, b) => a + b, 0)})
       </button>
       {categories.map((category) => (
         <button
-          class="category-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border-2 {selectedCategory === category ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
+          class="category-filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all border-2 {selectedCategory === category ? 'bg-primary text-white border-primary' : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
           data-category={category}
         >
           {category} ({categoryCounts[category] || 0})
@@ -96,7 +144,7 @@ const {
   {/* Tag Filters */}
   {tags.length > 0 && (
     <div>
-      <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+      <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-300 mb-3">
         Tags
       </h3>
       <div class="flex flex-wrap gap-2">
@@ -104,7 +152,7 @@ const {
           const isSelected = selectedTags.includes(tag);
           return (
             <button
-              class="tag-filter-btn px-3 py-1 rounded-full text-xs font-medium transition-all border {isSelected ? 'bg-primary text-white border-primary' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
+              class="tag-filter-btn px-3 py-1 rounded-full text-xs font-medium transition-all border {isSelected ? 'bg-primary text-white border-primary' : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-primary hover:text-primary'}"
               data-tag={tag}
             >
               #{tag}
@@ -187,5 +235,85 @@ const {
 <script>
   // Filter functionality will be handled by the parent page
   // This component provides the UI structure
+  
+  // Force dark mode text colors if CSS isn't working
+  function applyDarkModeFilterColors() {
+    // Check if dark mode is active
+    const isDarkMode = document.documentElement.classList.contains('dark') || 
+                       document.body.classList.contains('dark') ||
+                       (document.documentElement.style.colorScheme === 'dark') ||
+                       window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (isDarkMode) {
+      // Fix category filter buttons
+      const categoryButtons = document.querySelectorAll('.blog-filters .category-filter-btn:not(.bg-primary)');
+      categoryButtons.forEach((btn) => {
+        const button = btn as HTMLElement;
+        const computedColor = window.getComputedStyle(button).color;
+        const rgb = computedColor.match(/\d+/g);
+        if (rgb && rgb.length >= 3) {
+          const r = parseInt(rgb[0]);
+          const g = parseInt(rgb[1]);
+          const b = parseInt(rgb[2]);
+          // If it's a dark color (not white/light), force white
+          if (r < 200 || g < 200 || b < 200) {
+            button.style.setProperty('color', '#ffffff', 'important');
+          }
+        }
+      });
+      
+      // Fix tag filter buttons
+      const tagButtons = document.querySelectorAll('.blog-filters .tag-filter-btn:not(.bg-primary)');
+      tagButtons.forEach((btn) => {
+        const button = btn as HTMLElement;
+        const computedColor = window.getComputedStyle(button).color;
+        const rgb = computedColor.match(/\d+/g);
+        if (rgb && rgb.length >= 3) {
+          const r = parseInt(rgb[0]);
+          const g = parseInt(rgb[1]);
+          const b = parseInt(rgb[2]);
+          // If it's a dark color (not white/light), force white
+          if (r < 200 || g < 200 || b < 200) {
+            button.style.setProperty('color', '#ffffff', 'important');
+          }
+        }
+      });
+      
+      // Fix headings
+      const headings = document.querySelectorAll('.blog-filters h3');
+      headings.forEach((h) => {
+        const heading = h as HTMLElement;
+        const computedColor = window.getComputedStyle(heading).color;
+        const rgb = computedColor.match(/\d+/g);
+        if (rgb && rgb.length >= 3) {
+          const r = parseInt(rgb[0]);
+          const g = parseInt(rgb[1]);
+          const b = parseInt(rgb[2]);
+          // If it's a dark color (not white/light), force white
+          if (r < 200 || g < 200 || b < 200) {
+            heading.style.setProperty('color', '#ffffff', 'important');
+          }
+        }
+      });
+    }
+  }
+  
+  // Run on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', applyDarkModeFilterColors);
+  
+  // Also run after a short delay to catch any late-rendered content
+  setTimeout(applyDarkModeFilterColors, 100);
+  setTimeout(applyDarkModeFilterColors, 500);
+  
+  // Watch for dark mode changes
+  const darkModeObserver = new MutationObserver(applyDarkModeFilterColors);
+  darkModeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+  darkModeObserver.observe(document.body, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
 </script>
 

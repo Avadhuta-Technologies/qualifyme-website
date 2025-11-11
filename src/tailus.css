@@ -318,10 +318,176 @@
     color: #d1d5db !important;
 }
 
-/* Blog content dark mode styles - with higher specificity to override prose classes */
+/* Blog content styles - with higher specificity to override prose classes */
 /* IMPORTANT: Light mode styles - must come first */
 #blog-content p {
-    color: #4b5563 !important;
+    color: #374151 !important; /* gray-700 - good contrast in light mode */
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.75 !important;
+}
+
+/* Ensure proper spacing for markdown elements */
+#blog-content h1,
+#blog-content h2,
+#blog-content h3,
+#blog-content h4,
+#blog-content h5,
+#blog-content h6 {
+    color: #111827 !important; /* gray-900 - dark for light mode */
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.5 !important;
+    font-weight: 700 !important;
+}
+
+#blog-content h1 {
+    font-size: 2.25rem !important;
+    margin-top: 0 !important;
+}
+
+#blog-content h2 {
+    font-size: 1.875rem !important;
+}
+
+#blog-content h3 {
+    font-size: 1.5rem !important;
+}
+
+#blog-content h4 {
+    font-size: 1.25rem !important;
+}
+
+#blog-content h5 {
+    font-size: 1.125rem !important;
+}
+
+#blog-content h6 {
+    font-size: 1rem !important;
+}
+
+#blog-content ul,
+#blog-content ol {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    padding-left: 1.5rem !important;
+}
+
+#blog-content li {
+    color: #374151 !important; /* gray-700 - good contrast in light mode */
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+#blog-content ul,
+#blog-content ol {
+    color: #374151 !important; /* gray-700 - good contrast in light mode */
+}
+
+#blog-content blockquote {
+    color: #374151 !important; /* gray-700 - good contrast in light mode */
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-left: 1rem !important;
+    border-left-width: 4px !important;
+}
+
+#blog-content pre {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding: 1rem !important;
+    overflow-x: auto !important;
+}
+
+#blog-content hr {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    border-top-width: 1px !important;
+}
+
+#blog-content img {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Ensure paragraphs after headings have proper spacing */
+#blog-content h1 + p,
+#blog-content h2 + p,
+#blog-content h3 + p,
+#blog-content h4 + p,
+#blog-content h5 + p,
+#blog-content h6 + p {
+    margin-top: 0.5rem !important;
+}
+
+/* Ensure headings after paragraphs have proper spacing */
+#blog-content p + h1,
+#blog-content p + h2,
+#blog-content p + h3,
+#blog-content p + h4,
+#blog-content p + h5,
+#blog-content p + h6 {
+    margin-top: 2rem !important;
+}
+
+/* Preserve whitespace and ensure proper markdown rendering */
+#blog-content {
+    white-space: normal !important;
+}
+
+#blog-content p {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+/* Ensure proper line breaks in markdown content */
+#blog-content br {
+    display: block !important;
+    content: "" !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Ensure empty paragraphs create spacing */
+#blog-content p:empty {
+    min-height: 1rem !important;
+    margin: 1rem 0 !important;
+}
+
+/* Ensure proper spacing between consecutive paragraphs */
+#blog-content p + p {
+    margin-top: 1rem !important;
+}
+
+/* Ensure proper spacing between list items */
+#blog-content li + li {
+    margin-top: 0.5rem !important;
+}
+
+/* Ensure proper spacing for nested lists */
+#blog-content ul ul,
+#blog-content ol ol,
+#blog-content ul ol,
+#blog-content ol ul {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Ensure proper spacing for paragraphs inside lists */
+#blog-content li > p {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Ensure proper spacing for headings in lists */
+#blog-content li > h1,
+#blog-content li > h2,
+#blog-content li > h3,
+#blog-content li > h4,
+#blog-content li > h5,
+#blog-content li > h6 {
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
 }
 
 /* CRITICAL: Override prose plugin generated CSS - prose generates .prose p and .dark .prose p */
@@ -400,7 +566,8 @@
 }
 
 #blog-content strong {
-    color: #1f2937 !important;
+    color: #111827 !important; /* gray-900 - dark for light mode */
+    font-weight: 700 !important;
 }
 
 .dark #blog-content strong,
