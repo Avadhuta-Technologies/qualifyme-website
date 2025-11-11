@@ -21,4 +21,4 @@ collections:
       - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 media_folder: "/public/images/uploads" # Location where files will be stored in the repo
-public_folder: "/public/images/uploads" # The src attribute for uploaded media
+public_folder: "/images/uploads" # The src attribute for uploaded media
