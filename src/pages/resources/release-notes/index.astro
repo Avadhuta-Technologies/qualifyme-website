@@ -1,0 +1,176 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Container from '../../../components/Container.astro';
+import { releaseNotes } from '../../../data/release-notes';
+---
+
+<Layout
+    title="Release Notes - QualifyMe Platform Updates"
+    description="Stay up-to-date with the latest QualifyMe platform updates, new features, improvements, and bug fixes. Read our detailed release notes."
+    keywords="QualifyMe release notes, platform updates, new features, changelog, version history, QualifyMe updates"
+    ogImage="/images/qualifyme-portal.avif"
+>
+  <main class="space-y-20">
+    {/* Hero Section */}
+    <section class="relative pt-40 py-16">
+      <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20">
+        <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
+        <div class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"></div>
+      </div>
+      <Container>
+        <div class="relative text-center mx-auto lg:w-2/3">
+          <h1 class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl mb-6">
+            Release Notes
+          </h1>
+          <p class="text-gray-700 dark:text-gray-300 text-xl mb-4">
+            Stay informed about the latest updates, features, and improvements to the QualifyMe platform.
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Latest version: {releaseNotes[0].version} ({releaseNotes[0].date})
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    {/* Release Notes List */}
+    <section class="pb-20">
+      <Container>
+        <div class="max-w-4xl mx-auto">
+          <div class="grid gap-6">
+            {releaseNotes.map((release, index) => (
+              <a 
+                href={`/resources/release-notes/${release.version}`}
+                class="group block bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden hover:scale-[1.02]"
+              >
+                <div class="p-6 md:p-8">
+                  <div class="flex flex-wrap items-start justify-between gap-4">
+                    <div class="flex items-center gap-4">
+                      <div class="w-14 h-14 bg-primary/10 group-hover:bg-primary rounded-2xl flex items-center justify-center transition-colors duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-primary group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="flex items-center gap-3 mb-1">
+                          <h2 class="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
+                            Version {release.version}
+                          </h2>
+                          {index === 0 && (
+                            <span class="px-3 py-1 bg-primary text-white text-xs font-semibold rounded-full">
+                              Latest
+                            </span>
+                          )}
+                        </div>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">{release.date}</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span class="text-sm font-medium mr-2">View Details</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  {/* Highlights Preview */}
+                  <div class="mt-6">
+                    <h3 class="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-3">
+                      Highlights
+                    </h3>
+                    <ul class="space-y-2">
+                      {release.highlights.slice(0, 3).map((highlight) => (
+                        <li class="flex items-start gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span class="text-gray-700 dark:text-gray-300 text-sm">{highlight}</span>
+                        </li>
+                      ))}
+                      {release.highlights.length > 3 && (
+                        <li class="text-primary text-sm font-medium pl-7">
+                          +{release.highlights.length - 3} more highlights
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+
+                  {/* Stats */}
+                  <div class="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+                    <div class="flex flex-wrap gap-6 text-sm">
+                      <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                        <span class="text-gray-600 dark:text-gray-400">
+                          <strong class="text-gray-900 dark:text-white">{release.features.length}</strong> New Features
+                        </span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                        <span class="text-gray-600 dark:text-gray-400">
+                          <strong class="text-gray-900 dark:text-white">{release.improvements.length}</strong> Improvements
+                        </span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-600 dark:text-gray-400">
+                          <strong class="text-gray-900 dark:text-white">{release.bugFixes.length}</strong> Bug Fixes
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* CTA Section */}
+    <section class="pb-20">
+      <Container>
+        <div class="bg-gradient-to-br from-primary/10 to-purple-100 dark:from-blue-950 dark:to-gray-900 rounded-3xl p-12 text-center">
+          <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+            Ready to Experience These Features?
+          </h2>
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
+            Start using the latest QualifyMe features today and transform your hiring process with AI-powered assessments.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a 
+              href="https://console.qualifyme.ai" 
+              class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95"
+            >
+              <span class="relative text-base font-semibold text-white">Get Started Free</span>
+            </a>
+            <a 
+              href="/contact" 
+              class="relative flex h-11 items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800"
+            >
+              <span class="relative text-base font-semibold text-primary dark:text-white">Contact Us</span>
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "QualifyMe Release Notes",
+  "description": "Stay up-to-date with the latest QualifyMe platform updates, new features, improvements, and bug fixes.",
+  "hasPart": releaseNotes.map(r => ({
+    "@type": "WebPage",
+    "name": `Version ${r.version}`,
+    "datePublished": r.date,
+    "url": `/resources/release-notes/${r.version}`
+  }))
+})} />
