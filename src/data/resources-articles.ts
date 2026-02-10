@@ -91,10 +91,6 @@ export const resourcesArticles: ResourceArticle[] = [
     description: "This guide demonstrates navigating to the 'File Uploads' section for a specific job post and successfully uploading a resume file to be processed by the system."
   },
   {
-    title: "How to Upload Resumes in Bulk for a Job Post on QualifyMe",
-    description: "This guide shows the process of navigating to the Job Posts section, selecting a job, and uploading a ZIP file containing multiple resumes for bulk processing and matching."
-  },
-  {
     title: "How to Navigate the Candidate Dashboard and Review Application Details",
     description: "This guide details the process of navigating from the main dashboard to the Candidates section, viewing a specific candidate's job applications, and then delving into the summary of a particular application."
   },
