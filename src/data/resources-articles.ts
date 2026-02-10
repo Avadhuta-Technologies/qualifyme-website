@@ -205,13 +205,12 @@ export const resourcesArticles: ResourceArticle[] = [
     title:"How to Connect QualifyMe with Lever Hire",
     description:"This guide explains the complete setup for connecting your Lever Hire account with QualifyMe, including how to configure the integration and process candidate applications seamlessly.",
     fileExtension:"pdf"
-  },,
+  },
   {
     title:"How to Process Multiple Resumes",
     description:"This guide explains how recruiters can quickly process multiple resumes in QualifyMe using the bulk upload feature.",
     fileExtension:"pdf"
   },
-  ,
   {
     title:"How to Set Up Account on the QualifyMe Candidate Portal",
     description:"This guide walks candidates through setting up their QualifyMe portal. In just a few steps, candidates are ready to access the portal and begin their assessments.",
