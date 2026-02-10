@@ -18,7 +18,7 @@ try {
     const slug = resource.title
       .toLowerCase()
       .replaceAll(/[^a-zA-Z0-9\s]/g, '')
-      .replaceAll(/\s+/g, '[+-]')
+      .replaceAll(/\s+/g, '-')
       .trim();
     const extension = resource.fileExtension ?? 'html';
     const baseFileName = resource.title.replaceAll(/[^a-zA-Z0-9\s]/g, '').replaceAll(/\s+/g, '-');
