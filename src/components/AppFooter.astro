@@ -1,34 +1,117 @@
 ---
 import Container from "./Container.astro";
-
 ---
 
-<footer class="py-20 md:py-40">
-    <Container>
-      <div class="m-auto md:w-10/12 lg:w-8/12 xl:w-6/12">
-        <div class="flex flex-wrap items-center justify-between md:flex-nowrap">
-          <div class="flex w-full justify-center space-x-12 text-gray-600 dark:text-gray-300 sm:w-7/12 md:justify-start">
-            <ul class="list-inside list-disc space-y-8">
-              <li><a href="/" class="transition hover:text-primary">Home</a></li>
-              <li><a href="/features" class="transition hover:text-primary">Features</a></li>
-              <li><a href="/how-it-works" class="transition hover:text-primary">How It Works</a></li>
-              <li><a href="/pricing" class="transition hover:text-primary">Pricing</a></li>
-              <li><a href="/resources" class="transition hover:text-primary">Resources</a></li>
-              <li><a href="/contact" class="transition hover:text-primary">Contact</a></li>
-            </ul>
-            <ul role="list" class="space-y-8">
-              <li><a href="/terms" class="transition hover:text-primary">Terms of Use</a></li>
-              <li><a href="/privacy" class="transition hover:text-primary">Privacy Policy</a></li>
-              <li><a href="/refund" class="transition hover:text-primary">Refund Policy</a></li>
-            </ul>
+<footer class="bg-gray-950 text-gray-300 py-10">
+  <Container>
+    <div class="m-auto md:w-11/12 lg:w-10/12">
+      <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <img
+              src="/logo_white.png"
+              alt="QualifyMe Logo"
+              class="h-8 w-auto mb-4"
+            />
+            <span class="text-white font-demibold mb-4">QualifyMe</span>
           </div>
-          <div class="m-auto mt-16 w-10/12 space-y-6 text-center sm:mt-auto sm:w-5/12 sm:text-left">
-            <img src="/logo_white.png" alt="QualifyMe Logo" class="h-8 w-auto mx-auto sm:mx-0" />
-            <span class="block text-gray-500 dark:text-gray-400">QualifyMe &copy; <span id="year"></span></span>
-            <span class="block text-gray-500 dark:text-gray-400">AI-Driven Hiring Assistant</span>
-            <span class="block text-gray-500 dark:text-gray-400">Need help? <a href="/contact" class="font-semibold text-gray-600 dark:text-white">Contact Us</a></span>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            AI-Driven Hiring Assistant.<br />
+            Hire Smarter. Faster.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Product</h3>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="/features" class="hover:text-indigo-400 transition"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a href="/pricing" class="hover:text-indigo-400 transition"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a href="/resources" class="hover:text-indigo-400 transition"
+                >Resources</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Company</h3>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="/contact" class="hover:text-indigo-400 transition"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a href="/how-it-works" class="hover:text-indigo-400 transition"
+                >How It Works</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="/terms" class="hover:text-indigo-400 transition"
+                >Terms of Use</a
+              >
+            </li>
+            <li>
+              <a href="/privacy" class="hover:text-indigo-400 transition"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="/refund" class="hover:text-indigo-400 transition"
+                >Refund Policy</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-white font-semibold mb-4">Stay Connected</h3>
+          <div class="space-y-3 text-sm">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              class="hover:text-indigo-400 transition"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                class="w-4 h-4"
+              >
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5zM.21 8.98H4.7V24H.21V8.98zM7.56 8.98h4.3v2.05h.06c.6-1.14 2.06-2.35 4.24-2.35 4.53 0 5.36 2.98 5.36 6.86V24h-4.49v-7.53c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.89 1.96-2.89 3.99V24H7.56V8.98z"
+                ></path>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
-    </Container>
+
+      <div
+        class="border-t border-gray-800 mt-16 pt-6 text-center text-sm text-gray-500"
+      >
+        © {new Date().getFullYear()} QualifyMe. All rights reserved.
+        <span
+          class="ml-2 bg-gray-800 px-2 py-1 rounded-full text-xs text-gray-400"
+        >
+          Made with AI
+        </span>
+      </div>
+    </div>
+  </Container>
 </footer>
