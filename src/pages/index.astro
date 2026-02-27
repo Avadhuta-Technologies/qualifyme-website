@@ -221,7 +221,7 @@ import { Briefcase, Upload } from "@lucide/astro";
                 class="bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg flex flex-col items-center transition-colors"
               >
                 <!-- Image -->
-                <img src="../public/images/at-report.png" alt="Report" />
+                <img src="/images/at-report.png" alt="Report" />
               </div>
 
               <div
@@ -485,657 +485,656 @@ import { Briefcase, Upload } from "@lucide/astro";
       </Container>
     </section>
 
-      {/* How It Works */}
-      <section id="how-it-works" class="py-20">
-        <Container>
-          <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
-            <div class="w-full lg:w-1/2 flex justify-center">
-              <img
-                src="/images/candidate-portal.png"
-                alt="QualifyMe candidate portal – candidates complete assessments in one place"
-                class="rounded-2xl shadow-xl w-full max-w-md dark:bg-gray-800 bg-white"
-              />
-            </div>
-            <div class="w-full lg:w-1/2">
-              <h2
-                class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white mb-8"
-              >
-                How QualifyMe Works
-              </h2>
-              <ul class="space-y-8">
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 mt-1"
-                    ><span
-                      class="iconify text-primary w-8 h-8"
-                      data-icon="uil:plus"
-                      aria-hidden="true"></span></span
-                  >
-                  <div>
-                    <h5
-                      class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
-                    >
-                      Create & Configure
-                    </h5>
-                    <p class="text-gray-600 dark:text-gray-300">
-                      Set up your job, choose assessment types, and configure
-                      workflows in minutes.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 mt-1"
-                    ><span
-                      class="iconify text-primary w-8 h-8"
-                      data-icon="uil:desktop-alt"
-                      aria-hidden="true"></span></span
-                  >
-                  <div>
-                    <h5
-                      class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
-                    >
-                      Invite & Assess
-                    </h5>
-                    <p class="text-gray-600 dark:text-gray-300">
-                      Invite candidates, let them complete assessments at their
-                      convenience, and let AI do the screening.
-                    </p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-4">
-                  <span class="flex-shrink-0 mt-1"
-                    ><span
-                      class="iconify text-primary w-8 h-8"
-                      data-icon="uil:user-check"
-                      aria-hidden="true"></span></span
-                  >
-                  <div>
-                    <h5
-                      class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
-                    >
-                      Review & Hire
-                    </h5>
-                    <p class="text-gray-600 dark:text-gray-300">
-                      Get instant insights, collaborate with your team, and move
-                      the best candidates forward—fast.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Section 3: The Assessment Engine */}
-      <section id="assessment-engine" class="py-20">
-        <Container>
-          <div class="mb-12 text-center">
-            <h2
-              class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-            >
-              The Assessment Engine
-            </h2>
-            <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">
-              Multiple Rounds. One Seamless Experience.
-            </p>
-          </div>
-          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:clipboard-notes"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                MCQs
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Role-based, auto-evaluated
-              </p>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:code-branch"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                Coding Tests
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Real-time execution, Judge0-powered
-              </p>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:video"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                Video Q&A
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Asynchronous, candidate-friendly
-              </p>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:layer-group"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                AI Avatar Interviews
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Coming Soon
-              </p>
-            </div>
-          </div>
-          <div class="mt-8 text-center text-gray-600 dark:text-gray-300">
-            Set it once. Use across any opening. Evaluate without bias.
-          </div>
-        </Container>
-      </section>
-
-      {/* Social Proof / Testimonials */}
-      <section id="testimonials" class="py-20">
-        <Container>
-          <div class="mb-12 text-center">
-            <h2
-              class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-            >
-              Why Recruiters Love QualifyMe
-            </h2>
-          </div>
-          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Sanjay
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >CTO at Growthloop</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "QualifyMe helped us hire 3 developers in under 10 days with
-                minimal effort. Game-changer for our startup."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Shruti
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Hiring Manager at Zeek.ai</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "Our shortlisting process is now automated. I don't review
-                resumes anymore. Just results."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Amit D.
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Founder, FinTech Startup</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "We cut our hiring time by 75%. With QualifyMe, we went from
-                screening manually for days to shortlisting in just hours. It's
-                like having a full hiring team powered by AI."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Shruti P.
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Talent Manager, HealthTech Company</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "The AI insights were spot on. The automated candidate scoring
-                was incredibly accurate. We found candidates who didn't look
-                great on paper but were top performers."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Karan V.
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Head of HR, SaaS Product Firm</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "The entire process runs on autopilot. We integrated the widget
-                into our site, and the system handles everything—from screening
-                to scheduling. Zero manual work."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Ritika S.
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Tech Lead, EdTech Company</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "The coding tests are excellent. We hired 4 developers using
-                QualifyMe's coding rounds. The built-in code editor and AI
-                evaluation saved us hours per candidate."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Neha R.
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Co-founder, D2C Brand</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "Loved the custom branding. The branded candidate portal looked
-                super professional. It gave our small startup a big-company
-                feel."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-            <div
-              class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-            >
-              <div class="flex items-center gap-4 mb-6">
-                <div
-                  class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-                >
-                  <span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user"
-                    aria-hidden="true"></span>
-                </div>
-                <div>
-                  <h6
-                    class="text-lg font-semibold text-gray-800 dark:text-white"
-                  >
-                    Ravi K.
-                  </h6>
-                  <span class="text-sm text-gray-500 dark:text-gray-300"
-                    >Senior Recruiter, IT Services Firm</span
-                  >
-                </div>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-                "Our whole team collaborates better. I can easily share AI
-                reports with hiring managers and finalize decisions without long
-                meetings. It keeps us aligned and fast."
-              </p>
-              <span
-                class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-                data-icon="uil:quote-right-alt"
-                aria-hidden="true"></span>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Section 4: AI Interview Avatar (Beta) */}
-      <section id="ai-avatar" class="py-20">
-        <Container>
-          <div class="mx-auto text-center md:w-2/3 lg:w-1/2">
-            <h2
-              class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl mb-4"
-            >
-              AI Interview Avatar <span
-                class="text-base font-semibold text-primary">(Beta)</span
-              >
-            </h2>
+    {/* How It Works */}
+    <section id="how-it-works" class="py-20">
+      <Container>
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+          <div class="w-full lg:w-1/2 flex justify-center">
             <img
-              src="/images/AI-interview-avatar.jpg"
-              alt="AI Interview Avatar"
-              class="mx-auto mb-6 rounded-full shadow-lg"
+              src="/images/candidate-portal.png"
+              alt="QualifyMe candidate portal – candidates complete assessments in one place"
+              class="rounded-2xl shadow-xl w-full max-w-md dark:bg-gray-800 bg-white"
             />
-            <p class="text-gray-600 dark:text-gray-300 text-lg mb-4">
-              Let AI Conduct the Interview
-            </p>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">
-              QualifyMe’s talking avatar conducts interviews in real-time,
-              evaluates candidate responses, and gives you a full-fitment
-              score—instantly.
-            </p>
-            <span
-              class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full font-semibold"
-              >Coming soon. Be among the first to try.</span
-            >
           </div>
-        </Container>
-      </section>
-
-      {/* Section 5: Built for Growing Teams */}
-      <section id="growing-teams" class="py-20">
-        <Container>
-          <div class="mb-12 text-center">
+          <div class="w-full lg:w-1/2">
             <h2
-              class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
+              class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white mb-8"
             >
-              Built for Growing Teams
+              How QualifyMe Works
             </h2>
-            <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">
-              Whether you're hiring your 1st or 50th employee, QualifyMe scales
-              with you.
-            </p>
-          </div>
-          <div class="grid gap-8 md:grid-cols-3">
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:users-alt"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                Startups & Hiring Agencies
-              </h5>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:building"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                Mid-size Tech Companies
-              </h5>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:chart-line"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                Fast-growing Teams
-              </h5>
-            </div>
-          </div>
-          <div class="mt-8 text-center text-gray-600 dark:text-gray-300">
-            Use it as your primary screening tool or plug it into your existing
-            ATS.
-          </div>
-        </Container>
-      </section>
-
-      {/* Section 6: Integrate & Embed */}
-      <section id="integrate-embed" class="py-20">
-        <Container>
-          <div class="mb-12 text-center">
-            <h2
-              class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-            >
-              Integrate & Embed
-            </h2>
-          </div>
-          <div class="grid gap-8 md:grid-cols-3">
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:list-ui-alt"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                Embed job listings
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Directly on your website
-              </p>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:linkedin-alt"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                LinkedIn Apply Connect
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Accept applications via LinkedIn (coming soon)
-              </p>
-            </div>
-            <div
-              class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-            >
-              <span
-                class="iconify text-primary w-16 h-16 mb-4"
-                data-icon="uil:integration"
-                aria-hidden="true"></span>
-              <h5
-                class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-              >
-                API + Webhook
-              </h5>
-              <p class="text-gray-600 dark:text-gray-300 text-center">
-                Full integration support
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Call to Action Banner */}
-      <section id="contact" class="relative py-16">
-        <div
-          aria-hidden="true"
-          class="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
-        >
-          <div
-            class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"
-          >
-          </div>
-          <div
-            class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"
-          >
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"
+                  ><span
+                    class="iconify text-primary w-8 h-8"
+                    data-icon="uil:plus"
+                    aria-hidden="true"></span></span
+                >
+                <div>
+                  <h5
+                    class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
+                  >
+                    Create & Configure
+                  </h5>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Set up your job, choose assessment types, and configure
+                    workflows in minutes.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"
+                  ><span
+                    class="iconify text-primary w-8 h-8"
+                    data-icon="uil:desktop-alt"
+                    aria-hidden="true"></span></span
+                >
+                <div>
+                  <h5
+                    class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
+                  >
+                    Invite & Assess
+                  </h5>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Invite candidates, let them complete assessments at their
+                    convenience, and let AI do the screening.
+                  </p>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="flex-shrink-0 mt-1"
+                  ><span
+                    class="iconify text-primary w-8 h-8"
+                    data-icon="uil:user-check"
+                    aria-hidden="true"></span></span
+                >
+                <div>
+                  <h5
+                    class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
+                  >
+                    Review & Hire
+                  </h5>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    Get instant insights, collaborate with your team, and move
+                    the best candidates forward—fast.
+                  </p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-        <Container>
-          <div
-            class="relative text-center space-y-6 md:w-8/12 lg:w-7/12 mx-auto"
+      </Container>
+    </section>
+
+    {/* Section 3: The Assessment Engine */}
+    <section id="assessment-engine" class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2
+            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
           >
-            <h1
-              class="text-4xl font-bold text-gray-800 dark:text-white md:text-5xl"
+            The Assessment Engine
+          </h2>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">
+            Multiple Rounds. One Seamless Experience.
+          </p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:clipboard-notes"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
             >
-              Start hiring smarter today
-            </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300">
-              Let AI do the heavy lifting while you focus on building great
-              teams.
+              MCQs
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Role-based, auto-evaluated
             </p>
-            <div class="flex flex-wrap justify-center gap-6">
-              <a
-                href="https://console.qualifyme.ai"
-                class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-              >
-                <span
-                  class="relative text-base font-semibold text-white dark:text-dark"
-                  >Get Started Free</span
-                >
-              </a>
-              <a
-                href="/contact"
-                class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
-              >
-                <span
-                  class="relative text-base font-semibold text-primary dark:text-white"
-                  >Schedule a Demo</span
-                >
-              </a>
-            </div>
           </div>
-        </Container>
-      </section>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:code-branch"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              Coding Tests
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Real-time execution, Judge0-powered
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:video"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              Video Q&A
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Asynchronous, candidate-friendly
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:layer-group"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              AI Avatar Interviews
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Coming Soon
+            </p>
+          </div>
+        </div>
+        <div class="mt-8 text-center text-gray-600 dark:text-gray-300">
+          Set it once. Use across any opening. Evaluate without bias.
+        </div>
+      </Container>
+    </section>
+
+    {/* Social Proof / Testimonials */}
+    <section id="testimonials" class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2
+            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
+          >
+            Why Recruiters Love QualifyMe
+          </h2>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Sanjay
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >CTO at Growthloop</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "QualifyMe helped us hire 3 developers in under 10 days with
+              minimal effort. Game-changer for our startup."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Shruti
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Hiring Manager at Zeek.ai</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "Our shortlisting process is now automated. I don't review
+              resumes anymore. Just results."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Amit D.
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Founder, FinTech Startup</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "We cut our hiring time by 75%. With QualifyMe, we went from
+              screening manually for days to shortlisting in just hours. It's
+              like having a full hiring team powered by AI."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Shruti P.
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Talent Manager, HealthTech Company</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "The AI insights were spot on. The automated candidate scoring
+              was incredibly accurate. We found candidates who didn't look
+              great on paper but were top performers."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Karan V.
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Head of HR, SaaS Product Firm</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "The entire process runs on autopilot. We integrated the widget
+              into our site, and the system handles everything—from screening
+              to scheduling. Zero manual work."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Ritika S.
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Tech Lead, EdTech Company</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "The coding tests are excellent. We hired 4 developers using
+              QualifyMe's coding rounds. The built-in code editor and AI
+              evaluation saved us hours per candidate."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Neha R.
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Co-founder, D2C Brand</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "Loved the custom branding. The branded candidate portal looked
+              super professional. It gave our small startup a big-company
+              feel."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+          <div
+            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
+              >
+                <span
+                  class="iconify text-primary w-8 h-8"
+                  data-icon="uil:user"
+                  aria-hidden="true"></span>
+              </div>
+              <div>
+                <h6
+                  class="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Ravi K.
+                </h6>
+                <span class="text-sm text-gray-500 dark:text-gray-300"
+                  >Senior Recruiter, IT Services Firm</span
+                >
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
+              "Our whole team collaborates better. I can easily share AI
+              reports with hiring managers and finalize decisions without long
+              meetings. It keeps us aligned and fast."
+            </p>
+            <span
+              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
+              data-icon="uil:quote-right-alt"
+              aria-hidden="true"></span>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* Section 4: AI Interview Avatar (Beta) */}
+    <section id="ai-avatar" class="py-20">
+      <Container>
+        <div class="mx-auto text-center md:w-2/3 lg:w-1/2">
+          <h2
+            class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl mb-4"
+          >
+            AI Interview Avatar <span
+              class="text-base font-semibold text-primary">(Beta)</span
+            >
+          </h2>
+          <img
+            src="/images/AI-interview-avatar.jpg"
+            alt="AI Interview Avatar"
+            class="mx-auto mb-6 rounded-full shadow-lg"
+          />
+          <p class="text-gray-600 dark:text-gray-300 text-lg mb-4">
+            Let AI Conduct the Interview
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            QualifyMe’s talking avatar conducts interviews in real-time,
+            evaluates candidate responses, and gives you a full-fitment
+            score—instantly.
+          </p>
+          <span
+            class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full font-semibold"
+            >Coming soon. Be among the first to try.</span
+          >
+        </div>
+      </Container>
+    </section>
+
+    {/* Section 5: Built for Growing Teams */}
+    <section id="growing-teams" class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2
+            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
+          >
+            Built for Growing Teams
+          </h2>
+          <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">
+            Whether you're hiring your 1st or 50th employee, QualifyMe scales
+            with you.
+          </p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:users-alt"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              Startups & Hiring Agencies
+            </h5>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:building"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              Mid-size Tech Companies
+            </h5>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:chart-line"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              Fast-growing Teams
+            </h5>
+          </div>
+        </div>
+        <div class="mt-8 text-center text-gray-600 dark:text-gray-300">
+          Use it as your primary screening tool or plug it into your existing
+          ATS.
+        </div>
+      </Container>
+    </section>
+
+    {/* Section 6: Integrate & Embed */}
+    <section id="integrate-embed" class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2
+            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
+          >
+            Integrate & Embed
+          </h2>
+        </div>
+        <div class="grid gap-8 md:grid-cols-3">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:list-ui-alt"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              Embed job listings
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Directly on your website
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:linkedin-alt"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              LinkedIn Apply Connect
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Accept applications via LinkedIn (coming soon)
+            </p>
+          </div>
+          <div
+            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
+          >
+            <span
+              class="iconify text-primary w-16 h-16 mb-4"
+              data-icon="uil:integration"
+              aria-hidden="true"></span>
+            <h5
+              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
+            >
+              API + Webhook
+            </h5>
+            <p class="text-gray-600 dark:text-gray-300 text-center">
+              Full integration support
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* Call to Action Banner */}
+    <section id="contact" class="relative py-16">
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
+      >
+        <div
+          class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"
+        >
+        </div>
+        <div
+          class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"
+        >
+        </div>
+      </div>
+      <Container>
+        <div
+          class="relative text-center space-y-6 md:w-8/12 lg:w-7/12 mx-auto"
+        >
+          <h1
+            class="text-4xl font-bold text-gray-800 dark:text-white md:text-5xl"
+          >
+            Start hiring smarter today
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-300">
+            Let AI do the heavy lifting while you focus on building great
+            teams.
+          </p>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="https://console.qualifyme.ai"
+              class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+            >
+              <span
+                class="relative text-base font-semibold text-white dark:text-dark"
+                >Get Started Free</span
+              >
+            </a>
+            <a
+              href="/contact"
+              class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+            >
+              <span
+                class="relative text-base font-semibold text-primary dark:text-white"
+                >Schedule a Demo</span
+              >
+            </a>
+          </div>
+        </div>
+      </Container>
     </section>
   </main></Layout
 >

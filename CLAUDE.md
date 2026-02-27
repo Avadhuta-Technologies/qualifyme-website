@@ -85,9 +85,6 @@ src/
 │   ├── blog-helpers.ts         # Blog filtering, sorting, and retrieval functions
 │   └── resources-helpers.ts    # Resource article parsing and management
 │
-├── layouts/
-│   └── Layout.astro        # Main HTML layout with comprehensive SEO/meta tags
-│
 └── tailus.css              # Custom CSS from Tailus theme
 
 public/
