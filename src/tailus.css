@@ -782,3 +782,9 @@ body.dark #blog-content.prose.prose-lg p {
 .dark #blog-content.prose.prose-lg p[class] {
     color: #d1d5db !important;
 }
+
+
+/* Smooth Transition */
+body {
+  transition: background 0.3s ease, color 0.3s ease;
+}
