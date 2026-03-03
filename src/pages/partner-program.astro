@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { TrendingUp, Star, UserCheck, Wrench, Users, Layers, Briefcase, Percent, DollarSign, Calendar, UserPlus, Headphones } from '@lucide/astro';
+---
+
+<Layout
+  title="QualifyMe Partner Program - AI Hiring Assessments for HR Agencies & ATS Platforms"
+  description="Join the QualifyMe Partner Program to offer AI‑powered role specific assessments to your clients. Ideal for HR agencies, ATS platforms, HR consultants and sales companies selling to talent teams. Earn 25% recurring commission."
+  keywords="QualifyMe partner program, HR agencies partnership, ATS platforms, HR consultants, sales companies, AI hiring assessments, revenue share, recruitment partnerships"
+  ogImage="/images/qualifyme-portal.avif"
+>
+  <main class="space-y-32 mb-32">
+    <!-- Hero Section (reuse homepage pattern) -->
+    <section id="hero" class="relative">
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
+      >
+        <div
+          class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"
+        ></div>
+        <div
+          class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"
+        ></div>
+      </div>
+      <Container>
+        <div class="relative pt-36 ml-auto text-center mx-auto lg:w-2/3">
+          <h1
+            class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl"
+          >
+            QualifyMe Partner Program
+          </h1>
+          <p class="mt-8 text-gray-700 dark:text-gray-300 text-xl">
+            Add AI‑powered assessments to your offering, delight clients and earn predictable recurring revenue.
+          </p>
+          <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
+            <a
+              href="/contact"
+              class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+            >
+              <span class="relative text-base font-semibold text-white"
+                >Schedule a Call</span
+              >
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- About QualifyMe -->
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">About QualifyMe</h2>
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            QualifyMe is an AI‑driven hiring assistant that helps companies run role‑specific assessments, structured AI interviews and objective scoring so they can hire faster and reduce bias.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Why Partner -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">Why Partner With Us?</h2>
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Your clients already need better hiring outcomes. QualifyMe empowers you to increase deal size, improve candidate quality and close roles faster while you stay in control of the relationship.
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          <!-- revenue -->
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <TrendingUp class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Increase revenue</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Per customer with a proven AI assessment layer.</p>
+          </div>
+          <!-- differentiate -->
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <Star class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Stand out</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Differentiate your offering and add recurring income.</p>
+          </div>
+          <!-- retain -->
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <UserCheck class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Keep control</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Retain ownership of the client relationship.</p>
+          </div>
+          <!-- scale -->
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <Wrench class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Scale effortlessly</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Add technology without building or maintaining it yourself.</p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Who This Is For -->
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">Who This Is For</h2>
+        </div>
+        <div class="max-w-md mx-auto text-gray-700 dark:text-gray-200">
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3">
+              <Users class="w-5 h-5 text-primary" />
+              <span>Recruitment &amp; HR agencies</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <Layers class="w-5 h-5 text-primary" />
+              <span>Applicant Tracking System (ATS) platforms</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <Wrench class="w-5 h-5 text-primary" />
+              <span>HR technology consultants and integrators</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <Briefcase class="w-5 h-5 text-primary" />
+              <span>Sales teams selling to HR &amp; talent teams</span>
+            </li>
+          </ul>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Partnership Model -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">Partnership Model</h2>
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Simple, transparent revenue share with no exclusivity or long‑term commitment.
+          </p>
+        </div>
+        <div class="max-w-xl mx-auto text-gray-700 dark:text-gray-200 space-y-4">
+          <div class="flex items-start gap-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <Percent class="w-6 h-6 text-primary flex-shrink-0" />
+            <p><strong>Revenue share:</strong> 25% recurring commission on subscription revenue for at least 12 months per referred client.</p>
+          </div>
+          <div class="flex items-start gap-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <DollarSign class="w-6 h-6 text-primary flex-shrink-0" />
+            <p><strong>Payouts:</strong> Quarterly, with transparent tracking.</p>
+          </div>
+          <div class="flex items-start gap-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <Calendar class="w-6 h-6 text-primary flex-shrink-0" />
+            <p><strong>Example:</strong> ₹1,00,000 annual subscription → ₹25,000 earned. No cap.</p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">How It Works</h2>
+        </div>
+        <div class="max-w-lg mx-auto space-y-6 text-gray-700 dark:text-gray-200">
+          <div class="space-y-6">
+            <div class="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm">
+              <span class="absolute -left-3 top-6 w-8 h-8 flex items-center justify-center bg-primary text-white text-xs font-bold rounded-full shadow">1</span>
+              <div class="flex items-center gap-3">
+                <UserPlus class="w-5 h-5 text-primary" />
+                <h4 class="font-semibold text-gray-900 dark:text-white">You introduce QualifyMe to your client.</h4>
+              </div>
+            </div>
+            <div class="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm">
+              <span class="absolute -left-3 top-6 w-8 h-8 flex items-center justify-center bg-primary text-white text-xs font-bold rounded-full shadow">2</span>
+              <div class="flex items-center gap-3">
+                <Headphones class="w-5 h-5 text-primary" />
+                <h4 class="font-semibold text-gray-900 dark:text-white">We support demos, onboarding and technical setup.</h4>
+              </div>
+            </div>
+            <div class="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm">
+              <span class="absolute -left-3 top-6 w-8 h-8 flex items-center justify-center bg-primary text-white text-xs font-bold rounded-full shadow">3</span>
+              <div class="flex items-center gap-3">
+                <UserCheck class="w-5 h-5 text-primary" />
+                <h4 class="font-semibold text-gray-900 dark:text-white">The client subscribes directly.</h4>
+              </div>
+            </div>
+            <div class="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm">
+              <span class="absolute -left-3 top-6 w-8 h-8 flex items-center justify-center bg-primary text-white text-xs font-bold rounded-full shadow">4</span>
+              <div class="flex items-center gap-3">
+                <DollarSign class="w-5 h-5 text-primary" />
+                <h4 class="font-semibold text-gray-900 dark:text-white">You receive recurring commission while we handle product delivery and support.</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- What You Get (card layout) -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900/50">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">What You Get</h2>
+        </div>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto text-gray-700 dark:text-gray-200">
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <Headphones class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Partner manager</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Dedicated contact & priority support.</p>
+          </div>
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <Star class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Co‑branded collateral</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Sales decks, demos, and marketing assets.</p>
+          </div>
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <Layers class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Feature access</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Early previews and roadmap visibility.</p>
+          </div>
+          <div class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-200">
+            <span class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+              <TrendingUp class="w-6 h-6" />
+            </span>
+            <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-2">Revenue dashboard</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">Transparent tracking of your commissions.</p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Why This Matters Now -->
+    <section class="py-20">
+      <Container>
+        <div class="mb-12 text-center">
+          <h2 class="text-2xl font-bold text-primary mb-6">Why This Matters Now</h2>
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Organizations are rapidly adopting AI for hiring, and structured assessments are becoming standard. Partnering lets you capture this trend without building technology in‑house.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Next Steps / Partner CTA -->
+    <section class="py-20 bg-gradient-to-br from-primary/10 to-purple-100 dark:from-blue-950 dark:to-gray-900">
+      <Container>
+        <div class="max-w-lg mx-auto text-center space-y-6">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+            Ready to grow with us?
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300">
+            Register for the QualifyMe Partner Program and start earning recurring
+            revenue within a week. Let’s align on fit and hit the ground running.
+          </p>
+          <div class="flex flex-wrap justify-center gap-y-4 gap-x-6">
+            <a
+              href="/contact"
+              class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+            >
+              <span class="relative text-base font-semibold text-white">
+                Book a 30‑min call
+              </span>
+            </a>
+            <a
+              href="mailto:support@qualifyme.ai"
+              class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:transition before:duration-300 hover:before:scale-105 active:duration-75 sm:w-max"
+            >
+              <span class="relative text-base font-semibold text-primary">
+                Email us directly
+              </span>
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
