@@ -35,6 +35,12 @@ export const GET: APIRoute = async ({ site }) => {
       priority: 0.8
     },
     {
+      url: '/partner-program',
+      lastmod: new Date().toISOString(),
+      changefreq: 'monthly',
+      priority: 0.7
+    },
+    {
       url: '/contact',
       lastmod: new Date().toISOString(),
       changefreq: 'monthly',
