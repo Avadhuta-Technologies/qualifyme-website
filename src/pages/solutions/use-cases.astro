@@ -1,0 +1,450 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+---
+
+<Layout
+  title="Use Cases — QualifyMe"
+  description="From high-volume hiring to critical role decisions — see how QualifyMe solves the five most common hiring problems: volume, quality, critical roles, bias, and speed."
+  keywords="hiring use cases, high volume recruiting, reduce hiring bias, faster hiring decisions, candidate quality, critical role hiring"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-50"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <div class="flex items-center justify-center gap-2 mb-5 reveal">
+            <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-300">Solutions · Use Cases</span>
+          </div>
+          <h1 class="font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+            You don't have one hiring problem.<br />
+            <span class="text-gradient">You have five.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-indigo-100 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto reveal reveal-delay-2">
+            QualifyMe is built for the full range of hiring challenges — from managing volume to making the right call on a critical role.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-10 reveal reveal-delay-3">
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+
+          {/* Jump nav */}
+          <div class="flex flex-wrap justify-center gap-2 reveal reveal-delay-3">
+            {[
+              { label: "High Volume", href: "#high-volume" },
+              { label: "Candidate Quality", href: "#candidate-quality" },
+              { label: "Critical Roles", href: "#critical-roles" },
+              { label: "Reducing Bias", href: "#reducing-bias" },
+              { label: "Faster Decisions", href: "#faster-decisions" },
+            ].map((item) => (
+              <a
+                href={item.href}
+                class="rounded-full border border-white/20 bg-white/10 hover:bg-white/20 px-4 py-1.5 text-xs font-semibold text-indigo-200 transition-all duration-200"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-gray-950 to-transparent pointer-events-none"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        USE CASE 1 — HIGH VOLUME HIRING
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="high-volume" class="bg-white dark:bg-gray-950 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="reveal">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-widest">Use Case 01</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              Too many candidates.<br />Not enough signal.
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              When a single job posting attracts 200+ applications, the real problem isn't finding good candidates — it's finding them before your team burns out screening everyone else.
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              Most hiring teams default to one of two bad options: spend days manually reviewing CVs, or rely on keyword filters that eliminate good candidates and pass through bad ones. QualifyMe replaces both with automated, role-specific assessments that run before any human reviews a single application.
+            </p>
+            <ul class="space-y-3 mb-8">
+              {[
+                "Paste a JD. QualifyMe generates a customized assessment in minutes — MCQs, coding challenges, video Q&A, or a combination.",
+                "Every applicant completes the assessment on their own time, through a branded candidate portal.",
+                "AI evaluates every response instantly. You get a ranked shortlist — not a pile.",
+                "Your team reviews the top performers. No resume sifting. No manual scoring.",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                  <span class="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                    <span class="iconify text-indigo-600 dark:text-indigo-400 w-3 h-3" data-icon="uil:check" aria-hidden="true"></span>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              Get Started Free →
+            </a>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-7">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-5">The result</p>
+              <p class="text-base font-medium text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic border-l-2 border-indigo-300 dark:border-indigo-700 pl-4">
+                From 300 applicants to a shortlist of 20 in the time it used to take to read the first 30 CVs.
+              </p>
+              <div class="space-y-4">
+                {[
+                  { metric: "90%+", label: "reduction in candidates reaching interview stage" },
+                  { metric: "70%", label: "faster time-to-shortlist" },
+                  { metric: "0", label: "manual resume reviews required" },
+                ].map((stat) => (
+                  <div class="flex items-center gap-4 rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-4">
+                    <p class="text-2xl font-black text-indigo-600 dark:text-indigo-400 w-16 flex-shrink-0">{stat.metric}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        USE CASE 2 — CANDIDATE QUALITY
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="candidate-quality" class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="order-2 lg:order-1 reveal reveal-delay-2">
+            <div class="rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+              <div class="grid grid-cols-2 bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700">
+                <div class="py-4 px-5 flex items-center gap-2">
+                  <span class="text-red-400 font-bold text-sm">✗</span>
+                  <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Before QualifyMe</span>
+                </div>
+                <div class="py-4 px-5 flex items-center gap-2 border-l border-gray-200 dark:border-gray-700">
+                  <span class="text-green-500 font-bold text-sm">✓</span>
+                  <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">After QualifyMe</span>
+                </div>
+              </div>
+              <div class="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+                {[
+                  ["Selecting on resume quality", "Selecting on demonstrated capability"],
+                  ["Interviewing polished presenters", "Interviewing actual performers"],
+                  ["Proxy signals: school, title, years exp.", "Direct signal: scored task performance"],
+                  ["Gut-feel shortlisting", "Evidence-based shortlisting"],
+                ].map((row) => (
+                  <div class="grid grid-cols-2 hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                    <div class="py-3.5 px-5 text-sm text-gray-500 dark:text-gray-400">{row[0]}</div>
+                    <div class="py-3.5 px-5 text-sm font-medium text-gray-800 dark:text-gray-200 border-l border-gray-100 dark:border-gray-800">{row[1]}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 reveal">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-widest">Use Case 02</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              You're interviewing the right resumes.<br />
+              Not the right people.
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              Resume quality and job performance have a weak correlation — and everyone in hiring knows it. Polished CVs, well-rehearsed answers, and confident interview presence tell you who's good at getting hired. They don't tell you who's good at the job.
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              QualifyMe shifts the selection signal from what candidates claim to what they can actually do. AI Screening evaluates real technical skills — a candidate who can solve the problem ranks higher than one who lists the right technologies.
+            </p>
+            <a
+              href="/product/ai-screening"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              See How Screening Works →
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        USE CASE 3 — CRITICAL ROLES
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="critical-roles" class="bg-white dark:bg-gray-950 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="reveal">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-widest">Use Case 03</span>
+              <span class="rounded-full bg-amber-100 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-400 uppercase tracking-widest">Early Access</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              Some hires you can recover from getting wrong.<br />
+              <span class="text-gradient">Some you can't.</span>
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              A bad junior hire costs you onboarding time. A bad senior hire — a lead engineer, a sales director, a product lead — costs you quarters. Sometimes companies. The stakes are different, so the evaluation should be different.
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              Screening scores and interview impressions aren't enough when the hire needs to lead a team, own a function, or make decisions that compound. QualifyMe Cognitive Simulations put candidates into job-realistic scenarios where every decision has consequences — revealing how they think, recover, and perform under real pressure.
+            </p>
+            <ul class="space-y-4 mb-8">
+              {[
+                { title: "Depth over speed", body: "You're not filtering volume — you're deciding between three strong candidates. The evaluation needs to reveal what generic interviews can't." },
+                { title: "Decision-making under pressure", body: "How does the candidate perform when information is incomplete and the consequences of a wrong choice are real?" },
+                { title: "Evidence, not impressions", body: "A defensible hiring recommendation — every finding mapped to a specific action the candidate took in the simulation." },
+              ].map((item) => (
+                <li class="rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4">
+                  <p class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{item.title}</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/product/simulations"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              Explore Cognitive Simulations →
+            </a>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/20 border border-indigo-100 dark:border-indigo-900/50 p-8">
+              <p class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-5">Simulation Output · VP Engineering Role</p>
+              <div class="space-y-3">
+                <div class="rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-4">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Recommendation</p>
+                  <div class="flex items-center gap-3">
+                    <span class="bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 font-bold text-sm px-4 py-1.5 rounded-full">Hire</span>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Strong signal on cross-functional leadership and decision quality under constraint.</p>
+                  </div>
+                </div>
+                <div class="rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-4">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Key Observations</p>
+                  <ul class="space-y-2">
+                    {[
+                      "Prioritized stakeholder alignment before committing to a timeline",
+                      "Identified the technical debt risk without being prompted",
+                      "Adapted strategy effectively when second constraint was introduced",
+                    ].map((obs) => (
+                      <li class="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-300">
+                        <span class="text-indigo-500 mt-0.5 flex-shrink-0">→</span>
+                        {obs}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <p class="text-xs text-gray-400 text-center pt-1">All findings traceable to specific simulation actions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        USE CASE 4 — REDUCING BIAS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="reducing-bias" class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-12 reveal">
+            <div class="flex items-center justify-center gap-2 mb-5">
+              <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-widest">Use Case 04</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              The best candidate in the room isn't always<br class="hidden sm:block" /> the best performer on the job.
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              Interviews are a known source of hiring bias — structured around first impressions, confidence signals, and cultural familiarity that don't correlate with job performance. The solution isn't better interviewers. It's less dependence on interviewer judgment at the stages where objective data is available.
+            </p>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2 reveal reveal-delay-1">
+            {[
+              {
+                icon: "uil:file-check-alt",
+                title: "Standardized assessments",
+                body: "Every candidate for the same role takes the same assessment — same questions, same scenario, same scoring rubric. No variation based on who reviewed the CV or who ran the call.",
+              },
+              {
+                icon: "uil:robot",
+                title: "AI scoring against defined criteria",
+                body: "Responses are scored against the same rubric, applied consistently across all candidates. The score reflects performance on the task — not presentation style or interview confidence.",
+              },
+              {
+                icon: "uil:repeat",
+                title: "Same scenario for every candidate",
+                body: "In Cognitive Simulations, every candidate for the same role enters the same scenario, with the same starting conditions. Differences in outcome reflect differences in performance.",
+              },
+              {
+                icon: "uil:shield-check",
+                title: "Full audit trail",
+                body: "Every hiring recommendation is traceable to specific candidate actions. If a decision is questioned, QualifyMe shows exactly why each candidate ranked where they did.",
+              },
+            ].map((item, i) => (
+              <div class={`reveal reveal-delay-${i + 1} rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6`}>
+                <span class="inline-flex w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 items-center justify-center mb-4">
+                  <span class="iconify text-primary w-5 h-5" data-icon={item.icon} aria-hidden="true"></span>
+                </span>
+                <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 text-center reveal">
+            <a
+              href="/technology"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              See How Our Scoring Works →
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        USE CASE 5 — FASTER DECISIONS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="faster-decisions" class="bg-white dark:bg-gray-950 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="reveal">
+            <div class="flex items-center gap-2 mb-5">
+              <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-widest">Use Case 05</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              Hiring decisions that drag<br />are decisions that cost you.
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+              Every week a role stays open is a week your team is stretched, projects are delayed, or a competitor hires the candidate you're still deciding on. The reason hiring decisions drag isn't usually a lack of information — it's too much of the wrong kind.
+            </p>
+            <div class="space-y-5 mb-8">
+              {[
+                { phase: "Before interviews", body: "Automated assessment scores arrive the same day candidates complete. No waiting for coordinator notes or manual review." },
+                { phase: "Entering interviews", body: "Hiring managers review the assessment report before the interview — already knowing where each candidate is strong and where to probe deeper." },
+                { phase: "At decision time", body: "Instead of \"I felt like Candidate B communicated more clearly,\" teams point to specific scores, module breakdowns, and simulation actions." },
+                { phase: "Final decisions", body: "For critical roles, a simulation recommendation gives the hiring team a defensible choice — not a consensus opinion that's hard to explain." },
+              ].map((item, i) => (
+                <div class={`reveal reveal-delay-${Math.min(i+1,3)} flex gap-4`}>
+                  <div class="flex-shrink-0 w-1.5 rounded-full bg-indigo-200 dark:bg-indigo-800"></div>
+                  <div>
+                    <p class="text-sm font-bold text-gray-900 dark:text-white mb-1">{item.phase}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              Get Started Free →
+            </a>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-7">
+              <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-5">Proven results</p>
+              <div class="space-y-4 mb-6">
+                {[
+                  { metric: "3 hires in 10 days", label: "Growing startup using automated assessments with minimal team overhead" },
+                  { metric: "Days → Hours", label: "Time-to-shortlist for a 450-applicant role at a software services firm" },
+                ].map((stat) => (
+                  <div class="rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-5">
+                    <p class="text-xl font-black text-indigo-600 dark:text-indigo-400 mb-1">{stat.metric}</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+              <p class="text-sm font-semibold text-gray-700 dark:text-gray-300 leading-relaxed border-l-2 border-indigo-300 dark:border-indigo-700 pl-4 italic">
+                Reduce time-to-decision. Not by rushing — by replacing ambiguous signal with clear evidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FINAL CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Which problem are you<br />
+            <span class="text-gradient">solving today?</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-10">
+            Start with AI Screening for volume and speed. Add Cognitive Simulations when you're ready to go deeper.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-8 text-base font-semibold shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free — AI Screening
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-13 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo — Simulations
+            </a>
+          </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">No credit card required. First assessment in under 5 minutes.</p>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

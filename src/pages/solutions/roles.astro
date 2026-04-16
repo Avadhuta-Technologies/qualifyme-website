@@ -1,0 +1,384 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+
+const roles = [
+  {
+    id: "sre",
+    badge: "SRE / Platform Engineering",
+    icon: "uil:server",
+    cardHook: "Production degrading under load. Fix it — or make it worse.",
+    tags: ["Triage", "Escalation", "Communication"],
+    headline: "Site Reliability Engineer",
+    scenarioHeadline: "A production system is degrading under load. You're the one who has to fix it.",
+    scenarioBody: "Latency is rising. Error rates are ticking up. Alerts are firing across three services. Stakeholders are watching the status page and asking questions. Every intervention carries risk — the wrong fix makes it worse. This is the scenario an SRE candidate faces in a QualifyMe simulation. Not a quiz about incident management theory. The actual situation — with partial information, compounding variables, and time pressure.",
+    skills: [
+      { name: "Triage discipline", body: "Do they investigate the root cause before acting, or patch under pressure and hope?" },
+      { name: "Escalation judgment", body: "When do they own the fix vs. pull in help? Can they make that call without defensiveness?" },
+      { name: "Stakeholder communication", body: "How do they manage expectations during an active incident? Honest and measured, or vague and optimistic?" },
+      { name: "Recovery under load", body: "When the first fix doesn't fully work, do they adapt or double down?" },
+    ],
+    whyItMatters: "SRE candidates with strong resumes and clean LeetCode records can still crack under the compound pressure of a real incident. A simulation reveals whether their instinct is to investigate or to guess — a distinction that's impossible to assess in a structured interview.",
+    screening: "Auto-generated MCQs on system design, observability, and reliability patterns. Coding challenge on alert triage logic.",
+    simulation: "Full incident scenario — degrading system, limited information, adaptive difficulty if baseline performance is strong.",
+    ctaType: "demo",
+  },
+  {
+    id: "backend-engineer",
+    badge: "Backend / Full-Stack Engineering",
+    icon: "uil:code-branch",
+    cardHook: "Technical debt, limited budget. Every choice has a downstream cost.",
+    tags: ["Trade-offs", "Refactoring", "Dependency"],
+    headline: "Backend Engineer",
+    scenarioHeadline: "You've inherited a system drowning in technical debt. Resources are limited. Every choice has a downstream cost.",
+    scenarioBody: "The codebase is fragile. The team is stretched. A performance problem is slowing the product down and the budget for fixing it just got cut. Some paths involve significant refactoring risk. Others are short-term patches with long-term consequences. What do you do?",
+    skills: [
+      { name: "Trade-off analysis", body: "Do they measure before they optimize, or jump to the most interesting solution?" },
+      { name: "Refactoring courage", body: "Can they make the hard call to rework rather than pile another fix on top?" },
+      { name: "Dependency awareness", body: "Do they think about systemic effects before touching a component, or optimise locally and break something upstream?" },
+      { name: "Communication of uncertainty", body: "When they don't know the full picture, do they say so or project false confidence?" },
+    ],
+    whyItMatters: "Strong backend engineers are defined by their judgment under constraint — not their knowledge of algorithms. A simulation that forces real trade-offs under resource pressure reveals more in 40 minutes than a day of technical interviews.",
+    screening: "Role-specific MCQs on system design, data structures, and language proficiency. Coding challenge on the tech stack you're hiring for.",
+    simulation: "Technical debt scenario with adaptive complexity — second system failure introduced if the baseline doesn't separate strong from exceptional.",
+    ctaType: "start",
+  },
+  {
+    id: "product-manager",
+    badge: "Product Management",
+    icon: "uil:layer-group",
+    cardHook: "Sprint planning. Engineering, design, and leadership all want different things.",
+    tags: ["Prioritisation", "Conflict", "Commitment"],
+    headline: "Product Manager",
+    scenarioHeadline: "Sprint planning. Engineering, design, and leadership are all pulling in different directions. Someone needs to say no without burning trust.",
+    scenarioBody: "The roadmap is slipping. Engineering is pushing back on a feature the VP of Sales has committed to. Design is halfway through work that the data suggests no one will use. And there's a hard deadline in two weeks. The PM candidate needs to navigate all three — without appeasement, without blaming the constraints, and without letting the sprint collapse.",
+    skills: [
+      { name: "Boundary-setting", body: "Can they protect scope without alienating stakeholders who have legitimate needs?" },
+      { name: "Conflict navigation", body: "How do they handle competing priorities? Do they default to consensus or make a call?" },
+      { name: "Commitment management", body: "Are the timelines and promises they make in the scenario realistic and defensible?" },
+      { name: "Communication precision", body: "Do they communicate decisions with enough clarity that the team can act on them, or stay vague to avoid conflict?" },
+    ],
+    whyItMatters: "Product management candidates are highly practiced at talking about frameworks, prioritization methods, and stakeholder alignment. What they're rarely asked to do is actually make a hard call in front of you — with consequences. A PM simulation reveals the gap between someone who knows what to do and someone who does it under pressure.",
+    screening: "Domain questions on product strategy, prioritization frameworks, and product analytics. Open-ended scenario questions evaluated by AI.",
+    simulation: "Multi-stakeholder sprint scenario with competing incentives, scope pressure, and adaptive escalation (a major stakeholder escalates to the CEO if mishandled).",
+    ctaType: "demo",
+  },
+  {
+    id: "sales-leader",
+    badge: "Sales / Revenue Leadership",
+    icon: "uil:chart-line",
+    cardHook: "Mid-negotiation. They have leverage. Every turn counts.",
+    tags: ["Anchoring", "Rapport", "Closing"],
+    headline: "Sales Leader",
+    scenarioHeadline: "Mid-negotiation. The deal is valuable, the counterparty has leverage, and every turn changes the dynamic.",
+    scenarioBody: "The prospect has a strong alternative. Your pricing is under pressure. The relationship is warm but not locked. The negotiation is mid-turn — the last move was theirs, a counteroffer that's lower than your floor, and they've introduced a timeline that benefits them. How you respond in the next three turns determines whether you close, concede too much, or lose the deal.",
+    skills: [
+      { name: "Anchoring strategy", body: "When do they hold their position vs. move? Is the movement calculated or reactive?" },
+      { name: "Rapport under pressure", body: "Can they maintain the relationship while protecting their commercial position? Or do they sacrifice one for the other?" },
+      { name: "Closing instinct", body: "Do they recognize when the deal is ready to close, or do they keep negotiating past the moment?" },
+      { name: "Response to leverage", body: "When the counterparty has real leverage, do they collapse, hold firm inappropriately, or find a creative path?" },
+    ],
+    whyItMatters: "Sales leaders who perform well in interviews are, almost by definition, good at performing well in interviews. That's not the same as being good at high-stakes commercial negotiations. A simulation puts them in the scenario — not talking about how they'd handle it.",
+    screening: "Sales knowledge MCQs on process, discovery methodology, and pipeline management. Video Q&A on past deal examples.",
+    simulation: "Multi-turn negotiation scenario with a sophisticated counterparty — adaptive difficulty adds relationship complications if the candidate handles the commercial side well.",
+    ctaType: "demo",
+  },
+  {
+    id: "data-analyst",
+    badge: "Data & Analytics",
+    icon: "uil:analytics",
+    cardHook: "A pattern that looks compelling — but might not be real.",
+    tags: ["Rigour", "Uncertainty", "Communication"],
+    headline: "Data Analyst",
+    scenarioHeadline: "A noisy dataset, a tight deadline, and a pattern that looks compelling — but might not be real.",
+    scenarioBody: "The business stakeholder needs an answer by end of day. The dataset is large, partially messy, and contains a trend that appears significant — but the sample is small and there's a potential confound the analyst noticed (or didn't). The pressure is to deliver something actionable. The right answer is to say what you can and cannot conclude.",
+    skills: [
+      { name: "Hypothesis discipline", body: "Do they resist the temptation to conclude before the data supports it?" },
+      { name: "False-positive awareness", body: "Can they identify when a signal is likely noise, and communicate that without undermining the stakeholder's confidence?" },
+      { name: "Analytical rigor", body: "Do they document assumptions, flag data quality issues, and caveat conclusions appropriately?" },
+      { name: "Communication of uncertainty", body: "Can they explain what they found — and what they don't yet know — in a way that's useful rather than just hedging?" },
+    ],
+    whyItMatters: "The analysts who cause the most damage aren't the ones who can't analyze data — they're the ones who confirm what leadership wants to hear. A simulation that introduces a seductive-but-wrong conclusion tests for intellectual integrity under real deadline pressure.",
+    screening: "Technical MCQs on SQL, statistics, and data interpretation. Coding challenge on data wrangling or query optimization.",
+    simulation: "Dataset exploration scenario with a planted near-miss finding — the candidate must decide whether to present it, qualify it, or reject it, with downstream consequences for each choice.",
+    ctaType: "start",
+  },
+  {
+    id: "designer",
+    badge: "Product Design / UX",
+    icon: "uil:palette",
+    cardHook: "Open brief, real constraints. Don't converge too early.",
+    tags: ["Divergence", "Iteration", "Judgment"],
+    headline: "Designer",
+    scenarioHeadline: "An open brief with real constraints. Do they explore boldly — or converge too early?",
+    scenarioBody: "The design brief is genuinely open: solve a user experience problem for a product feature. The constraints are real — there's a timeline, a technical ceiling, and a set of user research findings that are clear on some questions and silent on others. The candidate needs to explore the problem space, generate ideas, make judgment calls about which to pursue, and communicate their reasoning.",
+    skills: [
+      { name: "Divergent thinking", body: "Do they generate a meaningful range of options before committing to a direction? Or do they reach for the familiar solution immediately?" },
+      { name: "Constraint integration", body: "Do they design against the real constraints, or produce a beautiful solution that's technically infeasible?" },
+      { name: "Iteration discipline", body: "Do they refine their strongest idea, or do they fall in love with the first thing that works?" },
+      { name: "Convergence judgment", body: "Can they recognize when it's time to stop exploring and commit — or do they hedge until the brief does it for them?" },
+    ],
+    whyItMatters: "Portfolio reviews show finished work. Simulations show process. The quality of a designer's thinking under constraint is not visible in a polished case study — but it's visible in how they navigate a live brief with real trade-offs.",
+    screening: "Domain questions on design principles, research methods, and product thinking. Open-ended scenario response evaluated by AI.",
+    simulation: "Open brief with staged constraint reveals — new information arrives mid-scenario that requires the candidate to revisit their direction.",
+    ctaType: "demo",
+  },
+];
+---
+
+<Layout
+  title="Hiring by Role — QualifyMe"
+  description="Every role demands a different kind of thinking. See how QualifyMe evaluates SREs, backend engineers, product managers, sales leaders, data analysts, and designers."
+  keywords="SRE hiring assessment, product manager hiring, sales leader assessment, data analyst screening, designer evaluation, role-specific hiring"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-50"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center mb-14">
+          <div class="flex items-center justify-center gap-2 mb-5 reveal">
+            <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-300">Solutions · By Role</span>
+          </div>
+          <h1 class="font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+            Every role demands a<br />different kind of thinking.<br />
+            <span class="text-gradient">We evaluate them differently.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-indigo-100 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto reveal reveal-delay-2">
+            A generic assessment tells you who passed a test. QualifyMe maps to the actual cognitive and technical demands of the role — so you see exactly what matters for the hire you're making.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 reveal reveal-delay-3">
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+        </div>
+
+        {/* Role selector grid */}
+        <div class="relative z-10 grid grid-cols-2 md:grid-cols-3 gap-3 reveal reveal-delay-3">
+          {roles.map((role) => (
+            <a
+              href={`#${role.id}`}
+              class="group rounded-xl border border-white/15 bg-white/8 hover:bg-white/15 backdrop-blur-sm p-4 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <div class="flex items-center gap-3 mb-3">
+                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-500/30 flex items-center justify-center">
+                  <span class="iconify text-indigo-200 w-4 h-4" data-icon={role.icon} aria-hidden="true"></span>
+                </span>
+                <p class="text-sm font-bold text-white leading-tight">{role.headline}</p>
+              </div>
+              <p class="text-xs text-indigo-200/70 leading-relaxed mb-3">{role.cardHook}</p>
+              <div class="flex flex-wrap gap-1">
+                {role.tags.map((tag) => (
+                  <span class="text-[10px] font-semibold text-indigo-300/70 bg-indigo-500/20 rounded-full px-2 py-0.5">{tag}</span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-gray-950 to-transparent pointer-events-none"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        ROLE SECTIONS
+    ════════════════════════════════════════════════════════════════════════ */}
+    {roles.map((role, idx) => (
+      <section
+        id={role.id}
+        class={`scroll-mt-20 py-24 lg:py-32 ${idx % 2 === 0 ? "bg-white dark:bg-gray-950" : "bg-gray-50 dark:bg-gray-900"}`}
+      >
+        <Container>
+          <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+
+            {/* Content — alternates sides */}
+            <div class={`reveal ${idx % 2 !== 0 ? "lg:order-2" : ""}`}>
+              <div class="flex flex-wrap items-center gap-2 mb-5">
+                <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-300">{role.badge}</span>
+              </div>
+              <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+                Hiring a {role.headline}?
+              </h2>
+              <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4 leading-snug">{role.scenarioHeadline}</p>
+              <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">{role.scenarioBody}</p>
+
+              <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Skills Evaluated</h3>
+              <ul class="space-y-3 mb-8">
+                {role.skills.map((skill) => (
+                  <li class="rounded-xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/60 p-4">
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{skill.name}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{skill.body}</p>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="rounded-xl border border-indigo-100 dark:border-indigo-900/50 bg-indigo-50/50 dark:bg-indigo-950/20 p-4 mb-8">
+                <p class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-2">Why it matters</p>
+                <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{role.whyItMatters}</p>
+              </div>
+
+              {role.ctaType === "demo" ? (
+                <a href="/contact" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors">
+                  Book a Demo →
+                </a>
+              ) : (
+                <a href="https://console.qualifyme.ai" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors">
+                  Get Started Free →
+                </a>
+              )}
+            </div>
+
+            {/* Assessment layers card */}
+            <div class={`reveal reveal-delay-2 ${idx % 2 !== 0 ? "lg:order-1" : ""}`}>
+              <div class="rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                <div class="bg-gray-100 dark:bg-gray-800/80 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                  <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Assessment layers</p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+                  <div class="p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="inline-flex w-7 h-7 rounded-lg bg-green-100 dark:bg-green-900/30 items-center justify-center">
+                        <span class="iconify text-green-600 dark:text-green-400 w-3.5 h-3.5" data-icon="uil:filter" aria-hidden="true"></span>
+                      </span>
+                      <div>
+                        <p class="text-xs font-bold text-gray-900 dark:text-white">AI Screening</p>
+                        <span class="text-[10px] font-semibold text-green-600 dark:text-green-400 uppercase tracking-wider">Live now</span>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{role.screening}</p>
+                  </div>
+                  <div class="p-6">
+                    <div class="flex items-center gap-3 mb-3">
+                      <span class="inline-flex w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-900/30 items-center justify-center">
+                        <span class="iconify text-amber-600 dark:text-amber-400 w-3.5 h-3.5" data-icon="uil:scenery" aria-hidden="true"></span>
+                      </span>
+                      <div>
+                        <p class="text-xs font-bold text-gray-900 dark:text-white">Cognitive Simulation</p>
+                        <span class="text-[10px] font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Early access</span>
+                      </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{role.simulation}</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Role visual card */}
+              <div class="mt-5 rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-violet-50/50 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/20 border border-indigo-100 dark:border-indigo-900/40 p-6">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 flex items-center justify-center">
+                    <span class="iconify text-primary w-5 h-5" data-icon={role.icon} aria-hidden="true"></span>
+                  </span>
+                  <div>
+                    <p class="text-sm font-bold text-gray-900 dark:text-white">{role.headline}</p>
+                    <p class="text-xs text-gray-500">{role.badge}</p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-1.5">
+                  {role.skills.map((skill) => (
+                    <span class="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-900/50 rounded-full px-2.5 py-0.5 text-xs">{skill.name}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    ))}
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        DON'T SEE YOUR ROLE
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-20">
+      <Container>
+        <div class="max-w-2xl mx-auto text-center reveal">
+          <span class="inline-flex w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 items-center justify-center mb-5 mx-auto">
+            <span class="iconify text-primary w-6 h-6" data-icon="uil:plus-circle" aria-hidden="true"></span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">Don't see your role here?</h2>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+            QualifyMe maps any job description to the right assessment automatically. You don't need to configure the questions — you need to describe the role. Paste in your JD. We'll tell you what we can build.
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-8">
+            We're actively expanding to new role types. If your hire is critical and your role isn't listed, we'd like to hear about it.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white px-7 text-sm font-semibold shadow-lg shadow-indigo-500/25 transition-all duration-200 hover:-translate-y-0.5"
+          >
+            Talk to Us
+            <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+          </a>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FINAL CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Start with the role you're<br />
+            <span class="text-gradient">hiring for right now.</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-10">
+            AI Screening is live and ready. Cognitive Simulations are in early access.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-8 text-base font-semibold shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-13 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">No credit card required. First assessment in under 5 minutes.</p>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
