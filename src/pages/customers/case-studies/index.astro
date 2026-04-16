@@ -1,0 +1,203 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Container from "../../../components/Container.astro";
+import { caseStudies } from "../../../data/case-studies";
+
+const accentClasses = {
+  indigo: {
+    badge: "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800",
+    metric: "text-indigo-600 dark:text-indigo-400",
+    bar: "bg-indigo-500",
+    link: "text-indigo-600 dark:text-indigo-400 hover:text-indigo-500",
+    dot: "bg-indigo-500",
+  },
+  violet: {
+    badge: "bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800",
+    metric: "text-violet-600 dark:text-violet-400",
+    bar: "bg-violet-500",
+    link: "text-violet-600 dark:text-violet-400 hover:text-violet-500",
+    dot: "bg-violet-500",
+  },
+  cyan: {
+    badge: "bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800",
+    metric: "text-cyan-600 dark:text-cyan-400",
+    bar: "bg-cyan-500",
+    link: "text-cyan-600 dark:text-cyan-400 hover:text-cyan-500",
+    dot: "bg-cyan-500",
+  },
+  emerald: {
+    badge: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
+    metric: "text-emerald-600 dark:text-emerald-400",
+    bar: "bg-emerald-500",
+    link: "text-emerald-600 dark:text-emerald-400 hover:text-emerald-500",
+    dot: "bg-emerald-500",
+  },
+};
+---
+
+<Layout
+  title="Customer Case Studies — QualifyMe"
+  description="See how companies like Avadhuta Technologies, RubickAI, SoftTech Engineers, and VNurt achieved faster, better hiring with QualifyMe's AI-powered screening."
+  keywords="hiring case studies, QualifyMe customers, AI screening results, recruitment automation success stories"
+>
+  <main>
+
+    {/* ── Hero ── */}
+    <section class="relative bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900 pt-32 pb-24 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-40"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-300 mb-5">Customer Stories</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Real companies.<br/>
+            <span class="text-gradient">Real results.</span>
+          </h1>
+          <p class="text-lg text-indigo-100 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            See how teams across software, retail, engineering, and staffing are transforming their hiring with QualifyMe.
+          </p>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-950 to-transparent pointer-events-none"></div>
+    </section>
+
+    {/* ── Stats bar ── */}
+    <section class="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 py-10">
+      <Container>
+        <div class="flex flex-wrap justify-center gap-12">
+          {[
+            { num: "90%+", label: "avg. reduction in interview-stage candidates" },
+            { num: "4", label: "companies transformed their hiring" },
+            { num: "0", label: "manual resume reviews required" },
+          ].map((s) => (
+            <div class="text-center">
+              <p class="text-3xl font-black text-indigo-600 dark:text-indigo-400">{s.num}</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-[160px] mx-auto leading-snug">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ── Case study cards ── */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="grid gap-8 lg:grid-cols-2">
+          {caseStudies.map((cs, i) => {
+            const accent = accentClasses[cs.accentColor];
+            return (
+              <article
+                class={`reveal reveal-delay-${(i % 2) + 1} group relative rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}
+              >
+                {/* Top accent bar */}
+                <div class={`absolute top-0 left-0 right-0 h-1 ${accent.bar}`}></div>
+
+                <div class="p-8 md:p-10">
+                  {/* Header */}
+                  <div class="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                      <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full border mb-3 ${accent.badge}`}>
+                        {cs.industry}
+                      </span>
+                      <h2 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">{cs.company}</h2>
+                      {cs.teamSize && (
+                        <p class="text-sm text-gray-400 mt-0.5">{cs.teamSize}</p>
+                      )}
+                    </div>
+                    {/* Key metric */}
+                    <div class="text-right flex-shrink-0">
+                      <p class={`text-4xl font-black leading-none ${accent.metric}`}>{cs.keyMetric}</p>
+                      <p class="text-xs text-gray-400 mt-1 max-w-[120px] ml-auto leading-snug">{cs.keyMetricLabel}</p>
+                    </div>
+                  </div>
+
+                  {/* Headline */}
+                  <h3 class="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 leading-snug">
+                    {cs.headline}
+                  </h3>
+
+                  {/* Summary */}
+                  <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">
+                    {cs.summary}
+                  </p>
+
+                  {/* Outcomes preview */}
+                  <ul class="space-y-2 mb-8">
+                    {cs.outcomes.slice(0, 3).map((outcome) => (
+                      <li class="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-300">
+                        <span class={`flex-shrink-0 mt-1 w-1.5 h-1.5 rounded-full ${accent.dot}`}></span>
+                        {outcome}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA */}
+                  <a
+                    href={`/customers/case-studies/${cs.slug}`}
+                    class={`inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-3 ${accent.link}`}
+                  >
+                    Read full case study
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </Container>
+    </section>
+
+    {/* ── CTA ── */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 py-20 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Ready to write your own success story?
+          </h2>
+          <p class="text-indigo-200 mb-8 text-lg">
+            Join companies that hire smarter, faster, and with more confidence.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex h-12 items-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 font-semibold text-sm transition-colors shadow-xl shadow-black/20"
+            >
+              Get Started Free
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-12 items-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 font-semibold text-sm text-white transition-colors backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

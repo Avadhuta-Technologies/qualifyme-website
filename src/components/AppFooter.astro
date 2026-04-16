@@ -1,155 +1,96 @@
 ---
 import Container from "./Container.astro";
-import { Linkedin } from "@lucide/astro";
+const columns = [
+  {
+    heading: "Product",
+    links: [
+      { to: "/product", label: "Overview" },
+      { to: "/product/ai-screening", label: "AI Screening" },
+      { to: "/product/simulations", label: "Cognitive Simulations" },
+      { to: "/pricing", label: "Pricing" },
+      { to: "/technology", label: "Technology" },
+    ],
+  },
+  {
+    heading: "Solutions",
+    links: [
+      { to: "/solutions/use-cases", label: "Use Cases" },
+      { to: "/solutions/roles", label: "By Role" },
+      { to: "/solutions/hiring-stage", label: "By Hiring Stage" },
+    ],
+  },
+  {
+    heading: "Company",
+    links: [
+      { to: "/about", label: "About" },
+      { to: "/contact", label: "Contact" },
+      { to: "/careers", label: "Careers" },
+      { to: "/resources/blog", label: "Blog" },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { to: "/terms", label: "Terms of Use" },
+      { to: "/privacy", label: "Privacy Policy" },
+      { to: "/refund", label: "Refund Policy" },
+    ],
+  },
+];
 ---
 
-<footer
-  class="bg-white text-gray-700 dark:bg-gray-950 dark:text-gray-300 py-10 transition-colors duration-300"
->
+<footer class="bg-white text-gray-700 dark:bg-gray-950 dark:text-gray-300 py-12 transition-colors duration-300">
   <Container>
     <div class="m-auto md:w-11/12 lg:w-10/12">
-      <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {/* Logo Section */}
-        <div>
-          <div class="flex items-center gap-2">
-            <img
-              src="/logo-dark.png"
-              alt="QualifyMe Logo"
-              class="h-8 w-auto mb-4 block dark:hidden"
-            />
-            <img
-              src="/logo_white.png"
-              alt="QualifyMe Logo"
-              class="h-8 w-auto mb-4 hidden dark:block"
-            />
+      <div class="grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
 
-            <span
-              class="text-xl font-bold tracking-wide text-gray-900 dark:text-white"
-            >
-              QualifyMe
-            </span>
+        {/* Brand column — spans 2 cols on lg */}
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <img src="/logo-dark.png" alt="QualifyMe Logo" class="h-8 w-auto block dark:hidden" />
+            <img src="/logo_white.png" alt="QualifyMe Logo" class="h-8 w-auto hidden dark:block" />
+            <span class="text-xl font-bold tracking-wide text-gray-900 dark:text-white">QualifyMe</span>
           </div>
-          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-            AI-Driven Hiring Assistant.<br />
-            Hire Smarter. Faster.
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xs">
+            The assessment platform that goes beyond screening — revealing how candidates actually make decisions.
           </p>
-        </div>
-
-        {/* Product */}
-        <div>
-          <h3 class="text-gray-900 dark:text-white font-semibold mb-4">
-            Product
-          </h3>
-          <ul class="space-y-3 text-sm">
-            <li>
-              <a
-                href="/features"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Features</a
-              >
-            </li>
-            <li>
-              <a
-                href="/pricing"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Pricing</a
-              >
-            </li>
-            <li>
-              <a
-                href="/partner-program"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Partner Program</a
-              >
-            </li>
-            <li>
-              <a
-                href="/resources"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Resources</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        {/* Company */}
-        <div>
-          <h3 class="text-gray-900 dark:text-white font-semibold mb-4">
-            Company
-          </h3>
-          <ul class="space-y-3 text-sm">
-            <li>
-              <a
-                href="/contact"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Contact</a
-              >
-            </li>
-            <li>
-              <a
-                href="/how-it-works"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >How It Works</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        {/* Legal */}
-        <div>
-          <h3 class="text-gray-900 dark:text-white font-semibold mb-4">
-            Legal
-          </h3>
-          <ul class="space-y-3 text-sm">
-            <li>
-              <a
-                href="/terms"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Terms of Use</a
-              >
-            </li>
-            <li>
-              <a
-                href="/privacy"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Privacy Policy</a
-              >
-            </li>
-            <li>
-              <a
-                href="/refund"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400 transition"
-                >Refund Policy</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        {/* Social */}
-        <div>
-          <h3 class="text-gray-900 dark:text-white font-semibold mb-4">
-            Stay Connected
-          </h3>
-          <div class="space-y-3 text-sm">
+          <div class="mt-6 flex items-center gap-3">
             <a
               href="https://www.linkedin.com/company/qualifyme/"
               target="_blank"
-              class="inline-flex items-center justify-center hover:text-indigo-500 dark:hover:text-indigo-400 transition"
+              rel="noopener noreferrer"
+              aria-label="QualifyMe on LinkedIn"
+              class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary transition-colors"
             >
-              <Linkedin size={20} />
+              <span class="iconify w-4 h-4" data-icon="uil:linkedin-alt" aria-hidden="true"></span>
             </a>
           </div>
         </div>
+
+        {/* Nav columns */}
+        {columns.map((col) => (
+          <div>
+            <h3 class="text-gray-900 dark:text-white font-semibold mb-4 text-sm">{col.heading}</h3>
+            <ul class="space-y-3 text-sm">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.to}
+                    class="hover:text-primary dark:hover:text-primary transition-colors text-gray-500 dark:text-gray-400"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
-      {/* Bottom */}
-      <div
-        class="border-t border-gray-200 dark:border-gray-800 mt-16 pt-6 text-center text-sm text-gray-500 dark:text-gray-500"
-      >
-        © {new Date().getFullYear()} QualifyMe. All rights reserved.
-        <span
-          class="ml-2 bg-gray-200 dark:bg-gray-800 px-2 py-1 rounded-full text-xs text-gray-600 dark:text-gray-400"
-        >
+      {/* Bottom bar */}
+      <div class="border-t border-gray-200 dark:border-gray-800 mt-14 pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-gray-500 dark:text-gray-500">
+        <p>© {new Date().getFullYear()} QualifyMe. All rights reserved.</p>
+        <span class="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full text-xs text-gray-600 dark:text-gray-400 w-fit">
           Made with AI
         </span>
       </div>

@@ -1,1141 +1,1138 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/Container.astro";
-import { Briefcase, Upload } from "@lucide/astro";
+import { caseStudies } from "../data/case-studies";
+
+const csAccentMetric: Record<string, string> = {
+  indigo: "text-indigo-600 dark:text-indigo-400",
+  violet: "text-violet-600 dark:text-violet-400",
+  cyan: "text-cyan-600 dark:text-cyan-400",
+  emerald: "text-emerald-600 dark:text-emerald-400",
+};
+// Carousel accent maps
+const csAccentGradient: Record<string, string> = {
+  indigo: "bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900",
+  violet: "bg-gradient-to-br from-violet-700 via-violet-800 to-purple-900",
+  cyan: "bg-gradient-to-br from-slate-700 via-slate-800 to-cyan-900",
+  emerald: "bg-gradient-to-br from-slate-700 via-slate-800 to-emerald-900",
+};
+const csAccentGlow: Record<string, string> = {
+  indigo: "bg-indigo-400",
+  violet: "bg-violet-400",
+  cyan: "bg-cyan-400",
+  emerald: "bg-emerald-400",
+};
+const csAccentCheckBg: Record<string, string> = {
+  indigo: "bg-indigo-50 dark:bg-indigo-900/40",
+  violet: "bg-violet-50 dark:bg-violet-900/40",
+  cyan: "bg-cyan-50 dark:bg-cyan-900/40",
+  emerald: "bg-emerald-50 dark:bg-emerald-900/40",
+};
+const csAccentCheckIcon: Record<string, string> = {
+  indigo: "text-indigo-600 dark:text-indigo-400",
+  violet: "text-violet-600 dark:text-violet-400",
+  cyan: "text-cyan-600 dark:text-cyan-400",
+  emerald: "text-emerald-600 dark:text-emerald-400",
+};
+const csAccentCta: Record<string, string> = {
+  indigo: "bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-500/25",
+  violet: "bg-violet-600 hover:bg-violet-500 text-white shadow-violet-500/25",
+  cyan: "bg-cyan-600 hover:bg-cyan-500 text-white shadow-cyan-500/25",
+  emerald: "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/25",
+};
+
+const logos = [
+  "SoftTech Engineers Limited", "VNurt Solutions", "East Ocyon Bio", "Pazl Software Solutions",
+  "Rubick AI", "Trovex AI", "Avadhuta Technologies",
+];
 ---
 
 <Layout
-  title="QualifyMe - AI-Driven Hiring Assistant | Cut Hiring Time by 70%"
-  description="Automate screening, qualify top candidates instantly, and cut hiring time by 70%. AI-powered hiring assistant for faster, smarter recruitment. Get started free today."
-  keywords="AI hiring, recruitment automation, candidate screening, interview automation, hiring software, HR tech, talent acquisition, AI interviews, automated hiring, recruitment software"
+  title="QualifyMe — See How Candidates Actually Think"
+  description="Go beyond screening. QualifyMe's AI-powered assessments and cognitive simulations reveal how candidates actually make decisions. Get started free."
+  keywords="AI hiring, cognitive simulations, candidate assessment, recruitment automation, hiring platform"
   ogImage="/images/qualifyme-scores.avif"
 >
-  <main class="space-y-40 mb-40">
-    {/* Hero Section */}
-    <section id="home" class="relative">
-      <div
-        aria-hidden="true"
-        class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
-      >
-        <div
-          class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"
-        >
-        </div>
-        <div
-          class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"
-        >
-        </div>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO — dark gradient section with dot-grid texture
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section
+      id="home"
+      class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900"
+    >
+      {/* Dot grid texture */}
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-60"></div>
+
+      {/* Radial glow blobs */}
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[600px] h-[600px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute top-1/2 -right-24 w-[500px] h-[500px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+        <div class="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-cyan-500/10 blur-[100px]"></div>
       </div>
+
       <Container>
-        <div class="relative pt-36 ml-auto text-center mx-auto lg:w-2/3">
-          <h1
-            class="text-gray-900 text-balance dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl"
-          >
-            Hire Smarter. Faster. With <span
-              class="text-primary dark:text-white">AI.</span
-            >
-          </h1>
-          <p class="mt-8 text-gray-700 dark:text-gray-300 text-xl">
-            Automate screening, qualify top candidates instantly, and cut hiring
-            time by 70%. All without leaving your dashboard.
-          </p>
-          <div class="mt-16 flex flex-wrap justify-center gap-y-4 gap-x-6">
-            <a
-              href="https://console.qualifyme.ai"
-              class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
-            >
-              <span class="relative text-base font-semibold text-white"
-                >Get Started Free</span
-              >
-            </a>
-            <a
-              href="/contact"
-              class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
-            >
-              <span
-                class="relative text-base font-semibold text-primary dark:text-white"
-                >Book a Demo</span
-              >
-            </a>
-          </div>
-          <div
-            class="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between"
-          >
-            <div class="text-left">
-              <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
-                Fastest Hiring Process
-              </h6>
-              <p class="mt-2 text-gray-500">
-                Screen, assess, shortlist instantly
-              </p>
-            </div>
-            <div class="text-left">
-              <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
-                AI-Powered Evaluations
-              </h6>
-              <p class="mt-2 text-gray-500">Objective, smart, skill-based</p>
-            </div>
-            <div class="text-left">
-              <h6 class="text-lg font-semibold text-gray-700 dark:text-white">
-                Best ROI in Hiring
-              </h6>
-              <p class="mt-2 text-gray-500">Save time, reduce costs</p>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </section>
+        <div class="relative z-10 pt-28 pb-10 lg:pt-32 lg:pb-12">
 
-    <section id="profile-screening" class="py-20">
-      <Container class="mx-auto text-center">
-        <div class="text-center mb-12 md:mb-16">
-          <h2
-            class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl lg:text-5xl mb-4"
-          >
-            Hire faster with <span class="text-primary">AI-powered</span> screening.
-          </h2>
-          <p
-            class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto"
-          >
-            Identify signals and risks in 30 seconds before moving to deep
-            validation.
-          </p>
-        </div>
-        <div
-          class="bg-indigo-700 rounded-xl p-3 flex items-center justify-center mx-auto
-              text-center text-white shadow-xl hover:-translate-y-1 transition duration-300 hover:shadow-2xl cursor-pointer max-w-sm"
-        >
-          <div
-            class="w-12 h-12 mr-4 rounded-full bg-white/20 flex items-center justify-center"
-          >
-            <span class="text-xl">⚡</span>
-          </div>
+          {/* Centered copy block */}
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.08] text-white mb-6 reveal">
+              Stop guessing from resumes.<br />
+              <span class="text-gradient">See candidates perform.</span>
+            </h1>
 
-          <a
-            href="https://console.qualifyme.ai/profile-screening"
-            class="block text-lg font-semibold tracking-widest"
-          >
-            START SCREENING FOR FREE
-          </a>
-        </div>
-        {
-          /*<div class="grid lg:grid-cols-2 gap-16 items-start">
-          <div class="max-w-xl">
-            <span
-              class="inline-flex items-center bg-primary/10 text-primary px-4 py-1.5 rounded-full text-xs font-semibold mb-6"
-            >
-              ● FREE AI TOOL
-            </span>
-
-            <h2
-              class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6"
-            >
-              Hire faster with <span class="text-primary">AI-powered</span> screening.
-            </h2>
-
-            <p class="text-gray-600 dark:text-gray-400 text-lg mb-10">
-              Instantly qualify candidates based on your specific requirements.
-              No credit card, no login, instant results.
+            <p class="text-lg sm:text-xl text-indigo-100 dark:text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto reveal reveal-delay-1">
+              QualifyMe is an AI-powered screening platform that evaluates real skills at scale and introduces
+              <strong class="text-white font-semibold">real-world job simulations</strong> to identify top performers before you hire.
             </p>
 
-            <div class="space-y-6 mb-10">
-              <div
-                class="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm"
-              >
-                <span
-                  class="absolute -left-3 top-6 w-8 h-8 flex items-center justify-center bg-primary text-white text-xs font-bold rounded-full shadow"
-                >
-                  01
-                </span>
+            <p class="text-sm text-indigo-200/70 dark:text-slate-400 mb-10 italic reveal reveal-delay-1">
+              Screening is live today. Simulations are launching soon.
+            </p>
 
-                <div class="flex items-start gap-3">
-                  <div
-                    class="w-9 h-9 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800"
-                  >
-                    <Briefcase
-                      class="w-4 h-4 text-gray-700 dark:text-gray-300"
-                    />
-                  </div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white">
-                    Provide Job Context
-                  </h4>
-                </div>
-
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Paste your JD or key requirements to set the baseline for
-                  intelligent matching.
-                </p>
-              </div>
-
-              <div
-                class="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-2xl shadow-sm"
-              >
-                <span
-                  class="absolute -left-3 top-6 w-8 h-8 flex items-center justify-center bg-primary text-white text-xs font-bold rounded-full shadow"
-                >
-                  02
-                </span>
-
-                <div class="flex items-start gap-3">
-                  <div
-                    class="w-9 h-9 flex items-center justify-center border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800"
-                  >
-                    <Upload class="w-4 h-4 text-gray-700 dark:text-gray-300" />
-                  </div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white">
-                    Upload Candidate Resume
-                  </h4>
-                </div>
-
-                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  Drop a PDF or DOCX file for deep-level matching across 40+
-                  semantic data points.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="bg-indigo-700 rounded-xl p-3 flex items-center justify-center 
-              text-center text-white shadow-xl hover:-translate-y-1 transition duration-300 hover:shadow-2xl cursor-pointer"
-            >
-              <div
-                class="w-12 h-12 mr-4 rounded-full bg-white/20 flex items-center justify-center"
-              >
-                <span class="text-xl">⚡</span>
-              </div>
-
+            <div class="flex flex-wrap justify-center gap-4 mb-12 reveal reveal-delay-2">
               <a
-                href="https://console.qualifyme.ai/profile-screening"
-                class="block text-lg font-semibold tracking-widest"
+                href="https://console.qualifyme.ai"
+                class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500 px-7 text-base font-semibold shadow-lg shadow-black/20 dark:shadow-indigo-500/30 transition-all duration-200 hover:-translate-y-0.5"
               >
-                START FREE SCREENING
+                Get Started Free
+                <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+              </a>
+              <a
+                href="/contact"
+                class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+              >
+                Book a Demo
               </a>
             </div>
 
-            <p class="text-gray-500 mt-4 dark:text-gray-400 flex justify-center">
-              ✔ No signup required · Processing ephemeral data
-            </p>
-
-            <div class="flex gap-12 mt-10">
-              <div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
-                  10k+
-                </h3>
-                <p class="text-xs tracking-wide text-gray-500 uppercase">
-                  Profiles Screened
-                </p>
-              </div>
-              <div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">
-                  98%
-                </h3>
-                <p class="text-xs tracking-wide text-gray-500 uppercase">
-                  Accuracy Rate
-                </p>
-              </div>
+            {/* Trust stats */}
+            <div class="flex flex-wrap justify-center gap-10 reveal reveal-delay-3">
+              {[
+                { num: "2,400+", label: "assessments delivered" },
+                { num: "70%", label: "faster time-to-shortlist" },
+                { num: "100%", label: "audit-ready scoring" },
+              ].map((s) => (
+                <div class="text-center">
+                  <p class="text-2xl font-bold text-white">{s.num}</p>
+                  <p class="text-xs text-indigo-200/80 dark:text-slate-400 mt-0.5">{s.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div class="lg:pl-6">
-            <div class="max-w-3xl mx-auto space-y-8">
-              <div
-                class="bg-white dark:bg-gray-950 p-6 rounded-lg shadow-lg flex flex-col items-center transition-colors"
-              >
-                <img src="/images/at-report.png" alt="Report" />
-              </div>
-
-              <div
-                class="flex items-center justify-between gap-4 p-4 bg-gray-50 dark:bg-gray-950"
-              >
-                <div class="flex items-center gap-3">
-                  <div class="flex -space-x-2">
-                    <div
-                      class="h-8 w-8 flex items-center justify-center rounded-full border-2 border-gray-900 bg-zinc-800 text-xs text-zinc-400"
-                    >
-                      A
-                    </div>
-                    <div
-                      class="h-8 w-8 flex items-center justify-center rounded-full border-2 border-gray-900 bg-zinc-800 text-xs text-zinc-400"
-                    >
-                      M
-                    </div>
-                    <div
-                      class="h-8 w-8 flex items-center justify-center rounded-full border-2 border-gray-900 bg-zinc-800 text-xs text-zinc-400"
-                    >
-                      K
-                    </div>
-                  </div>
-                  <p class="text-sm">
-                    <span class="font-semibold text-gray-950 dark:text-white">
-                      Joined by 1,240+ recruiters
-                    </span>
-                  </p>
-                </div>
-
-                <div class="flex flex-col items-center text-center">
-                  <span
-                    class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 border border-gray-300 dark:border-gray-600 px-2 py-1 rounded-md"
-                  >
-                    Privacy First Infrastructure
-                  </span>
+          {/* Full-width product screenshot */}
+          <div class="mt-16 relative reveal reveal-delay-2">
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/20 to-violet-500/10 blur-3xl scale-105"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50 max-w-5xl mx-auto">
+              <img
+                src="/images/console-1.png"
+                alt="QualifyMe hiring dashboard"
+                class="w-full h-auto block"
+              />
+              {/* Floating badge */}
+              <div class="absolute bottom-4 left-4 flex items-center gap-3 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5">
+                <span class="h-2.5 w-2.5 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
+                <div>
+                  <p class="text-xs font-semibold text-white">AI Screening</p>
+                  <p class="text-xs text-white/60">Live · 3 candidates evaluated</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        */
-        }
       </Container>
+
+      {/* Bottom fade into next section */}
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white dark:from-gray-950 to-transparent pointer-events-none"></div>
     </section>
 
-    {/* AI Screening Section */}
-
-    {/* What is QualifyMe */}
-    <section id="about" class="py-20">
+    {/* ════════════════════════════════════════════════════════════════════════
+        LOGO MARQUEE
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-10 border-b border-gray-100 dark:border-gray-800">
       <Container>
-        <div class="text-center mb-12 md:mb-16">
-          <h2
-            class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl lg:text-5xl mb-4"
-          >
-            Your AI-Powered Hiring Assistant
-          </h2>
-          <p
-            class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto"
-          >
-            QualifyMe simplifies your hiring process with automated assessments,
-            intelligent scoring, and AI-led interviews. No spreadsheets. No
-            bottlenecks. Just faster, smarter hiring.
-          </p>
-        </div>
-        {/* Hero screenshot – dominant, impactful */}
-        <div class="relative mx-auto max-w-6xl">
-          <div
-            aria-hidden="true"
-            class="absolute -inset-4 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 dark:from-primary/30 dark:via-primary/15 dark:to-primary/30 rounded-[2rem] blur-2xl opacity-80"
-          >
-          </div>
-          <div
-            class="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-200/50 dark:ring-gray-700/50 ring-offset-4 ring-offset-white dark:ring-offset-gray-900"
-          >
-            <img
-              src="/images/console-1.png"
-              alt="QualifyMe console – manage jobs, candidates, and assessments in one dashboard"
-              class="w-full h-auto block dark:bg-gray-800 bg-gray-50"
-            />
-          </div>
-        </div>
-        <ul
-          class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mt-14 md:mt-16 text-gray-700 dark:text-gray-200 max-w-4xl mx-auto text-center sm:text-left"
-        >
-          <li
-            class="flex items-center gap-3 sm:flex-row justify-center sm:justify-start"
-          >
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-              ><span
-                class="iconify text-primary w-4 h-4"
-                data-icon="uil:check"
-                aria-hidden="true"></span></span
-            >Pre-built assessment workflows
-          </li>
-          <li
-            class="flex items-center gap-3 sm:flex-row justify-center sm:justify-start"
-          >
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-              ><span
-                class="iconify text-primary w-4 h-4"
-                data-icon="uil:check"
-                aria-hidden="true"></span></span
-            >Auto-evaluated test rounds
-          </li>
-          <li
-            class="flex items-center gap-3 sm:flex-row justify-center sm:justify-start"
-          >
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-              ><span
-                class="iconify text-primary w-4 h-4"
-                data-icon="uil:check"
-                aria-hidden="true"></span></span
-            >Smart candidate insights
-          </li>
-          <li
-            class="flex items-center gap-3 sm:flex-row justify-center sm:justify-start"
-          >
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center"
-              ><span
-                class="iconify text-primary w-4 h-4"
-                data-icon="uil:check"
-                aria-hidden="true"></span></span
-            >Collaboration-ready dashboard
-          </li>
-        </ul>
-      </Container>
-    </section>
-
-    {/* Key Benefits/Features */}
-    <section id="features" class="py-20">
-      <Container>
-        <h2
-          class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white text-center mb-4"
-        >
-          Key Benefits
-        </h2>
-        <p
-          class="text-gray-600 dark:text-gray-300 text-center text-lg max-w-2xl mx-auto mb-14 md:mb-16"
-        >
-          Everything you need to hire faster and smarter—without the manual
-          grind.
+        <p class="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">
+          Trusted by growing teams across fintech, SaaS, and enterprise hiring
         </p>
-
-        {/* Larger screenshot – full width of content area */}
-        <div class="relative mx-auto max-w-5xl mb-16 md:mb-20">
-          <div
-            aria-hidden="true"
-            class="absolute -inset-3 bg-gradient-to-br from-primary/15 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-2xl blur-xl opacity-70"
-          >
-          </div>
-          <div
-            class="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-200/50 dark:ring-gray-700/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900"
-          >
-            <img
-              src="/images/assessments.png"
-              alt="QualifyMe assessments – configure and manage your hiring rounds"
-              class="w-full h-auto block dark:bg-gray-800 bg-gray-50"
-            />
-          </div>
-        </div>
-
-        {/* Benefit cards – emphasis on each point */}
-        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          <div
-            class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-200"
-          >
-            <span
-              class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors"
-            >
-              <span
-                class="iconify w-6 h-6"
-                data-icon="uil:bell"
-                aria-hidden="true"></span>
-            </span>
-            <h3
-              class="text-xl font-semibold text-gray-800 dark:text-white mb-2"
-            >
-              Cut Hiring Time by 70%
-            </h3>
-            <p
-              class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed"
-            >
-              Automated workflows mean fewer manual steps. Qualify, shortlist,
-              and move candidates to interviews in hours—not weeks.
-            </p>
-          </div>
-          <div
-            class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-200"
-          >
-            <span
-              class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors"
-            >
-              <span
-                class="iconify w-6 h-6"
-                data-icon="uil:robot"
-                aria-hidden="true"></span>
-            </span>
-            <h3
-              class="text-xl font-semibold text-gray-800 dark:text-white mb-2"
-            >
-              AI That Does the Screening
-            </h3>
-            <p
-              class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed"
-            >
-              From MCQs to coding to AI interviews, QualifyMe auto-generates
-              questions and evaluates responses with precision.
-            </p>
-          </div>
-          <div
-            class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-200"
-          >
-            <span
-              class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors"
-            >
-              <span
-                class="iconify w-6 h-6"
-                data-icon="uil:list-ul"
-                aria-hidden="true"></span>
-            </span>
-            <h3
-              class="text-xl font-semibold text-gray-800 dark:text-white mb-2"
-            >
-              Customizable Hiring Workflows
-            </h3>
-            <p
-              class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed"
-            >
-              Create rounds tailored to each role—combine technical tests, soft
-              skill evaluations, and even human-reviewed interviews.
-            </p>
-          </div>
-          <div
-            class="group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/80 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-200"
-          >
-            <span
-              class="inline-flex w-12 h-12 rounded-xl bg-primary/10 text-primary items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors"
-            >
-              <span
-                class="iconify w-6 h-6"
-                data-icon="uil:chart-bar"
-                aria-hidden="true"></span>
-            </span>
-            <h3
-              class="text-xl font-semibold text-gray-800 dark:text-white mb-2"
-            >
-              Actionable Insights & Scorecards
-            </h3>
-            <p
-              class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed"
-            >
-              Instant access to ranked candidates, AI-generated feedback, and
-              downloadable reports for team discussion.
-            </p>
-          </div>
-        </div>
       </Container>
-    </section>
-
-    {/* How It Works */}
-    <section id="how-it-works" class="py-20">
-      <Container>
-        <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
-          <div class="w-full lg:w-1/2 flex justify-center">
-            <img
-              src="/images/candidate-portal.png"
-              alt="QualifyMe candidate portal – candidates complete assessments in one place"
-              class="rounded-2xl shadow-xl w-full max-w-md dark:bg-gray-800 bg-white"
-            />
-          </div>
-          <div class="w-full lg:w-1/2">
-            <h2
-              class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white mb-8"
-            >
-              How QualifyMe Works
-            </h2>
-            <ul class="space-y-8">
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 mt-1"
-                  ><span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:plus"
-                    aria-hidden="true"></span></span
-                >
-                <div>
-                  <h5
-                    class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
-                  >
-                    Create & Configure
-                  </h5>
-                  <p class="text-gray-600 dark:text-gray-300">
-                    Set up your job, choose assessment types, and configure
-                    workflows in minutes.
-                  </p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 mt-1"
-                  ><span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:desktop-alt"
-                    aria-hidden="true"></span></span
-                >
-                <div>
-                  <h5
-                    class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
-                  >
-                    Invite & Assess
-                  </h5>
-                  <p class="text-gray-600 dark:text-gray-300">
-                    Invite candidates, let them complete assessments at their
-                    convenience, and let AI do the screening.
-                  </p>
-                </div>
-              </li>
-              <li class="flex items-start gap-4">
-                <span class="flex-shrink-0 mt-1"
-                  ><span
-                    class="iconify text-primary w-8 h-8"
-                    data-icon="uil:user-check"
-                    aria-hidden="true"></span></span
-                >
-                <div>
-                  <h5
-                    class="text-lg font-semibold text-gray-700 dark:text-white mb-1"
-                  >
-                    Review & Hire
-                  </h5>
-                  <p class="text-gray-600 dark:text-gray-300">
-                    Get instant insights, collaborate with your team, and move
-                    the best candidates forward—fast.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </Container>
-    </section>
-
-    {/* Section 3: The Assessment Engine */}
-    <section id="assessment-engine" class="py-20">
-      <Container>
-        <div class="mb-12 text-center">
-          <h2
-            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-          >
-            The Assessment Engine
-          </h2>
-          <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">
-            Multiple Rounds. One Seamless Experience.
-          </p>
-        </div>
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:clipboard-notes"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              MCQs
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Role-based, auto-evaluated
-            </p>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:code-branch"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              Coding Tests
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Real-time execution, Judge0-powered
-            </p>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:video"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              Video Q&A
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Asynchronous, candidate-friendly
-            </p>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:layer-group"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              AI Avatar Interviews
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Coming Soon
-            </p>
-          </div>
-        </div>
-        <div class="mt-8 text-center text-gray-600 dark:text-gray-300">
-          Set it once. Use across any opening. Evaluate without bias.
-        </div>
-      </Container>
-    </section>
-
-    {/* Social Proof / Testimonials */}
-    <section id="testimonials" class="py-20">
-      <Container>
-        <div class="mb-12 text-center">
-          <h2
-            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-          >
-            Why Recruiters Love QualifyMe
-          </h2>
-        </div>
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Sanjay
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >CTO at Growthloop</span
-                >
-              </div>
+      <div class="marquee-track overflow-hidden">
+        <div class="animate-marquee gap-16 items-center">
+          {[...logos, ...logos].map((name) => (
+            <div class="flex-shrink-0 px-8">
+              <span class="text-gray-300 dark:text-gray-600 font-semibold text-lg tracking-wide select-none">
+                {name}
+              </span>
             </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "QualifyMe helped us hire 3 developers in under 10 days with
-              minimal effort. Game-changer for our startup."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Shruti
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Hiring Manager at Zeek.ai</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "Our shortlisting process is now automated. I don't review resumes
-              anymore. Just results."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Amit D.
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Founder, FinTech Startup</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "We cut our hiring time by 75%. With QualifyMe, we went from
-              screening manually for days to shortlisting in just hours. It's
-              like having a full hiring team powered by AI."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Shruti P.
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Talent Manager, HealthTech Company</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "The AI insights were spot on. The automated candidate scoring was
-              incredibly accurate. We found candidates who didn't look great on
-              paper but were top performers."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Karan V.
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Head of HR, SaaS Product Firm</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "The entire process runs on autopilot. We integrated the widget
-              into our site, and the system handles everything—from screening to
-              scheduling. Zero manual work."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Ritika S.
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Tech Lead, EdTech Company</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "The coding tests are excellent. We hired 4 developers using
-              QualifyMe's coding rounds. The built-in code editor and AI
-              evaluation saved us hours per candidate."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Neha R.
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Co-founder, D2C Brand</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "Loved the custom branding. The branded candidate portal looked
-              super professional. It gave our small startup a big-company feel."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-          <div
-            class="relative flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 border border-gray-100 dark:border-gray-700"
-          >
-            <div class="flex items-center gap-4 mb-6">
-              <div
-                class="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center"
-              >
-                <span
-                  class="iconify text-primary w-8 h-8"
-                  data-icon="uil:user"
-                  aria-hidden="true"></span>
-              </div>
-              <div>
-                <h6 class="text-lg font-semibold text-gray-800 dark:text-white">
-                  Ravi K.
-                </h6>
-                <span class="text-sm text-gray-500 dark:text-gray-300"
-                  >Senior Recruiter, IT Services Firm</span
-                >
-              </div>
-            </div>
-            <p class="text-gray-600 dark:text-gray-300 text-base flex-1">
-              "Our whole team collaborates better. I can easily share AI reports
-              with hiring managers and finalize decisions without long meetings.
-              It keeps us aligned and fast."
-            </p>
-            <span
-              class="iconify absolute right-8 top-8 w-8 h-8 text-primary opacity-20"
-              data-icon="uil:quote-right-alt"
-              aria-hidden="true"></span>
-          </div>
-        </div>
-      </Container>
-    </section>
-
-    {/* Section 4: AI Interview Avatar (Beta) */}
-    <section id="ai-avatar" class="py-20">
-      <Container>
-        <div class="mx-auto text-center md:w-2/3 lg:w-1/2">
-          <h2
-            class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl mb-4"
-          >
-            AI Interview Avatar <span
-              class="text-base font-semibold text-primary">(Beta)</span
-            >
-          </h2>
-          <img
-            src="/images/AI-interview-avatar.jpg"
-            alt="AI Interview Avatar"
-            class="mx-auto mb-6 rounded-full shadow-lg"
-          />
-          <p class="text-gray-600 dark:text-gray-300 text-lg mb-4">
-            Let AI Conduct the Interview
-          </p>
-          <p class="text-gray-600 dark:text-gray-300 mb-4">
-            QualifyMe’s talking avatar conducts interviews in real-time,
-            evaluates candidate responses, and gives you a full-fitment
-            score—instantly.
-          </p>
-          <span
-            class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full font-semibold"
-            >Coming soon. Be among the first to try.</span
-          >
-        </div>
-      </Container>
-    </section>
-
-    {/* Section 5: Built for Growing Teams */}
-    <section id="growing-teams" class="py-20">
-      <Container>
-        <div class="mb-12 text-center">
-          <h2
-            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-          >
-            Built for Growing Teams
-          </h2>
-          <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">
-            Whether you're hiring your 1st or 50th employee, QualifyMe scales
-            with you.
-          </p>
-        </div>
-        <div class="grid gap-8 md:grid-cols-3">
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:users-alt"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              Startups & Hiring Agencies
-            </h5>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:building"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              Mid-size Tech Companies
-            </h5>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:chart-line"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              Fast-growing Teams
-            </h5>
-          </div>
-        </div>
-        <div class="mt-8 text-center text-gray-600 dark:text-gray-300">
-          Use it as your primary screening tool or plug it into your existing
-          ATS.
-        </div>
-      </Container>
-    </section>
-
-    {/* Section 6: Integrate & Embed */}
-    <section id="integrate-embed" class="py-20">
-      <Container>
-        <div class="mb-12 text-center">
-          <h2
-            class="text-3xl font-bold text-gray-800 md:text-4xl dark:text-white"
-          >
-            Integrate & Embed
-          </h2>
-        </div>
-        <div class="grid gap-8 md:grid-cols-3">
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:list-ui-alt"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              Embed job listings
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Directly on your website
-            </p>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:linkedin-alt"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              LinkedIn Apply Connect
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Accept applications via LinkedIn (coming soon)
-            </p>
-          </div>
-          <div
-            class="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-md flex flex-col items-center"
-          >
-            <span
-              class="iconify text-primary w-16 h-16 mb-4"
-              data-icon="uil:integration"
-              aria-hidden="true"></span>
-            <h5
-              class="text-lg font-semibold text-gray-700 dark:text-white mb-2"
-            >
-              API + Webhook
-            </h5>
-            <p class="text-gray-600 dark:text-gray-300 text-center">
-              Full integration support
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
-
-    {/* Call to Action Banner */}
-    <section id="contact" class="relative py-16">
-      <div
-        aria-hidden="true"
-        class="absolute inset-0 h-max w-full m-auto grid grid-cols-2 -space-x-52 opacity-40 dark:opacity-20"
-      >
-        <div
-          class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"
-        >
-        </div>
-        <div
-          class="blur-[106px] h-32 bg-gradient-to-r from-cyan-400 to-sky-300 dark:to-indigo-600"
-        >
+          ))}
         </div>
       </div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        PROBLEM — light section, 3 problem cards
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="problem" class="bg-white dark:bg-gray-950 py-24 lg:py-32">
       <Container>
-        <div class="relative text-center space-y-6 md:w-8/12 lg:w-7/12 mx-auto">
-          <h1
-            class="text-4xl font-bold text-gray-800 dark:text-white md:text-5xl"
-          >
-            Start hiring smarter today
-          </h1>
-          <p class="text-xl text-gray-600 dark:text-gray-300">
-            Let AI do the heavy lifting while you focus on building great teams.
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">The Problem</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Hiring decisions are based<br class="hidden sm:block" /> on weak signals.
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+            Resumes are optimized. Interviews are rehearsed. Tests measure what candidates memorized — not how they perform.
           </p>
-          <div class="flex flex-wrap justify-center gap-6">
+          <p class="mt-3 text-lg text-gray-700 dark:text-gray-200 font-medium">
+            You end up hiring the best <em class="not-italic text-primary">candidate</em>, not the best <em class="not-italic text-primary">employee</em>.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              icon: "uil:file-alt",
+              color: "red",
+              title: "Resumes show claims",
+              body: "Not capability. Anyone can craft a strong profile.",
+            },
+            {
+              icon: "uil:comment-alt",
+              color: "orange",
+              title: "Interviews reward confidence",
+              body: "Not competence. Communication ≠ execution.",
+            },
+            {
+              icon: "uil:clipboard-alt",
+              color: "yellow",
+              title: "Tests measure recall",
+              body: "Not judgment. Scores don't reflect real decisions.",
+            },
+          ].map((card, i) => (
+            <div
+              class={`reveal reveal-delay-${i + 1} group relative rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
+            >
+              {/* Coloured top bar */}
+              <div class={`absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl ${card.color === "red" ? "bg-red-400" : card.color === "orange" ? "bg-orange-400" : "bg-yellow-400"}`}></div>
+              <span class={`inline-flex w-11 h-11 rounded-xl items-center justify-center mb-5 ${card.color === "red" ? "bg-red-50 dark:bg-red-900/20 text-red-500" : card.color === "orange" ? "bg-orange-50 dark:bg-orange-900/20 text-orange-500" : "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500"}`}>
+                <span class="iconify w-5 h-5" data-icon={card.icon} aria-hidden="true"></span>
+              </span>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{card.title}</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-base leading-relaxed">{card.body}</p>
+            </div>
+          ))}
+        </div>
+
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        TRANSITION — problem → solution bridge
+    ════════════════════════════════════════════════════════════════════════ */}
+    <div class="relative bg-indigo-600 dark:bg-indigo-700 py-14 overflow-hidden reveal">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+      <div aria-hidden="true" class="absolute -left-24 top-1/2 -translate-y-1/2 w-72 h-72 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div aria-hidden="true" class="absolute -right-24 top-1/2 -translate-y-1/2 w-72 h-72 bg-violet-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <Container>
+        <div class="relative text-center">
+          <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-snug">
+            You need to see how someone actually works —
+            <span class="block mt-1 text-indigo-200">before you hire them.</span>
+          </p>
+          <div class="mt-6 flex items-center justify-center gap-2 text-indigo-200/70 text-sm font-medium">
+            <span class="h-px w-12 bg-indigo-300/40"></span>
+            <span>That's exactly what QualifyMe does</span>
+            <span class="h-px w-12 bg-indigo-300/40"></span>
+          </div>
+        </div>
+      </Container>
+    </div>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        COMPARISON — subtle grey background
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="comparison" class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">The Solution</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            From screening candidates<br class="hidden sm:block" /> to evaluating performance
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+            QualifyMe helps you identify top candidates quickly with AI-powered screening — and go deeper with real-world job simulations when decisions matter most.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto reveal reveal-delay-1">
+          <div class="rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700">
+                  <th class="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Method</th>
+                  <th class="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden sm:table-cell">Limitation</th>
+                  <th class="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Signal</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+                {[
+                  { method: "Resume", limit: "Can be inflated", dots: 1 },
+                  { method: "Interview", limit: "Biased by confidence", dots: 2 },
+                  { method: "MCQs / Coding tests", limit: "Low predictive validity", dots: 3 },
+                ].map((row) => (
+                  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                    <td class="py-4 px-6 font-medium text-gray-700 dark:text-gray-300 text-sm">{row.method}</td>
+                    <td class="py-4 px-6 text-gray-500 dark:text-gray-400 text-sm hidden sm:table-cell">{row.limit}</td>
+                    <td class="py-4 px-6">
+                      <div class="flex gap-1.5">
+                        {[1,2,3,4,5].map((n) => (
+                          <span class={`w-3 h-3 rounded-full ${n <= row.dots ? "bg-primary" : "bg-gray-200 dark:bg-gray-700"}`}></span>
+                        ))}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+                <tr class="bg-indigo-50 dark:bg-indigo-950/40">
+                  <td class="py-5 px-6 font-bold text-gray-900 dark:text-white text-sm">
+                    <div class="flex items-center gap-2.5">
+                      Cognitive Simulations
+                      <span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">QualifyMe</span>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 font-normal mt-0.5">Decision-making under pressure</p>
+                  </td>
+                  <td class="py-5 px-6 text-gray-400 dark:text-gray-600 text-sm hidden sm:table-cell">—</td>
+                  <td class="py-5 px-6">
+                    <div class="flex gap-1.5">
+                      {[1,2,3,4,5].map(() => (
+                        <span class="w-3 h-3 rounded-full bg-primary"></span>
+                      ))}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-center mt-8 text-gray-600 dark:text-gray-400">
+            QualifyMe gives you both — fast screening for volume, and cognitive simulations for the decisions that matter.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        PLATFORM OVERVIEW — white, two feature cards
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="platform" class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">One Platform · Two Layers</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Start fast.<br class="hidden sm:block" /> Go deep when it matters.
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400">
+            Use AI screening to filter at speed. Add simulations when you need to see how someone actually thinks.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+
+          {/* AI Screening */}
+          <div class="reveal reveal-delay-1 group relative rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 md:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-green-400/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-7">
+                <div class="flex items-center gap-2 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 px-3 py-1">
+                  <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                  <span class="text-xs font-semibold text-green-700 dark:text-green-400">Live now</span>
+                </div>
+                <span class="iconify text-gray-300 dark:text-gray-700 w-10 h-10" data-icon="uil:bolt-alt" aria-hidden="true"></span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">AI Screening</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-base mb-7 leading-relaxed">
+                Auto-generated assessments, AI evaluation, and instant candidate ranking — fully automated from invite to shortlist.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  "Auto-generated MCQs, coding challenges, and video Q&A",
+                  "AI evaluates every response  instant scoring and ranking",
+                  "Custom multi-round workflows per role",
+                  "Branded candidate portal",
+                ].map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
+                      <span class="iconify text-green-600 dark:text-green-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p class="text-xs text-gray-400 dark:text-gray-500 mb-7 pb-7 border-b border-gray-200 dark:border-gray-800">
+                <strong class="text-gray-600 dark:text-gray-300">Best for:</strong> High-volume roles, technical validation, initial filtering
+              </p>
+              <a
+                href="https://console.qualifyme.ai"
+                class="inline-flex h-11 items-center gap-2 rounded-full bg-primary hover:bg-indigo-500 px-6 text-sm font-semibold text-white transition-colors shadow-sm shadow-indigo-500/25"
+              >
+                Get Started Free
+                <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+
+          {/* Cognitive Simulations */}
+          <div class="reveal reveal-delay-2 group relative rounded-3xl border-2 border-indigo-200 dark:border-indigo-800/50 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/40 dark:via-gray-900 dark:to-violet-950/20 p-8 md:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 right-0 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-7">
+                <div class="flex items-center gap-2 rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1">
+                  <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+                  <span class="text-xs font-semibold text-indigo-700 dark:text-indigo-300">Early access</span>
+                </div>
+                <span class="iconify text-indigo-200 dark:text-indigo-800 w-10 h-10" data-icon="uil:brain" aria-hidden="true"></span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Real-world Job Simulation</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-base mb-7 leading-relaxed">
+                Scenario-based simulations that respond to every decision — revealing judgment, adaptability, and performance under pressure.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  "Realistic work scenarios matched to your role",
+                  "Every decision has consequences — simulation responds like real work",
+                  "Adaptive difficulty that reveals how candidates handle escalation",
+                  "Structured hiring recommendation with full audit trail",
+                ].map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                      <span class="iconify text-indigo-600 dark:text-indigo-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p class="text-xs text-gray-400 dark:text-gray-500 mb-7 pb-7 border-b border-indigo-100 dark:border-indigo-900/40">
+                <strong class="text-gray-600 dark:text-gray-300">Best for:</strong> Senior hires, leadership roles, high-stakes decisions
+              </p>
+              <a
+                href="/contact"
+                class="inline-flex h-11 items-center gap-2 rounded-full border-2 border-indigo-500 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 px-6 text-sm font-semibold transition-colors"
+              >
+                Join Early Access →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center mt-8 text-sm text-gray-400 dark:text-gray-600">
+          Use one platform across the entire hiring funnel — from first screen to final decision.
+        </p>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SIMULATIONS DEEP DIVE — dark section for contrast
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="simulations" class="relative bg-gray-50 dark:bg-slate-950 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-40"></div>
+      <div aria-hidden="true" class="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div aria-hidden="true" class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start relative z-10">
+
+          {/* Left — steps */}
+          <div>
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-6 reveal">How Simulations Work</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-6 reveal reveal-delay-1">
+              Watch candidates<br/>
+              <span class="text-gradient-warm">perform, not just answer.</span>
+            </h2>
+            <p class="text-gray-600 dark:text-slate-400 text-lg mb-10 leading-relaxed reveal reveal-delay-2">
+              Job simulations drop candidates into realistic work scenarios. Live decisions with consequences, in a workspace that feels like their first week on the job.
+            </p>
+
+            <ol class="space-y-8">
+              {[
+                {
+                  title: "Define the role",
+                  body: "Upload a job description. The system identifies required skills and decision patterns.",
+                },
+                {
+                  title: "Candidate enters a real scenario",
+                  body: "A workspace with data, constraints, and a real problem to solve.",
+                },
+                {
+                  title: "Decisions drive outcomes",
+                  body: "Every action changes the scenario — just like real work.",
+                },
+                {
+                  title: "Difficulty adapts dynamically",
+                  body: "Stronger candidates face more complex challenges.",
+                },
+                {
+                  title: "Get a clear hiring recommendation",
+                  body: "Not just a score — a breakdown of how they think and act.",
+                },
+              ].map((step, i) => (
+                <li class={`flex gap-5 reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-sm font-bold mt-0.5 shadow-lg shadow-indigo-500/30">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h4 class="text-base font-semibold text-gray-900 dark:text-white mb-1.5">{step.title}</h4>
+                    <p class="text-gray-600 dark:text-slate-400 text-base leading-relaxed">{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div class="mt-10 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-5 reveal">
+              <p class="font-semibold text-gray-900 dark:text-white text-sm mb-1">Same candidate. Same scenario. Same result. Every time.</p>
+              <p class="text-gray-600 dark:text-slate-400 text-base">No interviewer bias. No AI guesswork. Fully auditable scoring.
+                <a href="/technology" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300 ml-1 underline underline-offset-2">See our Technology page →</a>
+              </p>
+            </div>
+
+            <a
+              href="/contact"
+              class="mt-8 inline-flex h-12 items-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-500 px-7 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:-translate-y-0.5 reveal"
+            >
+              Join Early Access
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          {/* Right — simulation UI mockup */}
+          <div class="lg:sticky lg:top-28 reveal reveal-delay-2">
+            <div class="rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-white/10 shadow-2xl shadow-black/10 dark:shadow-black/50 overflow-hidden">
+
+              {/* Window bar */}
+              <div class="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-white/8">
+                <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+                <span class="ml-3 text-xs text-gray-400 dark:text-gray-500 font-mono">qualifyme · simulation · sre-incident-001</span>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  <span class="text-xs text-green-400 font-semibold">LIVE</span>
+                </div>
+              </div>
+
+              <div class="p-5 space-y-4">
+                {/* Scenario card */}
+                <div class="rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-white/8 p-4">
+                  <div class="flex items-start gap-3">
+                    <span class="text-lg mt-0.5">🚨</span>
+                    <div>
+                      <p class="text-gray-900 dark:text-white text-sm font-semibold mb-1">Production Incident — 2:47 AM</p>
+                      <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">API latency spiking across 3 regions. Error rate climbing to 12%. Stakeholders are paging. You have limited information. What do you do first?</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Answer choices */}
+                <div class="space-y-2">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-1">Choose your first action</p>
+                  {[
+                    { label: "A. Rollback the last deployment immediately", selected: false },
+                    { label: "B. Investigate logs and metrics before acting", selected: true },
+                    { label: "C. Page leadership and escalate immediately", selected: false },
+                    { label: "D. Spin up new instances to absorb traffic", selected: false },
+                  ].map((opt) => (
+                    <div class={`rounded-lg border px-4 py-3 text-xs cursor-pointer transition-colors ${opt.selected ? "bg-indigo-50 dark:bg-indigo-600/30 border-indigo-400 dark:border-indigo-500/60 text-indigo-900 dark:text-white font-semibold" : "bg-gray-50 dark:bg-white/3 border-gray-200 dark:border-white/8 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-white/8"}`}>
+                      {opt.label}
+                      {opt.selected && <span class="ml-2 text-indigo-300">✓</span>}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Metrics bar */}
+                <div class="grid grid-cols-3 gap-3 pt-2 border-t border-gray-200 dark:border-white/8">
+                  <div class="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3 text-center">
+                    <p class="text-gray-500 text-xs mb-1">Decision</p>
+                    <p class="text-gray-900 dark:text-white font-bold text-sm">7 / 12</p>
+                  </div>
+                  <div class="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3 text-center">
+                    <p class="text-gray-500 text-xs mb-1">Pressure</p>
+                    <p class="text-orange-500 dark:text-orange-400 font-bold text-sm">High</p>
+                  </div>
+                  <div class="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3 text-center">
+                    <p class="text-gray-500 text-xs mb-1">Signal</p>
+                    <p class="text-green-600 dark:text-green-400 font-bold text-sm">Strong</p>
+                  </div>
+                </div>
+
+                {/* Skills */}
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/20 rounded-full px-2.5 py-0.5 text-xs">Triage discipline</span>
+                  <span class="bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/20 rounded-full px-2.5 py-0.5 text-xs">Escalation judgment</span>
+                  <span class="bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/20 rounded-full px-2.5 py-0.5 text-xs">Recovery under load</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Trust chip below mockup */}
+            <p class="text-center text-xs text-gray-500 dark:text-slate-500 mt-4">
+              Scenario adapts in real-time to every choice the candidate makes
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        USE CASES — white background
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="use-cases" class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Role-Matched Simulations</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Different roles require different thinking.<br class="hidden sm:block" />
+            <span class="text-gradient-warm">We test accordingly.</span>
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400">
+            We match the simulation to the cognitive demands of the actual job.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          {[
+            {
+              role: "Site Reliability Engineer",
+              scenario: "Cascading production failure. Stability dropping. Stakeholders paging. Every fix carries risk. Do they investigate first or patch under pressure?",
+              tags: ["Triage discipline", "Escalation judgment", "Recovery under load"],
+              icon: "uil:server",
+            },
+            {
+              role: "Backend Engineer",
+              scenario: "System drowning in technical debt. Limited resources. Every optimization has a cost. Do they refactor boldly or patch carefully?",
+              tags: ["Trade-off analysis", "Measurement discipline", "Refactoring courage"],
+              icon: "uil:code-branch",
+            },
+            {
+              role: "Product Manager",
+              scenario: "Engineering, design, and leadership pulling in different directions. Scope creeping. Someone needs to say no without burning trust.",
+              tags: ["Boundary-setting", "Conflict navigation", "Commitment management"],
+              icon: "uil:layer-group",
+            },
+            {
+              role: "Sales Leader",
+              scenario: "Mid-negotiation. The deal is valuable but the counterparty has leverage. Time running out. Every turn changes the dynamic.",
+              tags: ["Anchoring strategy", "Rapport management", "Closing instinct"],
+              icon: "uil:chart-line",
+            },
+            {
+              role: "Data Analyst",
+              scenario: "Noisy dataset, tight deadline, and a pattern that looks compelling — but might not be real. Can they resist concluding early?",
+              tags: ["Hypothesis discipline", "False-positive awareness", "Analytical rigor"],
+              icon: "uil:analytics",
+            },
+            {
+              role: "Designer",
+              scenario: "Brief is open but constraints are real — budget, timeline, audience resonance. Do they explore boldly or converge too early?",
+              tags: ["Divergent thinking", "Iteration discipline", "Convergence judgment"],
+              icon: "uil:palette",
+            },
+          ].map((card, i) => (
+            <div class={`reveal reveal-delay-${(i % 3) + 1} group relative rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:shadow-xl hover:-translate-y-1 hover:border-indigo-100 dark:hover:border-indigo-900 transition-all duration-300 cursor-default overflow-hidden`}>
+              <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-300/50 dark:via-indigo-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center">
+                  <span class="iconify text-primary w-5 h-5" data-icon={card.icon} aria-hidden="true"></span>
+                </span>
+                <h3 class="font-bold text-gray-900 dark:text-white text-sm leading-tight">{card.role}</h3>
+              </div>
+              <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">{card.scenario}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {card.tags.map((tag) => (
+                  <span class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs px-2 py-0.5 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Architect — full width */}
+        <div class="mt-5 rounded-2xl border-2 border-indigo-100 dark:border-indigo-900/50 bg-gradient-to-r from-indigo-50/80 via-white to-violet-50/80 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/30 p-6 md:p-8 reveal">
+          <div class="flex flex-col md:flex-row md:items-center gap-6">
+            <div class="flex items-center gap-3 flex-shrink-0">
+              <span class="w-11 h-11 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 flex items-center justify-center">
+                <span class="iconify text-primary w-6 h-6" data-icon="uil:server-network" aria-hidden="true"></span>
+              </span>
+              <h3 class="font-bold text-gray-900 dark:text-white">Software Architect</h3>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1">
+              Scalability, cost, and risk all competing. There's no right answer — only trade-offs. Can they reason through the constraints and defend their choices when challenged?
+            </p>
+            <div class="flex flex-wrap gap-1.5 flex-shrink-0">
+              <span class="bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs px-2.5 py-1 rounded-full font-medium">Structured reasoning</span>
+              <span class="bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs px-2.5 py-1 rounded-full font-medium">Trade-off articulation</span>
+              <span class="bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs px-2.5 py-1 rounded-full font-medium">Confidence under ambiguity</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center mt-10 text-gray-500 dark:text-gray-400 text-sm reveal">
+          Don't see your role? We map any job description to the right simulation automatically. —
+          <a href="/contact" class="text-primary hover:underline font-medium ml-1">Talk to us →</a>
+        </p>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        RESULTS — white, large stat display + testimonials
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="results" class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Proven Results</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Results, not resumes.
+          </h2>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-3 mb-14">
+          {[
+            { stat: "75%", label: "Faster shortlisting", context: "FinTech startup — days of manual screening to hours" },
+            { stat: "3", label: "Hires in 10 days", context: "Growing startup, minimal team overhead" },
+            { stat: "0", label: "Manual resume reviews", context: "AI surfaced candidates resumes would have missed" },
+          ].map((m, i) => (
+            <div class={`reveal reveal-delay-${i + 1} rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 text-center hover:shadow-lg transition-shadow duration-300`}>
+              <div class="text-5xl font-black text-primary mb-2 leading-none">{m.stat}</div>
+              <div class="font-semibold text-gray-800 dark:text-white mb-2 text-sm">{m.label}</div>
+              <p class="text-gray-400 dark:text-gray-500 text-sm leading-relaxed">{m.context}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Case study carousel ── */}
+        <div class="reveal mb-6">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">Customer Stories</p>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">Real companies. Real results.</h3>
+            </div>
+            <a href="/customers/case-studies" class="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-indigo-500 transition-colors">
+              All case studies
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <div class="relative" id="cs-carousel">
+            {/* Track */}
+            <div class="overflow-hidden rounded-3xl">
+              <div id="cs-track" class="flex" style="touch-action: pan-y;">
+                {caseStudies.map((cs) => (
+                  <div class="min-w-full">
+                    <div class={`flex flex-col lg:flex-row rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/60 dark:shadow-black/40`}>
+
+                      {/* Left panel — dark gradient with metric */}
+                      <div class={`lg:w-[38%] relative flex flex-col justify-between p-8 lg:p-10 overflow-hidden ${csAccentGradient[cs.accentColor]}`}>
+                        {/* Dot grid */}
+                        <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+                        {/* Glow blob */}
+                        <div aria-hidden="true" class={`absolute -bottom-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-30 ${csAccentGlow[cs.accentColor]}`}></div>
+
+                        <div class="relative z-10">
+                          <span class="inline-block text-xs font-semibold uppercase tracking-widest text-white/60 mb-4">{cs.industry}</span>
+                          <h4 class="text-xl font-bold text-white leading-snug">{cs.company}</h4>
+                          {cs.teamSize && <p class="text-sm text-white/50 mt-1">{cs.teamSize}</p>}
+                        </div>
+
+                        <div class="relative z-10 mt-8 lg:mt-0">
+                          <p class="text-7xl lg:text-8xl font-black text-white leading-none tracking-tight">{cs.keyMetric}</p>
+                          <p class="text-sm text-white/70 mt-3 leading-snug max-w-[180px]">{cs.keyMetricLabel}</p>
+                        </div>
+                      </div>
+
+                      {/* Right panel — story + outcomes */}
+                      <div class="lg:w-[62%] bg-white dark:bg-gray-900 flex flex-col justify-between p-8 lg:p-10">
+                        {/* Hook */}
+                        <div>
+                          <p class={`text-xs font-bold uppercase tracking-widest mb-3 ${csAccentMetric[cs.accentColor]}`}>
+                            {cs.headline}
+                          </p>
+                          <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white leading-snug mb-4">
+                            "{cs.hookLine}"
+                          </h3>
+                          <p class="text-gray-500 dark:text-gray-400 text-base leading-relaxed mb-7 border-l-2 border-gray-200 dark:border-gray-700 pl-4 italic">
+                            {cs.pullQuote}
+                          </p>
+
+                          {/* Outcomes */}
+                          <ul class="space-y-2.5 mb-8">
+                            {cs.outcomes.slice(0, 4).map((o) => (
+                              <li class="flex items-start gap-3">
+                                <span class={`flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center ${csAccentCheckBg[cs.accentColor]}`}>
+                                  <svg class={`w-3 h-3 ${csAccentCheckIcon[cs.accentColor]}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+                                  </svg>
+                                </span>
+                                <span class="text-gray-700 dark:text-gray-200 text-sm leading-snug">{o}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* CTA */}
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                          <a
+                            href={`/customers/case-studies/${cs.slug}`}
+                            class={`inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full transition-all duration-200 hover:-translate-y-0.5 shadow-sm ${csAccentCta[cs.accentColor]}`}
+                          >
+                            Read the full story
+                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                              <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Controls */}
+            <div class="flex items-center justify-between mt-5">
+              {/* Dots + progress */}
+              <div class="flex items-center gap-2" id="cs-dots">
+                {caseStudies.map((_, i) => (
+                  <button
+                    data-index={i}
+                    class={`cs-dot relative rounded-full overflow-hidden transition-all duration-300 ${i === 0 ? "w-16 h-2 bg-gray-200 dark:bg-gray-700" : "w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400"}`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  >
+                    {i === 0 && (
+                      <span id="cs-progress" class="absolute inset-y-0 left-0 rounded-full bg-indigo-600" style="width:0%"></span>
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              {/* Arrows */}
+              <div class="flex items-center gap-2">
+                <button
+                  id="cs-prev"
+                  class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 transition-all duration-200 disabled:opacity-30"
+                  aria-label="Previous"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+                <span id="cs-counter" class="text-xs font-semibold text-gray-400 dark:text-gray-500 tabular-nums w-8 text-center">1 / {caseStudies.length}</span>
+                <button
+                  id="cs-next"
+                  class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 flex items-center justify-center text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 transition-all duration-200"
+                  aria-label="Next"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Early access banner */}
+        <div class="rounded-3xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-violet-700 p-8 md:p-12 text-center text-white reveal">
+          <p class="text-xs font-bold uppercase tracking-widest mb-3 opacity-70">Simulations · Early Access</p>
+          <h3 class="text-2xl md:text-3xl font-bold mb-4 max-w-lg mx-auto leading-tight">
+            Be among the first teams to evaluate candidates through cognitive simulations.
+          </h3>
+          <p class="text-indigo-200 text-sm mb-7">Limited spots available. No commitment required.</p>
+          <a
+            href="/contact"
+            class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-600 hover:bg-indigo-50 font-semibold px-8 transition-colors shadow-xl shadow-black/20"
+          >
+            Join the waitlist
+            <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+          </a>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        PRICING PREVIEW — white
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="pricing" class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Pricing</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Simple pricing. Scales with you.
+          </h2>
+          <p class="mt-4 text-gray-500 dark:text-gray-400">
+            Less than the cost of a single bad hire.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2 max-w-4xl mx-auto">
+
+          {/* Screening */}
+          <div class="reveal reveal-delay-1 rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <div class="mb-6">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Screening</h3>
+              <p class="text-gray-400 text-base mt-1">Fast, accurate filtering at scale</p>
+            </div>
+            <ul class="space-y-3.5 flex-1 mb-8">
+              {[
+                "Auto-generated MCQs, coding tests, video Q&A",
+                "AI evaluation and instant candidate ranking",
+                "Custom workflows and branded portal",
+                "Team collaboration dashboard",
+                "Unlimited team members",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                  <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                    <span class="iconify text-gray-500 dark:text-gray-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
             <a
               href="https://console.qualifyme.ai"
-              class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max"
+              class="flex h-12 items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:border-primary hover:text-primary dark:hover:border-primary dark:hover:text-primary font-semibold text-sm transition-colors"
             >
-              <span
-                class="relative text-base font-semibold text-white dark:text-dark"
-                >Get Started Free</span
-              >
+              Start Free →
+            </a>
+          </div>
+
+          {/* Screening + Simulations */}
+          <div class="reveal reveal-delay-2 relative rounded-3xl border-2 border-indigo-500 dark:border-indigo-600 bg-gradient-to-br from-indigo-600 to-violet-700 p-8 flex flex-col shadow-2xl shadow-indigo-500/20">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="bg-white text-indigo-600 text-xs font-bold px-4 py-1.5 rounded-full shadow-lg">MOST POPULAR</span>
+            </div>
+            <div class="mb-6">
+              <h3 class="text-xl font-bold text-white">Screening + Simulations</h3>
+              <p class="text-indigo-200 text-base mt-1">See how candidates actually think</p>
+            </div>
+            <p class="text-xs text-indigo-300 font-semibold uppercase tracking-wider mb-3">Everything in Screening, plus:</p>
+            <ul class="space-y-3.5 flex-1 mb-8">
+              {[
+                "Cognitive simulation assessments",
+                "Role-matched scenario generation",
+                "Adaptive challenge escalation",
+                "Structured hiring recommendations",
+                "Full audit trail and reproducibility",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-indigo-100">
+                  <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-white/20 flex items-center justify-center">
+                    <span class="iconify text-white w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class="flex h-12 items-center justify-center rounded-full bg-white text-indigo-600 hover:bg-indigo-50 font-semibold text-sm transition-colors shadow-lg shadow-black/20"
+            >
+              Book a Demo →
+            </a>
+          </div>
+        </div>
+
+        <p class="text-center mt-8 text-sm text-gray-400 dark:text-gray-600 reveal">
+          Every plan includes unlimited team members and API access.
+          Need enterprise volume?
+          <a href="/contact" class="text-primary hover:underline ml-1">Talk to us →</a>
+        </p>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FINAL CTA — dark gradient
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="cta" class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-white/10 dark:bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Stop guessing.<br/>
+            <span class="text-gradient">Start seeing.</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-10">
+            See how candidates actually perform — before you hire them.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <a
+              href="https://console.qualifyme.ai"
+              class="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500 px-9 text-base font-semibold shadow-xl shadow-black/20 dark:shadow-indigo-500/30 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
             </a>
             <a
               href="/contact"
-              class="relative flex h-12 w-full items-center justify-center px-8 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max"
+              class="inline-flex h-14 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-9 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
             >
-              <span
-                class="relative text-base font-semibold text-primary dark:text-white"
-                >Schedule a Demo</span
-              >
+              Book a Demo
             </a>
           </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">No credit card required · First assessment in under 5 minutes</p>
         </div>
       </Container>
     </section>
+
   </main>
 </Layout>
+
+<script>
+  // Scroll-reveal with IntersectionObserver
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+  // ── Case study carousel ──────────────────────────────────────────────────
+  const track    = document.getElementById("cs-track") as HTMLElement;
+  const dots     = document.querySelectorAll<HTMLButtonElement>(".cs-dot");
+  const prevBtn  = document.getElementById("cs-prev") as HTMLButtonElement;
+  const nextBtn  = document.getElementById("cs-next") as HTMLButtonElement;
+  const counter  = document.getElementById("cs-counter") as HTMLElement;
+  const total    = dots.length;
+  let current    = 0;
+
+  const accentActive: Record<number, string> = {
+    0: "bg-indigo-600",
+    1: "bg-violet-600",
+    2: "bg-cyan-600",
+    3: "bg-emerald-600",
+  };
+  const accentProgress: Record<number, string> = {
+    0: "bg-indigo-600",
+    1: "bg-violet-600",
+    2: "bg-cyan-600",
+    3: "bg-emerald-600",
+  };
+
+  // Progress bar animation
+  let progressRaf: number | null = null;
+  let progressStart: number | null = null;
+
+  function startProgress() {
+    stopProgress();
+    const bar = document.getElementById("cs-progress");
+    if (!bar) return;
+    bar.style.transition = "none";
+    bar.style.width = "0%";
+    // Tiny delay so the reset paint flushes before animating
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        bar.style.transition = `width ${AUTOPLAY_MS}ms linear`;
+        bar.style.width = "100%";
+      });
+    });
+  }
+  function stopProgress() {
+    const bar = document.getElementById("cs-progress");
+    if (!bar) return;
+    bar.style.transition = "none";
+    bar.style.width = "0%";
+  }
+
+  function goTo(idx: number) {
+    current = (idx + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    track.style.transition = "transform 0.48s cubic-bezier(0.4,0,0.2,1)";
+
+    dots.forEach((d, i) => {
+      const active = i === current;
+      // Remove old progress bar span from every dot
+      const oldBar = d.querySelector("#cs-progress");
+      if (oldBar) oldBar.remove();
+
+      if (active) {
+        d.className = `cs-dot relative rounded-full overflow-hidden transition-all duration-300 w-16 h-2 bg-gray-200 dark:bg-gray-700`;
+        const bar = document.createElement("span");
+        bar.id = "cs-progress";
+        bar.className = `absolute inset-y-0 left-0 rounded-full ${accentProgress[current] ?? "bg-indigo-600"}`;
+        bar.style.width = "0%";
+        d.appendChild(bar);
+      } else {
+        d.className = `cs-dot rounded-full transition-all duration-300 w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400`;
+      }
+    });
+
+    counter.textContent = `${current + 1} / ${total}`;
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+  }
+
+  // ── Autoscroll ──────────────────────────────────────────────────────────
+  const AUTOPLAY_MS = 4500;
+  let autoTimer: ReturnType<typeof setInterval> | null = null;
+
+  function startAuto() {
+    stopAuto();
+    startProgress();
+    autoTimer = setInterval(() => { goTo(current + 1); startProgress(); }, AUTOPLAY_MS);
+  }
+  function stopAuto() {
+    if (autoTimer !== null) { clearInterval(autoTimer); autoTimer = null; }
+    stopProgress();
+  }
+  // Pause on any user interaction, resume 6 s after they stop
+  function onUserInteract() {
+    stopAuto();
+    clearTimeout((onUserInteract as any)._resume);
+    (onUserInteract as any)._resume = setTimeout(startAuto, 6000);
+  }
+
+  prevBtn.addEventListener("click", () => { goTo(current - 1); onUserInteract(); });
+  nextBtn.addEventListener("click", () => { goTo(current + 1); onUserInteract(); });
+  dots.forEach((d) => d.addEventListener("click", () => { goTo(Number(d.dataset.index)); onUserInteract(); }));
+
+  // Touch / drag swipe
+  let startX = 0;
+  track.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  track.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    setTimeout(startAuto, 6000);
+  });
+
+  // Mouse drag
+  let mouseStartX = 0;
+  let isDragging = false;
+  track.addEventListener("mousedown", (e) => { mouseStartX = e.clientX; isDragging = true; stopAuto(); });
+  track.addEventListener("mouseup", (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const diff = mouseStartX - e.clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+    setTimeout(startAuto, 6000);
+  });
+  track.addEventListener("mouseleave", () => { isDragging = false; });
+
+  // Pause while the carousel is hovered (desktop)
+  const carousel = document.getElementById("cs-carousel") as HTMLElement;
+  carousel.addEventListener("mouseenter", stopAuto);
+  carousel.addEventListener("mouseleave", startAuto);
+
+  // Pause when tab/window is hidden to avoid drift
+  document.addEventListener("visibilitychange", () => {
+    document.hidden ? stopAuto() : startAuto();
+  });
+
+  // Initial state
+  prevBtn.disabled = false;
+  startAuto();
+</script>
