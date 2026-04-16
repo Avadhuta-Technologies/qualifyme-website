@@ -8,29 +8,53 @@ const accentClasses = {
     badge: "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800",
     metric: "text-indigo-600 dark:text-indigo-400",
     bar: "bg-indigo-500",
-    link: "text-indigo-600 dark:text-indigo-400 hover:text-indigo-500",
+    link: "bg-indigo-600 hover:bg-indigo-700 text-white",
     dot: "bg-indigo-500",
+    section: "bg-indigo-50/60 dark:bg-indigo-950/20",
+    border: "border-indigo-100 dark:border-indigo-900/50",
+    quote: "border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950/30",
+    quoteText: "text-indigo-800 dark:text-indigo-200",
+    number: "text-indigo-100 dark:text-indigo-950",
+    metricBg: "bg-indigo-600 dark:bg-indigo-700",
   },
   violet: {
     badge: "bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800",
     metric: "text-violet-600 dark:text-violet-400",
     bar: "bg-violet-500",
-    link: "text-violet-600 dark:text-violet-400 hover:text-violet-500",
+    link: "bg-violet-600 hover:bg-violet-700 text-white",
     dot: "bg-violet-500",
+    section: "bg-violet-50/60 dark:bg-violet-950/20",
+    border: "border-violet-100 dark:border-violet-900/50",
+    quote: "border-violet-300 dark:border-violet-700 bg-violet-50 dark:bg-violet-950/30",
+    quoteText: "text-violet-800 dark:text-violet-200",
+    number: "text-violet-100 dark:text-violet-950",
+    metricBg: "bg-violet-600 dark:bg-violet-700",
   },
   cyan: {
     badge: "bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800",
     metric: "text-cyan-600 dark:text-cyan-400",
     bar: "bg-cyan-500",
-    link: "text-cyan-600 dark:text-cyan-400 hover:text-cyan-500",
+    link: "bg-cyan-600 hover:bg-cyan-700 text-white",
     dot: "bg-cyan-500",
+    section: "bg-cyan-50/60 dark:bg-cyan-950/20",
+    border: "border-cyan-100 dark:border-cyan-900/50",
+    quote: "border-cyan-300 dark:border-cyan-700 bg-cyan-50 dark:bg-cyan-950/30",
+    quoteText: "text-cyan-800 dark:text-cyan-200",
+    number: "text-cyan-100 dark:text-cyan-950",
+    metricBg: "bg-cyan-600 dark:bg-cyan-700",
   },
   emerald: {
     badge: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
     metric: "text-emerald-600 dark:text-emerald-400",
     bar: "bg-emerald-500",
-    link: "text-emerald-600 dark:text-emerald-400 hover:text-emerald-500",
+    link: "bg-emerald-600 hover:bg-emerald-700 text-white",
     dot: "bg-emerald-500",
+    section: "bg-emerald-50/60 dark:bg-emerald-950/20",
+    border: "border-emerald-100 dark:border-emerald-900/50",
+    quote: "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/30",
+    quoteText: "text-emerald-800 dark:text-emerald-200",
+    number: "text-emerald-100 dark:text-emerald-950",
+    metricBg: "bg-emerald-600 dark:bg-emerald-700",
   },
 };
 ---
@@ -82,75 +106,109 @@ const accentClasses = {
       </Container>
     </section>
 
-    {/* ── Case study cards ── */}
-    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
-      <Container>
-        <div class="grid gap-8 lg:grid-cols-2">
-          {caseStudies.map((cs, i) => {
-            const accent = accentClasses[cs.accentColor];
-            return (
-              <article
-                class={`reveal reveal-delay-${(i % 2) + 1} group relative rounded-3xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all duration-300`}
-              >
-                {/* Top accent bar */}
-                <div class={`absolute top-0 left-0 right-0 h-1 ${accent.bar}`}></div>
+    {/* ── Case study sections ── */}
+    {caseStudies.map((cs, i) => {
+      const accent = accentClasses[cs.accentColor];
+      const isEven = i % 2 === 0;
+      return (
+        <section class={`relative border-b ${accent.border} ${accent.section} py-20 lg:py-28 overflow-hidden`}>
+          {/* Giant background number */}
+          <div aria-hidden="true" class={`pointer-events-none select-none absolute top-1/2 -translate-y-1/2 ${isEven ? "-left-6" : "-right-6"} text-[18rem] font-black leading-none ${accent.number} opacity-80`}>
+            {String(i + 1).padStart(2, "0")}
+          </div>
 
-                <div class="p-8 md:p-10">
-                  {/* Header */}
-                  <div class="flex items-start justify-between gap-4 mb-6">
-                    <div>
-                      <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full border mb-3 ${accent.badge}`}>
-                        {cs.industry}
-                      </span>
-                      <h2 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">{cs.company}</h2>
-                      {cs.teamSize && (
-                        <p class="text-sm text-gray-400 mt-0.5">{cs.teamSize}</p>
-                      )}
+          {/* Top accent bar */}
+          <div class={`absolute top-0 left-0 right-0 h-1 ${accent.bar}`}></div>
+
+          <Container>
+            <div class={`relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center ${isEven ? "" : "lg:[direction:rtl]"}`}>
+
+              {/* ── Left/Right: Story side ── */}
+              <div class={isEven ? "" : "lg:[direction:ltr]"}>
+                <div class="flex items-center gap-3 mb-5">
+                  <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${accent.badge}`}>
+                    {cs.industry}
+                  </span>
+                  {cs.teamSize && (
+                    <span class="text-xs text-gray-400 dark:text-gray-500">{cs.teamSize}</span>
+                  )}
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white leading-tight mb-2">
+                  {cs.company}
+                </h2>
+                <p class="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-8 leading-snug">
+                  {cs.headline}
+                </p>
+
+                {/* Hook line */}
+                <p class={`text-xl sm:text-2xl font-bold leading-snug mb-6 ${accent.metric}`}>
+                  "{cs.hookLine}"
+                </p>
+
+                {/* Pull quote */}
+                <blockquote class={`rounded-2xl border-l-4 p-5 mb-8 ${accent.quote}`}>
+                  <p class={`text-sm leading-relaxed italic ${accent.quoteText}`}>{cs.pullQuote}</p>
+                </blockquote>
+
+                {/* Outcomes */}
+                <ul class="space-y-3 mb-8">
+                  {cs.outcomes.slice(0, 4).map((outcome) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                      <span class={`flex-shrink-0 mt-1.5 w-2 h-2 rounded-full ${accent.dot}`}></span>
+                      <span>{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={`/customers/case-studies/${cs.slug}`}
+                  class={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow-md ${accent.link}`}
+                >
+                  Read full case study
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+              {/* ── Right/Left: Metrics side ── */}
+              <div class={`flex flex-col gap-6 ${isEven ? "" : "lg:[direction:ltr]"}`}>
+                {/* Key metric hero */}
+                <div class={`rounded-3xl p-8 text-center text-white shadow-xl ${accent.metricBg}`}>
+                  <p class="text-6xl sm:text-7xl font-black leading-none mb-2">{cs.keyMetric}</p>
+                  <p class="text-sm font-medium opacity-80 max-w-[200px] mx-auto leading-snug">{cs.keyMetricLabel}</p>
+                </div>
+
+                {/* Impact example table (if present) */}
+                {cs.impact.example && (
+                  <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden shadow-sm">
+                    <div class="px-5 py-3 border-b border-gray-100 dark:border-gray-800">
+                      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">{cs.impact.example.label}</p>
                     </div>
-                    {/* Key metric */}
-                    <div class="text-right flex-shrink-0">
-                      <p class={`text-4xl font-black leading-none ${accent.metric}`}>{cs.keyMetric}</p>
-                      <p class="text-xs text-gray-400 mt-1 max-w-[120px] ml-auto leading-snug">{cs.keyMetricLabel}</p>
+                    <div class="divide-y divide-gray-100 dark:divide-gray-800">
+                      {cs.impact.example.items.map((item) => (
+                        <div class="flex items-center justify-between px-5 py-3">
+                          <span class="text-sm text-gray-500 dark:text-gray-400">{item.label}</span>
+                          <span class={`text-sm font-bold ${accent.metric}`}>{item.value}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
+                )}
 
-                  {/* Headline */}
-                  <h3 class="text-base font-semibold text-gray-700 dark:text-gray-300 mb-3 leading-snug">
-                    {cs.headline}
-                  </h3>
-
-                  {/* Summary */}
-                  <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-6">
-                    {cs.summary}
-                  </p>
-
-                  {/* Outcomes preview */}
-                  <ul class="space-y-2 mb-8">
-                    {cs.outcomes.slice(0, 3).map((outcome) => (
-                      <li class="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-300">
-                        <span class={`flex-shrink-0 mt-1 w-1.5 h-1.5 rounded-full ${accent.dot}`}></span>
-                        {outcome}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <a
-                    href={`/customers/case-studies/${cs.slug}`}
-                    class={`inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200 group-hover:gap-3 ${accent.link}`}
-                  >
-                    Read full case study
-                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </a>
+                {/* Why it worked callout */}
+                <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 shadow-sm">
+                  <p class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Why It Worked</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{cs.whyItWorked}</p>
                 </div>
-              </article>
-            );
-          })}
-        </div>
-      </Container>
-    </section>
+              </div>
+
+            </div>
+          </Container>
+        </section>
+      );
+    })}
 
     {/* ── CTA ── */}
     <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 py-20 overflow-hidden">

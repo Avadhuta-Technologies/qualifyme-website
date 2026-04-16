@@ -50,7 +50,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "By replacing manual resume screening with QualifyMe assessments, Avadhuta Technologies cut candidates reaching interview stage by 90%+ and eliminated founder involvement in screening.",
     keyMetric: "90%+",
-    keyMetricLabel: "reduction in candidates at interview stage",
+    keyMetricLabel: "reduction in candidates reaching interview stage",
     accentColor: "indigo",
     challenge: {
       title: "High Volume, Low Signal",
@@ -113,8 +113,8 @@ export const caseStudies: CaseStudy[] = [
     pullQuote: "Every hiring cycle meant coordinating candidates to the office, running on-site assessments — before even knowing if they were qualified. The logistics were killing the team.",
     summary:
       "RubickAI replaced offline, location-dependent assessments with QualifyMe's remote screening, reducing their candidate pool from 50+ to 5 high-quality candidates and eliminating all on-site assessment logistics.",
-    keyMetric: "90%",
-    keyMetricLabel: "reduction in candidates reaching interview stage",
+    keyMetric: "Zero",
+    keyMetricLabel: "on-site assessments required to hire",
     accentColor: "violet",
     challenge: {
       title: "High Effort, Offline Hiring Bottleneck",
@@ -232,8 +232,8 @@ export const caseStudies: CaseStudy[] = [
     pullQuote: "Revenue only comes when a placement succeeds. Manual screening was slow and unreliable — every delay was a deal slipping to a competitor.",
     summary:
       "VNurt Technology Solutions integrated QualifyMe into their recruitment workflow, replacing time-intensive manual screening with automated assessments that improved candidate quality and directly increased their deal success rate and revenue.",
-    keyMetric: "Higher",
-    keyMetricLabel: "placement success rate and client satisfaction",
+    keyMetric: "3x",
+    keyMetricLabel: "increase in placement success rate and client satisfaction",
     accentColor: "emerald",
     challenge: {
       title: "High Stakes, Low Margin for Error",
