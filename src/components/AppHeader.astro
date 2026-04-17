@@ -23,10 +23,6 @@ const navItems = [
     label: "Customers",
     submenu: [
       { to: "/customers/case-studies", label: "Case Studies" },
-      // { to: "/customers/case-studies/avadhuta", label: "Avadhuta Technologies" },
-      // { to: "/customers/case-studies/rubick", label: "RubickAI" },
-      // { to: "/customers/case-studies/softtech", label: "SoftTech Engineers" },
-      // { to: "/customers/case-studies/vnurt", label: "VNurt Technology" },
     ],
   },
   { to: "/pricing", label: "Pricing" },
@@ -35,8 +31,7 @@ const navItems = [
     label: "Resources",
     submenu: [
       { to: "/resources/blog", label: "Blog" },
-      { to: "/resources/guides", label: "Guides" },
-      { to: "/resources/help", label: "Help Center" },
+      { to: "/resources", label: "Help Center" },
     ],
   },
   {
@@ -44,7 +39,6 @@ const navItems = [
     submenu: [
       { to: "/about", label: "About" },
       { to: "/contact", label: "Contact" },
-      { to: "/careers", label: "Careers" },
     ],
   },
 ];
@@ -57,8 +51,7 @@ const navItems = [
 
         {/* ── Logo ── */}
         <a href="/" aria-label="QualifyMe home" class="flex items-center gap-2.5 flex-shrink-0">
-          <img src="/logo-dark.png"   alt="" class="h-7 w-auto block dark:hidden" />
-          <img src="/logo_white.png"  alt="" class="h-7 w-auto hidden dark:block" />
+          <img src="/logo_white.png"  alt="" class="h-7 w-auto" />
           <span class="text-lg font-bold tracking-tight text-gray-700 dark:text-gray-200">QualifyMe</span>
         </a>
 
@@ -103,13 +96,13 @@ const navItems = [
         {/* ── Desktop CTAs ── */}
         <div class="hidden lg:flex items-center gap-2">
           <a
-            href="/contact"
+            href="/book-demo"
             class="nav-outline h-9 px-4 rounded-full text-sm font-semibold border transition-colors duration-200 flex items-center"
           >
             Book a Demo
           </a>
           <a
-            href="https://console.qualifyme.ai"
+            href="https://console.qualifyme.ai/sign-up"
             class="h-9 px-5 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors duration-200 shadow-sm shadow-indigo-500/30 flex items-center gap-1.5"
           >
             Get Started
@@ -168,13 +161,13 @@ const navItems = [
           {/* Mobile CTAs */}
           <div class="pb-5 pt-3 border-t nav-mobile-cta-border flex flex-col gap-2.5">
             <a
-              href="/contact"
+              href="/book-demo"
               class="nav-outline flex items-center justify-center h-10 rounded-full border text-sm font-semibold transition-colors"
             >
               Book a Demo
             </a>
             <a
-              href="https://console.qualifyme.ai"
+              href="https://console.qualifyme.ai/sign-up"
               class="flex items-center justify-center gap-2 h-10 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold transition-colors shadow-sm shadow-indigo-500/20"
             >
               Get Started
