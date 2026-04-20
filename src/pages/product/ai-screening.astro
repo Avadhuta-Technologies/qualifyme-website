@@ -1,0 +1,409 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+---
+
+<Layout
+  title="AI Screening — QualifyMe"
+  description="Stop screening manually. QualifyMe auto-generates role-specific assessments, evaluates every response with AI, and delivers a ranked shortlist — before you've opened a single CV."
+  keywords="AI screening, automated candidate screening, MCQ assessment, coding test, candidate ranking, recruitment automation"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-50"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-green-600/10 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — copy */}
+          <div>
+            <div class="flex items-center gap-2 mb-5 reveal">
+              <span class="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-green-300">AI Screening · Live Now</span>
+            </div>
+            <h1 class="font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+              Stop screening<br />
+              manually.<br />
+              <span class="text-gradient">Let AI do it.</span>
+            </h1>
+            <p class="text-lg text-indigo-100 dark:text-slate-300 leading-relaxed mb-10 max-w-lg reveal reveal-delay-2">
+              QualifyMe auto-generates role-specific assessments, evaluates every response, and delivers a ranked candidate list — before you've opened a single CV.
+            </p>
+            <div class="flex flex-wrap gap-4 mb-12 reveal reveal-delay-3">
+              <a
+                href="https://console.qualifyme.ai/sign-up"
+                class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+              >
+                Get Started Free
+                <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+              </a>
+              <a
+                href="/book-demo"
+                class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+              >
+                Book a Demo
+              </a>
+            </div>
+            {/* Trust stats */}
+            <div class="flex flex-wrap gap-8 reveal reveal-delay-3">
+              {[
+                { num: "2,400+", label: "assessments delivered" },
+                { num: "70%", label: "faster time-to-shortlist" },
+                { num: "100%", label: "audit-ready scoring" },
+              ].map((s) => (
+                <div>
+                  <p class="text-2xl font-bold text-white">{s.num}</p>
+                  <p class="text-xs text-indigo-200/80 dark:text-slate-400 mt-0.5">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — product UI mockup */}
+          <div class="relative reveal reveal-delay-2">
+            <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/20 to-violet-500/10 blur-3xl scale-105"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
+              {/* Window bar */}
+              <div class="flex items-center gap-2 px-4 py-3 bg-gray-900/90 border-b border-white/8">
+                <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+                <span class="ml-3 text-xs text-gray-400 font-mono">qualifyme · screening · backend-engineer</span>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  <span class="text-xs text-green-400 font-semibold">EVALUATING</span>
+                </div>
+              </div>
+              <div class="bg-gray-950 p-5 space-y-3">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Candidate Rankings — Backend Engineer</p>
+                {[
+                  { name: "Arjun Mehta", score: 94, tag: "Strong match", color: "green" },
+                  { name: "Priya Sharma", score: 88, tag: "Strong match", color: "green" },
+                  { name: "Rahul Verma", score: 76, tag: "Good fit", color: "indigo" },
+                  { name: "Sneha Iyer", score: 61, tag: "Review needed", color: "amber" },
+                ].map((c) => (
+                  <div class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/8 px-4 py-3">
+                    <div class="w-7 h-7 rounded-full bg-indigo-600/30 flex items-center justify-center text-xs font-bold text-indigo-300 flex-shrink-0">
+                      {c.name.charAt(0)}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-semibold text-white leading-none">{c.name}</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${c.color === "green" ? "bg-green-500/20 text-green-400" : c.color === "indigo" ? "bg-indigo-500/20 text-indigo-400" : "bg-amber-500/20 text-amber-400"}`}>{c.tag}</span>
+                      <span class="text-base font-black text-white tabular-nums">{c.score}</span>
+                    </div>
+                  </div>
+                ))}
+                <div class="flex items-center justify-between pt-2 border-t border-white/8 text-xs text-gray-500">
+                  <span>12 candidates evaluated · AI scoring complete</span>
+                  <span class="text-green-400 font-semibold">↑ Ready to review</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none hidden dark:block"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        PROBLEM
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">The Problem</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Manual screening doesn't scale.<br class="hidden sm:block" /> And it was never that accurate.
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+            The average job posting gets 250+ applications. Most hiring teams spend hours per role reading CVs — and the best candidates still slip through.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          {[
+            { icon: "uil:clock", color: "red", title: "Hours lost to manual review", body: "Hiring managers spend up to 23 hours screening for a single hire — time taken from work they were actually hired to do." },
+            { icon: "uil:user-times", color: "orange", title: "Good candidates lost in the pile", body: "When screening is manual, the best candidates aren't always the ones that look best on paper. Talent gets filtered out before it's evaluated." },
+            { icon: "uil:times-circle", color: "yellow", title: "Inconsistent shortlisting", body: "Different reviewers, different standards, different results. The shortlist reflects fatigue as much as merit." },
+          ].map((card, i) => (
+            <div class={`reveal reveal-delay-${i + 1} relative rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 overflow-hidden`}>
+              <div class={`absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl ${card.color === "red" ? "bg-red-400" : card.color === "orange" ? "bg-orange-400" : "bg-yellow-400"}`}></div>
+              <span class={`inline-flex w-11 h-11 rounded-xl items-center justify-center mb-5 ${card.color === "red" ? "bg-red-50 dark:bg-red-900/20 text-red-500" : card.color === "orange" ? "bg-orange-50 dark:bg-orange-900/20 text-orange-500" : "bg-yellow-50 dark:bg-yellow-900/20 text-yellow-500"}`}>
+                <span class="iconify w-5 h-5" data-icon={card.icon} aria-hidden="true"></span>
+              </span>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{card.title}</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{card.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-14 relative bg-indigo-600 dark:bg-indigo-700 rounded-2xl py-10 px-8 text-center overflow-hidden reveal">
+          <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+          <p class="relative text-xl md:text-2xl font-bold text-white">
+            There's a faster, more consistent way — and it doesn't require a recruiter to review every application.
+          </p>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HOW IT WORKS — 5 steps
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">How It Works</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            From job description to ranked shortlist —<br class="hidden sm:block" /> automatically.
+          </h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <ol class="space-y-0">
+            {[
+              { n: "01", title: "Paste your job description", body: "Upload or paste a JD. QualifyMe reads the role requirements and maps them to the right mix of question formats and difficulty levels. No configuration required." },
+              { n: "02", title: "Review and customize", body: "The platform generates a complete assessment. Edit any question, adjust weights, add your own questions, or approve the draft as-is. Most are ready in under 5 minutes." },
+              { n: "03", title: "Invite candidates", body: "Send a branded assessment link directly from QualifyMe or integrate with your ATS. Candidates complete on any device, in any timezone, within your window." },
+              { n: "04", title: "AI evaluates every response", body: "As candidates submit, AI scores each answer in real time using the role-specific rubric. Consistent across every candidate — no fatigue, no bias, no variability." },
+              { n: "05", title: "Review your ranked shortlist", body: "Open your dashboard to a ranked list — each candidate scored, explained, and ready to act on. See where they excelled, where they struggled, and who to move forward." },
+            ].map((step, i) => (
+              <li class={`reveal reveal-delay-${Math.min(i + 1, 4)} relative flex gap-6 pb-10 last:pb-0`}>
+                {i < 4 && <div class="absolute left-7 top-14 bottom-0 w-px bg-gray-200 dark:bg-gray-800"></div>}
+                <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-lg shadow-indigo-500/25">
+                  {step.n}
+                </div>
+                <div class="pt-3.5">
+                  <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
+                  <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        ASSESSMENT FORMATS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Assessment Formats</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            The right format for every role.<br class="hidden sm:block" /> Not just multiple choice.
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400">
+            QualifyMe matches the format to what the role actually requires.
+          </p>
+        </div>
+
+        <div class="space-y-6 max-w-4xl mx-auto">
+          {[
+            {
+              icon: "uil:clipboard-notes",
+              tag: "Domain knowledge, technical fundamentals",
+              title: "Auto-generated, role-calibrated MCQs",
+              items: [
+                "Questions generated directly from your job description",
+                "Covers domain knowledge, conceptual understanding, and job-specific scenarios",
+                "Difficulty calibrated to role seniority",
+                "AI-scored instantly — no manual marking",
+                "Anti-cheat detection built in",
+              ],
+            },
+            {
+              icon: "uil:code-branch",
+              tag: "Engineering, data, and technical roles",
+              title: "Real coding challenges — not algorithm puzzles",
+              items: [
+                "Multi-language support: Python, JavaScript, Java, SQL, and more",
+                "Practical problem-solving over algorithm memorization",
+                "Test cases auto-generated to validate actual output",
+                "Plagiarism and copy-paste detection",
+                "Execution environment runs in-browser — no setup required",
+              ],
+            },
+            {
+              icon: "uil:comment-alt-message",
+              tag: "Communication, reasoning, and open-ended evaluation",
+              title: "Open-ended questions. Typed or spoken — candidate's choice.",
+              items: [
+                "Custom question prompts built from the role's communication and reasoning demands",
+                "Candidates answer by typing a written response or submitting a voice recording",
+                "AI evaluates response quality, structured thinking, and clarity regardless of format",
+                "Eliminates scheduling friction — no live calls, no coordination, no time-zone issues",
+                "Reviewer tools: side-by-side response comparison, AI summary, scoring rubric",
+              ],
+            },
+          ].map((fmt, i) => (
+            <div class={`reveal reveal-delay-${(i % 3) + 1} rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 md:p-10 flex flex-col md:flex-row gap-8`}>
+              <div class="flex-shrink-0">
+                <span class="inline-flex w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-950/50 items-center justify-center">
+                  <span class="iconify text-primary w-7 h-7" data-icon={fmt.icon} aria-hidden="true"></span>
+                </span>
+              </div>
+              <div class="flex-1">
+                <p class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-2">Best for: {fmt.tag}</p>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-5">{fmt.title}</h3>
+                <ul class="space-y-2.5">
+                  {fmt.items.map((item) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                      <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                        <span class="iconify text-indigo-600 dark:text-indigo-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        WORKFLOW FEATURES
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Built to Fit Your Process</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Fits into how your team<br class="hidden sm:block" /> already works.
+          </h2>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+          {[
+            { icon: "uil:palette", title: "Branded candidate portal", body: "Your logo, your colors. Candidates experience your employer brand throughout." },
+            { icon: "uil:layer-group", title: "Multi-round workflows", body: "Build multi-stage sequences with pass/fail logic between rounds and custom thresholds per stage." },
+            { icon: "uil:copy", title: "Role libraries", body: "Save and reuse assessment templates across campaigns. Build a library of your best assessments." },
+            { icon: "uil:plug", title: "ATS integration", body: "Push results directly to your existing ATS or export to CSV. API available on all plans." },
+            { icon: "uil:users-alt", title: "Team collaboration", body: "Invite hiring managers and reviewers. Assign roles and visibility by team member." },
+            { icon: "uil:envelope", title: "Candidate communication", body: "Automated invite, reminder, and completion email sequences. Configurable per campaign." },
+          ].map((f, i) => (
+            <div class={`reveal reveal-delay-${(i % 3) + 1} rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/80 p-6 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300`}>
+              <span class="inline-flex w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 items-center justify-center mb-4">
+                <span class="iconify text-primary w-5 h-5" data-icon={f.icon} aria-hidden="true"></span>
+              </span>
+              <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-2">{f.title}</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        RESULTS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Proven Results</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Real outcomes from teams like yours.
+          </h2>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-3 max-w-4xl mx-auto">
+          {[
+            { stat: "75%", label: "Faster shortlisting", context: "FinTech startup — from days of manual screening to hours, without adding headcount." },
+            { stat: "3", label: "Hires in 10 days", context: "Growing startup ran parallel campaigns with minimal coordination overhead." },
+            { stat: "0", label: "Manual resume reviews", context: "AI surfaced candidates that resume review would have missed entirely." },
+          ].map((m, i) => (
+            <div class={`reveal reveal-delay-${i + 1} rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 text-center hover:shadow-lg transition-shadow duration-300`}>
+              <div class="text-5xl font-black text-primary mb-2 leading-none">{m.stat}</div>
+              <div class="font-semibold text-gray-800 dark:text-white mb-2 text-sm">{m.label}</div>
+              <p class="text-gray-400 dark:text-gray-500 text-sm leading-relaxed">{m.context}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SIMULATIONS TEASER
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-16">
+      <Container>
+        <div class="max-w-3xl mx-auto rounded-3xl border-2 border-indigo-200 dark:border-indigo-800/50 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/20 p-8 md:p-12 reveal">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">When screening isn't enough</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+            Screening tells you who passed.<br />Simulations tell you who'll perform.
+          </h3>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-7 max-w-xl">
+            For senior roles and high-stakes decisions, a ranked score isn't the whole answer. Cognitive Simulations drop your finalists into realistic work scenarios — revealing how they think, decide, and recover under real pressure.
+          </p>
+          <a href="/product/simulations" class="inline-flex items-center gap-2 font-semibold text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors">
+            Explore Cognitive Simulations
+            <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+          </a>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FINAL CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Your first assessment<br />
+            <span class="text-gradient">in under 5 minutes.</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-10">
+            No credit card. No onboarding call. Paste a JD and go.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="https://console.qualifyme.ai/sign-up"
+              class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-8 text-base font-semibold shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/book-demo"
+              class="inline-flex h-13 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">Used by teams across fintech, SaaS, and enterprise hiring.</p>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

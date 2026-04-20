@@ -1,0 +1,481 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+---
+
+<Layout
+  title="Cognitive Simulations — QualifyMe"
+  description="A resume tells you what someone's done. A simulation shows you what they'll do. Drop candidates into realistic job scenarios where every decision has consequences."
+  keywords="cognitive simulations, job simulations, candidate decision-making, scenario-based assessment, hiring for performance"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-50"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+
+      <Container>
+        <div class="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* Left — copy */}
+          <div>
+            <div class="flex items-center gap-2 mb-5 reveal">
+              <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+              <span class="text-xs font-bold uppercase tracking-widest text-indigo-300">Cognitive Simulations · Early Access — Launching Soon</span>
+            </div>
+            <h1 class="font-bold text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+              A resume tells you<br />
+              what someone's done.<br />
+              <span class="text-gradient">A simulation shows<br />what they'll do.</span>
+            </h1>
+            <p class="text-lg text-indigo-100 dark:text-slate-300 leading-relaxed mb-8 max-w-lg reveal reveal-delay-2">
+              Cognitive Simulations drop candidates into realistic job scenarios. Every decision has consequences. Every response is tracked. You see exactly how they think — before they're on your team.
+            </p>
+            <p class="text-sm text-indigo-200/80 mb-10 reveal reveal-delay-2">
+              Same candidate. Same scenario. Same result — every time. No interviewer bias. No AI guesswork.
+            </p>
+            <div class="flex flex-wrap gap-4 reveal reveal-delay-3">
+              <a
+                href="/contact"
+                class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+              >
+                Join Early Access
+                <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+              </a>
+              <a
+                href="#how-it-works"
+                class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+              >
+                See How It Works
+              </a>
+            </div>
+          </div>
+
+          {/* Right — simulation UI mockup */}
+          <div class="lg:self-start reveal reveal-delay-2">
+            <div class="rounded-2xl bg-white dark:bg-gray-900 border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+              <div class="flex items-center gap-2 px-4 py-3 bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-white/8">
+                <span class="w-3 h-3 rounded-full bg-red-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/70"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/70"></span>
+                <span class="ml-3 text-xs text-gray-400 dark:text-gray-500 font-mono">qualifyme · simulation · sre-incident-001</span>
+                <div class="ml-auto flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  <span class="text-xs text-green-400 font-semibold">LIVE</span>
+                </div>
+              </div>
+              <div class="p-5 space-y-4">
+                <div class="rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-white/8 p-4">
+                  <div class="flex items-start gap-3">
+                    <span class="text-lg mt-0.5">🚨</span>
+                    <div>
+                      <p class="text-gray-900 dark:text-white text-sm font-semibold mb-1">Production Incident — 2:47 AM</p>
+                      <p class="text-gray-600 dark:text-gray-400 text-xs leading-relaxed">API latency spiking across 3 regions. Error rate climbing to 12%. Stakeholders are paging. You have limited information. What do you do first?</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-1">Choose your first action</p>
+                  {[
+                    { label: "A. Rollback the last deployment immediately", selected: false },
+                    { label: "B. Investigate logs and metrics before acting", selected: true },
+                    { label: "C. Page leadership and escalate immediately", selected: false },
+                    { label: "D. Spin up new instances to absorb traffic", selected: false },
+                  ].map((opt) => (
+                    <div class={`rounded-lg border px-4 py-3 text-xs ${opt.selected ? "bg-indigo-50 dark:bg-indigo-600/30 border-indigo-400 dark:border-indigo-500/60 text-indigo-900 dark:text-white font-semibold" : "bg-gray-50 dark:bg-white/3 border-gray-200 dark:border-white/8 text-gray-600 dark:text-gray-400"}`}>
+                      {opt.label}
+                      {opt.selected && <span class="ml-2 text-indigo-500 dark:text-indigo-300">✓</span>}
+                    </div>
+                  ))}
+                </div>
+                <div class="grid grid-cols-3 gap-3 pt-2 border-t border-gray-200 dark:border-white/8">
+                  <div class="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3 text-center">
+                    <p class="text-gray-500 text-xs mb-1">Decision</p>
+                    <p class="text-gray-900 dark:text-white font-bold text-sm">7 / 12</p>
+                  </div>
+                  <div class="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3 text-center">
+                    <p class="text-gray-500 text-xs mb-1">Pressure</p>
+                    <p class="text-orange-500 dark:text-orange-400 font-bold text-sm">High</p>
+                  </div>
+                  <div class="rounded-lg bg-gray-50 dark:bg-gray-800/60 p-3 text-center">
+                    <p class="text-gray-500 text-xs mb-1">Signal</p>
+                    <p class="text-green-600 dark:text-green-400 font-bold text-sm">Strong</p>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/20 rounded-full px-2.5 py-0.5 text-xs">Triage discipline</span>
+                  <span class="bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/20 rounded-full px-2.5 py-0.5 text-xs">Escalation judgment</span>
+                  <span class="bg-indigo-50 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-500/20 rounded-full px-2.5 py-0.5 text-xs">Recovery under load</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-center text-xs text-indigo-300/60 mt-4">Scenario adapts in real-time to every choice the candidate makes</p>
+          </div>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none hidden dark:block"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        WHAT ARE SIMULATIONS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">What Are Simulations?</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Not a quiz. Not a case study.<br class="hidden sm:block" /> Something closer to the actual job.
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            A cognitive simulation is a structured, interactive work scenario where candidates make real decisions — with consequences. What we're measuring isn't what they know. It's how they think.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto reveal reveal-delay-1">
+          <div class="rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700">
+                  <th class="py-4 px-6 text-xs font-semibold text-red-500 uppercase tracking-wider">What simulations are NOT</th>
+                  <th class="py-4 px-6 text-xs font-semibold text-green-600 dark:text-green-400 uppercase tracking-wider">What simulations ARE</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+                {[
+                  ["Not a personality profile", "A direct performance signal"],
+                  ["Not a trivia test", "A work-realistic challenge"],
+                  ["Not a behavioral interview", "A live decision environment"],
+                  ["Not a one-size-fits-all assessment", "Role-matched to cognitive demands"],
+                  ["Not subjective", "Fully auditable, reproducible scoring"],
+                ].map((row) => (
+                  <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors">
+                    <td class="py-3.5 px-6 text-sm text-gray-500 dark:text-gray-400">
+                      <span class="flex items-center gap-2">
+                        <span class="text-red-400 font-bold text-xs">✗</span>
+                        {row[0]}
+                      </span>
+                    </td>
+                    <td class="py-3.5 px-6 text-sm font-medium text-gray-800 dark:text-gray-200">
+                      <span class="flex items-center gap-2">
+                        <span class="text-green-500 font-bold text-xs">✓</span>
+                        {row[1]}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HOW IT WORKS — 5 steps
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="how-it-works" class="relative bg-gray-50 dark:bg-slate-950 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/8 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">How It Works</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            From job description to<br class="hidden sm:block" /> hiring decision.
+          </h2>
+        </div>
+
+        <div class="relative max-w-2xl mx-auto">
+          <ol class="space-y-0">
+            {[
+              { n: "01", title: "You describe the role. We build the scenario.", body: "Paste in a job description. QualifyMe analyzes the cognitive demands of the role — crisis management, stakeholder navigation, analytical rigor — and generates a simulation calibrated to what the job actually requires. No generic templates." },
+              { n: "02", title: "The candidate enters a realistic workspace.", body: "They see a simulated work environment: dashboards, documents, communications, and a problem to solve. An SRE faces a system degrading under load. A product manager walks into conflicting stakeholder demands. It feels like real work because it's modeled on how real work unfolds." },
+              { n: "03", title: "Every decision has consequences.", body: "The simulation responds to what the candidate does — not just what they say. Rush a fix without investigating? The system might get worse. Overcommit to a stakeholder? That promise compounds. There's no correct answer to memorize. Only choices, and what happens because of them." },
+              { n: "04", title: "The challenge adapts when we need to see more.", body: "If the baseline scenario can't separate strong from exceptional, the simulation escalates. A second failure hits. A constraint tightens. Not randomized difficulty — calibrated escalation designed to reveal how candidates adapt and recover when their first approach stops working." },
+              { n: "05", title: "You get a clear recommendation — not a vague score.", body: "What the candidate did at each decision point. Whether they investigated before acting or guessed under pressure. How they handled ambiguity, conflict, and escalation. Every finding maps to a specific action they took — not an inference, not a prediction." },
+            ].map((step, i) => (
+              <li class={`reveal reveal-delay-${Math.min(i + 1, 4)} relative flex gap-6 pb-10 last:pb-0`}>
+                {i < 4 && <div class="absolute left-7 top-14 bottom-0 w-px bg-indigo-200 dark:bg-indigo-900/50"></div>}
+                <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-lg shadow-indigo-500/30">
+                  {step.n}
+                </div>
+                <div class="pt-3.5">
+                  <h3 class="text-base font-bold text-gray-900 dark:text-white mb-2">{step.title}</h3>
+                  <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        KEY CAPABILITIES — 3 blocks
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">What Makes It Different</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            What makes cognitive<br class="hidden sm:block" /> simulations different.
+          </h2>
+        </div>
+
+        <div class="space-y-6 max-w-4xl mx-auto">
+          {[
+            {
+              icon: "uil:scenery",
+              title: "Real scenarios, not hypotheticals",
+              body: "Most assessments ask what candidates would do. Simulations ask them to actually do it. Scenario design is based on real role archetypes — drawn from the cognitive and behavioral demands that distinguish strong performers in each function. Every challenge reflects how real work unfolds: ambiguous, multi-threaded, and dependent on judgment.",
+              result: "You see decision-making under realistic conditions — not self-reported behavior.",
+            },
+            {
+              icon: "uil:arrow-growth",
+              title: "Consequence-based decisions",
+              body: "The simulation tracks every action and feeds it forward. What you do in phase one changes what you face in phase two. This eliminates the ability to game the system with 'correct' answers. There is no single correct path — only the logic of decisions compounding, the way they do in actual jobs.",
+              result: "You see how candidates reason, adapt, and take ownership — not just what they think you want to hear.",
+            },
+            {
+              icon: "uil:chart-bar",
+              title: "Adaptive difficulty",
+              body: "The simulation engine monitors candidate performance in real time. When a candidate is performing well, the system can introduce additional complexity — a second failure, a tighter constraint, a relationship under pressure. When a candidate is struggling, the system stays the course — ensuring a fair, consistent baseline for all.",
+              result: "The simulation reveals the ceiling of each candidate's capability — not just whether they crossed a threshold.",
+            },
+          ].map((cap, i) => (
+            <div class={`reveal reveal-delay-${i + 1} rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 md:p-10 flex flex-col md:flex-row gap-8`}>
+              <div class="flex-shrink-0">
+                <span class="inline-flex w-14 h-14 rounded-2xl bg-indigo-100 dark:bg-indigo-950/50 items-center justify-center">
+                  <span class="iconify text-primary w-7 h-7" data-icon={cap.icon} aria-hidden="true"></span>
+                </span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">{cap.title}</h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">{cap.body}</p>
+                <p class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 border-l-2 border-indigo-300 dark:border-indigo-700 pl-4 italic">{cap.result}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        EXAMPLE SCENARIOS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Role-Matched Scenarios</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Your role. Your cognitive demands.<br class="hidden sm:block" />
+            <span class="text-gradient-warm">Your simulation.</span>
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400">
+            Every simulation is generated from the specific job description you provide.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          {[
+            { role: "Site Reliability Engineer", icon: "uil:server", scenario: "A production system is degrading under load. Latency rising, stakeholders paging, every intervention carries risk. Do they investigate the root cause or patch under pressure?", tags: ["Triage discipline", "Escalation judgment", "Communication under load"] },
+            { role: "Product Manager", icon: "uil:layer-group", scenario: "Sprint planning. Engineering, design, and leadership pulling in different directions. Scope creeping. Someone needs to say no without burning trust.", tags: ["Boundary-setting", "Conflict navigation", "Commitment management"] },
+            { role: "Sales Leader", icon: "uil:chart-line", scenario: "Mid-negotiation. The deal is valuable but the counterparty has leverage. Time pressure is real. Every turn changes the dynamic.", tags: ["Anchoring strategy", "Rapport management", "Closing instinct"] },
+            { role: "Data Analyst", icon: "uil:analytics", scenario: "A noisy dataset, a tight deadline, and a compelling pattern — that might not be real. Can they resist the urge to conclude too early?", tags: ["Hypothesis discipline", "False-positive awareness", "Analytical rigor"] },
+            { role: "Backend Engineer", icon: "uil:code-branch", scenario: "A system drowning in technical debt. Limited resources, shrinking budget, and every optimization has a downstream cost.", tags: ["Trade-off analysis", "Measurement discipline", "Refactoring courage"] },
+            { role: "Designer", icon: "uil:palette", scenario: "An open brief with real constraints — budget, timeline, audience fit. Do they explore boldly or converge too early? Can they kill their darlings?", tags: ["Divergent thinking", "Iteration discipline", "Convergence judgment"] },
+          ].map((card, i) => (
+            <div class={`reveal reveal-delay-${(i % 3) + 1} group rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:shadow-xl hover:-translate-y-1 hover:border-indigo-100 dark:hover:border-indigo-900 transition-all duration-300 overflow-hidden relative`}>
+              <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-300/50 dark:via-indigo-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="flex-shrink-0 w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center">
+                  <span class="iconify text-primary w-5 h-5" data-icon={card.icon} aria-hidden="true"></span>
+                </span>
+                <h3 class="font-bold text-gray-900 dark:text-white text-sm">{card.role}</h3>
+              </div>
+              <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">{card.scenario}</p>
+              <div class="flex flex-wrap gap-1.5">
+                {card.tags.map((tag) => (
+                  <span class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs px-2 py-0.5 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Full-width architect card */}
+        <div class="mt-5 rounded-2xl border-2 border-indigo-100 dark:border-indigo-900/50 bg-gradient-to-r from-indigo-50/80 via-white to-violet-50/80 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/30 p-6 md:p-8 reveal">
+          <div class="flex flex-col md:flex-row md:items-center gap-6">
+            <div class="flex items-center gap-3 flex-shrink-0">
+              <span class="w-11 h-11 rounded-xl bg-indigo-100 dark:bg-indigo-950/60 flex items-center justify-center">
+                <span class="iconify text-primary w-6 h-6" data-icon="uil:server-network" aria-hidden="true"></span>
+              </span>
+              <h3 class="font-bold text-gray-900 dark:text-white">Software Architect</h3>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1">
+              Scalability, cost, and risk all competing. There's no right answer — only trade-offs. Can they reason through the constraints and defend their choices when challenged?
+            </p>
+            <div class="flex flex-wrap gap-1.5 flex-shrink-0">
+              {["Structured reasoning", "Trade-off articulation", "Confidence under ambiguity"].map((t) => (
+                <span class="bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs px-2.5 py-1 rounded-full font-medium">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center mt-8 text-gray-500 dark:text-gray-400 text-sm reveal">
+          Don't see your role? We map any job description to the right simulation automatically. —
+          <a href="/contact" class="text-primary hover:underline font-medium ml-1">Talk to us →</a>
+        </p>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        OUTPUT & REPORTS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <div class="reveal">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-5">Simulation Output</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              Not a score. A story —<br />with evidence.
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              After every simulation, QualifyMe generates a structured hiring recommendation document. Every finding maps to a specific action the candidate took — not an inference, not a prediction, an observed behavior.
+            </p>
+            <ul class="space-y-3">
+              {[
+                { icon: "uil:list-ul", text: "Decision trace — every action timestamped and annotated" },
+                { icon: "uil:chart-bar", text: "Phase-by-phase breakdown of performance" },
+                { icon: "uil:star", text: "Strength and gap summary — where they excelled and fell short" },
+                { icon: "uil:bolt-alt", text: "Escalation response — how they handled the adaptive challenge" },
+                { icon: "uil:thumbs-up", text: "Hiring recommendation — Hire / Consider / Pass with rationale" },
+                { icon: "uil:users-alt", text: "Comparator view — side-by-side across multiple candidates" },
+                { icon: "uil:shield-check", text: "Full audit trail — every recommendation reproducible and defensible" },
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                  <span class="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                    <span class="iconify text-indigo-600 dark:text-indigo-400 w-3 h-3" data-icon={item.icon} aria-hidden="true"></span>
+                  </span>
+                  {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="rounded-3xl border border-indigo-100 dark:border-indigo-900/50 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/20 p-8 md:p-10">
+              <p class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">Hiring Report · SRE Role</p>
+              <div class="space-y-4">
+                <div class="rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-4">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Recommendation</p>
+                  <div class="flex items-center gap-3">
+                    <span class="bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 font-bold text-sm px-4 py-1.5 rounded-full">Hire</span>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">Strong signal on triage discipline and communication under load.</p>
+                  </div>
+                </div>
+                <div class="rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-4">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Phase Breakdown</p>
+                  {[
+                    { phase: "Initial triage", score: 92 },
+                    { phase: "Stakeholder comms", score: 85 },
+                    { phase: "Escalation decision", score: 78 },
+                    { phase: "Recovery under load", score: 90 },
+                  ].map((p) => (
+                    <div class="flex items-center gap-3 mb-2 last:mb-0">
+                      <span class="text-xs text-gray-500 dark:text-gray-400 w-36 flex-shrink-0">{p.phase}</span>
+                      <div class="flex-1 h-1.5 rounded-full bg-gray-100 dark:bg-gray-700 overflow-hidden">
+                        <div class="h-full rounded-full bg-indigo-500" style={`width: ${p.score}%`}></div>
+                      </div>
+                      <span class="text-xs font-bold text-gray-700 dark:text-gray-200 w-8 text-right">{p.score}</span>
+                    </div>
+                  ))}
+                </div>
+                <div class="rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-4">
+                  <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Key Observation</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">Investigated logs before acting on phase 1. Communicated clearly with stakeholders during escalation. Adapted effectively when second failure was introduced.</p>
+                </div>
+              </div>
+              <p class="text-xs text-gray-400 mt-4 text-center">All findings traceable to specific actions in the simulation</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Trust block */}
+        <div class="mt-12 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-6 md:p-8 reveal">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-5">
+            <span class="flex-shrink-0 w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+              <span class="iconify text-primary w-6 h-6" data-icon="uil:shield-check" aria-hidden="true"></span>
+            </span>
+            <div>
+              <p class="font-bold text-gray-900 dark:text-white mb-1">Same candidate. Same scenario. Same result. Every time.</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm">Scoring is deterministic — not AI-inferred. No hallucinations. No subjective rubrics. Every finding traceable to a specific action.
+                <a href="/technology" class="text-primary hover:text-indigo-500 ml-1 underline underline-offset-2">See how our scoring works →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        EARLY ACCESS + FINAL CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <p class="text-xs font-bold uppercase tracking-widest text-indigo-300 mb-4">Early Access · Launching Soon</p>
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Be among the first to<br />
+            <span class="text-gradient">hire with simulations.</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-4">
+            Early access customers get priority onboarding, discounted access locked in at launch, and direct input into scenario design for their hiring needs.
+          </p>
+          <p class="text-sm text-indigo-300/70 mb-10">Limited spots available. No commitment required.</p>
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="/contact"
+              class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-8 text-base font-semibold shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Join Early Access
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/book-demo"
+              class="inline-flex h-13 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">The best predictor of job performance is how someone performs.</p>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

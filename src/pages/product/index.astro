@@ -1,0 +1,382 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+---
+
+<Layout
+  title="Product Overview — QualifyMe"
+  description="One platform, two layers. AI Screening for speed and scale. Cognitive Simulations for signal and depth. Use one, or both — depending on what the hire demands."
+  keywords="AI hiring platform, cognitive simulations, AI screening, candidate assessment, hiring workflow"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-50"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-300 mb-5 reveal">Product Overview</span>
+          <h1 class="font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+            One platform.<br />
+            <span class="text-gradient">Two ways to find the right person.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-indigo-100 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto reveal reveal-delay-2">
+            AI Screening to move fast. Cognitive Simulations to go deep. Use one, or both — depending on what the hire demands.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 reveal reveal-delay-3">
+            <a
+              href="https://console.qualifyme.ai/sign-up"
+              class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/book-demo"
+              class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none hidden dark:block"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        TWO-LAYER PLATFORM
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">One Platform · Two Layers</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Built for the full hiring decision —<br class="hidden sm:block" /> not just the first filter.
+          </h2>
+          <p class="mt-5 text-lg text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            AI Screening handles the volume problem. Cognitive Simulations handle the quality problem. Together, they give you a complete picture.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+
+          {/* Layer 1 — Screening */}
+          <div class="reveal reveal-delay-1 group relative rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-8 md:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-green-400/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-7">
+                <div class="flex items-center gap-2 rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-800 px-3 py-1">
+                  <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                  <span class="text-xs font-semibold text-green-700 dark:text-green-400">Layer 1 · Live now</span>
+                </div>
+                <span class="iconify text-gray-300 dark:text-gray-700 w-10 h-10" data-icon="uil:bolt-alt" aria-hidden="true"></span>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Speed and scale</p>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">AI Screening</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-base mb-6 leading-relaxed">
+                Use when you need to move fast and reduce the pile. Auto-generated assessments evaluated by AI — instant ranking before any human reviews.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  "Auto-generate assessments from any job description",
+                  "MCQs, coding challenges, and descriptive Q&A",
+                  "AI evaluates and ranks every candidate instantly",
+                  "Eliminate unqualified applicants at scale",
+                ].map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center">
+                      <span class="iconify text-green-600 dark:text-green-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href="/product/ai-screening" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-indigo-500 transition-colors">
+                Explore AI Screening
+                <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+
+          {/* Layer 2 — Simulations */}
+          <div class="reveal reveal-delay-2 group relative rounded-3xl border-2 border-indigo-200 dark:border-indigo-800/50 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/40 dark:via-gray-900 dark:to-violet-950/20 p-8 md:p-10 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="absolute top-0 right-0 w-72 h-72 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-7">
+                <div class="flex items-center gap-2 rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1">
+                  <span class="h-1.5 w-1.5 rounded-full bg-indigo-500"></span>
+                  <span class="text-xs font-semibold text-indigo-700 dark:text-indigo-300">Layer 2 · Early access</span>
+                </div>
+                <span class="iconify text-indigo-200 dark:text-indigo-800 w-10 h-10" data-icon="uil:brain" aria-hidden="true"></span>
+              </div>
+              <p class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-2">Signal and depth</p>
+              <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3">Cognitive Simulations</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-base mb-6 leading-relaxed">
+                Use when the hire matters and a score isn't enough. Drop candidates into realistic work scenarios and see exactly how they think under pressure.
+              </p>
+              <ul class="space-y-3 mb-8">
+                {[
+                  "Realistic work scenarios matched to your role",
+                  "Every decision has consequences — responds like real work",
+                  "Adaptive difficulty reveals how candidates handle escalation",
+                  "Structured recommendation with full audit trail",
+                ].map((item) => (
+                  <li class="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 mt-0.5 w-4 h-4 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                      <span class="iconify text-indigo-600 dark:text-indigo-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a href="/product/simulations" class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors">
+                Explore Simulations
+                <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center mt-8 text-sm text-gray-400 dark:text-gray-600 reveal">
+          Screening tells you who passed. Simulations tell you who'll perform.
+        </p>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        WHEN TO USE WHAT
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Decision Guide</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Not every hire needs both.<br class="hidden sm:block" /> Know when to use each.
+          </h2>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-3">
+          {[
+            {
+              icon: "uil:filter",
+              color: "green",
+              badge: "Screening only",
+              headline: "High-volume filtering",
+              body: "You need to reduce a large applicant pool quickly without spending human hours on each application.",
+              uses: ["Filter on technical skills and domain knowledge", "Rank candidates automatically", "Move to interviews with a shortlist, not a pile"],
+              best: "Junior and mid-level roles, high-volume campaigns",
+            },
+            {
+              icon: "uil:brain",
+              color: "indigo",
+              badge: "Simulations only",
+              headline: "Critical hires, limited pipeline",
+              body: "You have a small pool of strong candidates for a senior role. You don't need to filter — you need to decide.",
+              uses: ["See how each finalist performs under real pressure", "Compare decision-making quality across candidates", "Make a defensible, evidence-based hiring choice"],
+              best: "Leadership roles, senior technical hires",
+            },
+            {
+              icon: "uil:layers-alt",
+              color: "violet",
+              badge: "Both layers",
+              headline: "Full-funnel confidence",
+              body: "Volume and quality both matter. Screen at speed to shortlist, simulate finalists to decide.",
+              uses: ["Screen at speed → shortlist the top performers", "Simulate the finalists → hire with confidence", "One platform, one workflow, one audit trail"],
+              best: "Critical roles with competitive pipelines",
+            },
+          ].map((card, i) => (
+            <div class={`reveal reveal-delay-${i + 1} rounded-2xl border bg-white dark:bg-gray-900/80 p-7 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${card.color === "indigo" ? "border-indigo-200 dark:border-indigo-800/50" : card.color === "violet" ? "border-violet-200 dark:border-violet-800/50" : "border-green-200 dark:border-green-800/50"}`}>
+              <div class="flex items-center gap-3 mb-5">
+                <span class={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${card.color === "green" ? "bg-green-100 dark:bg-green-900/30" : card.color === "indigo" ? "bg-indigo-100 dark:bg-indigo-900/30" : "bg-violet-100 dark:bg-violet-900/30"}`}>
+                  <span class={`iconify w-5 h-5 ${card.color === "green" ? "text-green-600 dark:text-green-400" : card.color === "indigo" ? "text-indigo-600 dark:text-indigo-400" : "text-violet-600 dark:text-violet-400"}`} data-icon={card.icon} aria-hidden="true"></span>
+                </span>
+                <span class={`text-xs font-bold uppercase tracking-wider ${card.color === "green" ? "text-green-700 dark:text-green-400" : card.color === "indigo" ? "text-indigo-700 dark:text-indigo-400" : "text-violet-700 dark:text-violet-400"}`}>{card.badge}</span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{card.headline}</h3>
+              <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-5">{card.body}</p>
+              <ul class="space-y-2 mb-5">
+                {card.uses.map((u) => (
+                  <li class="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="iconify w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-gray-400" data-icon="uil:arrow-right" aria-hidden="true"></span>
+                    {u}
+                  </li>
+                ))}
+              </ul>
+              <p class="text-xs text-gray-400 pt-4 border-t border-gray-100 dark:border-gray-800">
+                <strong class="text-gray-600 dark:text-gray-300">Best for:</strong> {card.best}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        WORKFLOW OVERVIEW — 5 steps
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Platform Workflow</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            From job description to<br class="hidden sm:block" /> hiring decision — in one workflow.
+          </h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <ol class="space-y-0">
+            {[
+              { n: "01", title: "Create your role", body: "Paste in a job description or build one from scratch. QualifyMe maps the role to the cognitive and technical demands it actually requires." },
+              { n: "02", title: "Generate your assessment", body: "The platform builds a customized assessment — MCQs, coding challenges, descriptive Q&A, or a cognitive simulation — matched to the role. Edit or approve as-is." },
+              { n: "03", title: "Invite candidates", body: "Send assessments via branded portal. Candidates complete on any device, at their own pace, within your set window." },
+              { n: "04", title: "Review ranked results", body: "AI evaluates every response and delivers a ranked candidate list with detailed breakdowns. No manual scoring. No rubric wrangling." },
+              { n: "05", title: "Go deeper when it matters", body: "For final-round candidates, run a cognitive simulation. Get a structured hiring recommendation backed by every action they took in the scenario.", early: true },
+            ].map((step, i) => (
+              <li class={`reveal reveal-delay-${Math.min(i + 1, 4)} relative flex gap-6 pb-10 last:pb-0`}>
+                {/* Connector line */}
+                {i < 4 && <div class="absolute left-7 top-14 bottom-0 w-px bg-gray-100 dark:bg-gray-800"></div>}
+                {/* Step number */}
+                <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-lg shadow-indigo-500/25">
+                  {step.n}
+                </div>
+                <div class="pt-3.5 flex-1">
+                  <div class="flex items-center gap-3 mb-2">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white">{step.title}</h3>
+                    {step.early && (
+                      <span class="inline-flex items-center gap-1 rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-2 py-0.5 text-[10px] font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wide">
+                        Early access
+                      </span>
+                    )}
+                  </div>
+                  <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{step.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <div class="mt-10 text-center reveal">
+            <a href="/product/how-it-works" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-indigo-500 transition-colors">
+              See the full step-by-step walkthrough
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        PLATFORM CAPABILITIES
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Platform Capabilities</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+            Everything your hiring team needs.<br class="hidden sm:block" /> Nothing it doesn't.
+          </h2>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+          {[
+            { icon: "uil:file-alt", title: "Assessment generation", body: "JDs automatically mapped to role-specific assessments. No prompt engineering." },
+            { icon: "uil:layers-alt", title: "Multi-format evaluations", body: "MCQs, coding challenges, descriptive Q&A, and simulations in one platform." },
+            { icon: "uil:tachometer-fast", title: "Instant AI scoring", body: "Every response evaluated immediately. Results available as candidates complete." },
+            { icon: "uil:sort-amount-down", title: "Candidate ranking", body: "Automated ranking with score breakdowns. Know who to move forward instantly." },
+            { icon: "uil:sliders-v", title: "Custom workflows", body: "Multi-round assessments, conditional logic, role-specific weighting." },
+            { icon: "uil:palette", title: "Branded portal", body: "Candidates experience your brand throughout. Full white-label." },
+            { icon: "uil:users-alt", title: "Team collaboration", body: "Invite unlimited reviewers. Everyone sees the same data." },
+            { icon: "uil:shield-check", title: "Audit-ready results", body: "Every score traceable to a specific response or action. Reproducible and defensible." },
+          ].map((cap, i) => (
+            <div class={`reveal reveal-delay-${(i % 4) + 1} rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/80 p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300`}>
+              <span class="inline-flex w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 items-center justify-center mb-4">
+                <span class="iconify text-primary w-4.5 h-4.5" data-icon={cap.icon} aria-hidden="true"></span>
+              </span>
+              <h3 class="text-sm font-bold text-gray-900 dark:text-white mb-1.5">{cap.title}</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{cap.body}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        TRUST BLOCK
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-20 lg:py-24">
+      <Container>
+        <div class="max-w-3xl mx-auto rounded-3xl border border-indigo-100 dark:border-indigo-900/50 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/20 p-8 md:p-12 text-center reveal">
+          <span class="inline-flex w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 items-center justify-center mb-6 mx-auto">
+            <span class="iconify text-primary w-6 h-6" data-icon="uil:shield-check" aria-hidden="true"></span>
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            Same candidate. Same scenario. Same result. Every time.
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-6 max-w-xl mx-auto">
+            No interviewer bias. No AI guesswork. Every score is traceable to a specific response or action — reproducible, defensible, and fully auditable.
+          </p>
+          <a href="/technology" class="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-indigo-500 transition-colors">
+            See how our technology works
+            <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+          </a>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FINAL CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Choose your layer.<br />
+            <span class="text-gradient">Or start with both.</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-10">
+            AI Screening is live and ready. Cognitive Simulations are in early access.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="https://console.qualifyme.ai/sign-up"
+              class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-8 text-base font-semibold shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-13 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Join Early Access
+            </a>
+          </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">No credit card required · First assessment in under 5 minutes</p>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

@@ -1,0 +1,261 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Container from "../../../components/Container.astro";
+import { caseStudies } from "../../../data/case-studies";
+
+const accentClasses = {
+  indigo: {
+    badge: "bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800",
+    metric: "text-indigo-600 dark:text-indigo-400",
+    bar: "bg-indigo-500",
+    link: "bg-indigo-600 hover:bg-indigo-700 text-white",
+    dot: "bg-indigo-500",
+    section: "bg-indigo-50/60 dark:bg-indigo-950/20",
+    border: "border-indigo-100 dark:border-indigo-900/50",
+    quote: "border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950/30",
+    quoteText: "text-indigo-800 dark:text-indigo-200",
+    number: "text-indigo-100 dark:text-indigo-950",
+    metricBg: "bg-indigo-600 dark:bg-indigo-700",
+  },
+  violet: {
+    badge: "bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-300 border-violet-200 dark:border-violet-800",
+    metric: "text-violet-600 dark:text-violet-400",
+    bar: "bg-violet-500",
+    link: "bg-violet-600 hover:bg-violet-700 text-white",
+    dot: "bg-violet-500",
+    section: "bg-violet-50/60 dark:bg-violet-950/20",
+    border: "border-violet-100 dark:border-violet-900/50",
+    quote: "border-violet-300 dark:border-violet-700 bg-violet-50 dark:bg-violet-950/30",
+    quoteText: "text-violet-800 dark:text-violet-200",
+    number: "text-violet-100 dark:text-violet-950",
+    metricBg: "bg-violet-600 dark:bg-violet-700",
+  },
+  cyan: {
+    badge: "bg-cyan-50 dark:bg-cyan-950/40 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800",
+    metric: "text-cyan-600 dark:text-cyan-400",
+    bar: "bg-cyan-500",
+    link: "bg-cyan-600 hover:bg-cyan-700 text-white",
+    dot: "bg-cyan-500",
+    section: "bg-cyan-50/60 dark:bg-cyan-950/20",
+    border: "border-cyan-100 dark:border-cyan-900/50",
+    quote: "border-cyan-300 dark:border-cyan-700 bg-cyan-50 dark:bg-cyan-950/30",
+    quoteText: "text-cyan-800 dark:text-cyan-200",
+    number: "text-cyan-100 dark:text-cyan-950",
+    metricBg: "bg-cyan-600 dark:bg-cyan-700",
+  },
+  emerald: {
+    badge: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
+    metric: "text-emerald-600 dark:text-emerald-400",
+    bar: "bg-emerald-500",
+    link: "bg-emerald-600 hover:bg-emerald-700 text-white",
+    dot: "bg-emerald-500",
+    section: "bg-emerald-50/60 dark:bg-emerald-950/20",
+    border: "border-emerald-100 dark:border-emerald-900/50",
+    quote: "border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/30",
+    quoteText: "text-emerald-800 dark:text-emerald-200",
+    number: "text-emerald-100 dark:text-emerald-950",
+    metricBg: "bg-emerald-600 dark:bg-emerald-700",
+  },
+};
+---
+
+<Layout
+  title="Customer Case Studies — QualifyMe"
+  description="See how companies like Avadhuta Technologies, RubickAI, SoftTech Engineers, and VNurt achieved faster, better hiring with QualifyMe's AI-powered screening."
+  keywords="hiring case studies, QualifyMe customers, AI screening results, recruitment automation success stories"
+>
+  <main>
+
+    {/* ── Hero ── */}
+    <section class="relative bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900 pt-32 pb-24 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-40"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-300 mb-5">Customer Stories</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            Real companies.<br/>
+            <span class="text-gradient">Real results.</span>
+          </h1>
+          <p class="text-lg text-indigo-100 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            See how teams across software, retail, engineering, and staffing are transforming their hiring with QualifyMe.
+          </p>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none hidden dark:block"></div>
+    </section>
+
+    {/* ── Stats bar ── */}
+    <section class="bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 py-10">
+      <Container>
+        <div class="flex flex-wrap justify-center gap-12">
+          {[
+            { num: "90%+", label: "avg. reduction in interview-stage candidates" },
+            { num: "4", label: "companies transformed their hiring" },
+            { num: "0", label: "manual resume reviews required" },
+          ].map((s) => (
+            <div class="text-center">
+              <p class="text-3xl font-black text-indigo-600 dark:text-indigo-400">{s.num}</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 max-w-[160px] mx-auto leading-snug">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ── Case study sections ── */}
+    {caseStudies.map((cs, i) => {
+      const accent = accentClasses[cs.accentColor];
+      const isEven = i % 2 === 0;
+      return (
+        <section class={`relative border-b ${accent.border} ${accent.section} py-20 lg:py-28 overflow-hidden`}>
+          {/* Giant background number */}
+          <div aria-hidden="true" class={`pointer-events-none select-none absolute top-1/2 -translate-y-1/2 ${isEven ? "-left-6" : "-right-6"} text-[18rem] font-black leading-none ${accent.number} opacity-80`}>
+            {String(i + 1).padStart(2, "0")}
+          </div>
+
+          {/* Top accent bar */}
+          <div class={`absolute top-0 left-0 right-0 h-1 ${accent.bar}`}></div>
+
+          <Container>
+            <div class={`relative z-10 grid gap-12 lg:grid-cols-2 lg:gap-16 items-center ${isEven ? "" : "lg:[direction:rtl]"}`}>
+
+              {/* ── Left/Right: Story side ── */}
+              <div class={isEven ? "" : "lg:[direction:ltr]"}>
+                <div class="flex items-center gap-3 mb-5">
+                  <span class={`inline-block text-xs font-semibold px-3 py-1 rounded-full border ${accent.badge}`}>
+                    {cs.industry}
+                  </span>
+                  {cs.teamSize && (
+                    <span class="text-xs text-gray-400 dark:text-gray-500">{cs.teamSize}</span>
+                  )}
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white leading-tight mb-2">
+                  {cs.company}
+                </h2>
+                <p class="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-8 leading-snug">
+                  {cs.headline}
+                </p>
+
+                {/* Hook line */}
+                <p class={`text-xl sm:text-2xl font-bold leading-snug mb-6 ${accent.metric}`}>
+                  "{cs.hookLine}"
+                </p>
+
+                {/* Pull quote */}
+                <blockquote class={`rounded-2xl border-l-4 p-5 mb-8 ${accent.quote}`}>
+                  <p class={`text-sm leading-relaxed italic ${accent.quoteText}`}>{cs.pullQuote}</p>
+                </blockquote>
+
+                {/* Outcomes */}
+                <ul class="space-y-3 mb-8">
+                  {cs.outcomes.slice(0, 4).map((outcome) => (
+                    <li class="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                      <span class={`flex-shrink-0 mt-1.5 w-2 h-2 rounded-full ${accent.dot}`}></span>
+                      <span>{outcome}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={`/customers/case-studies/${cs.slug}`}
+                  class={`inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 shadow-sm hover:shadow-md ${accent.link}`}
+                >
+                  Read full case study
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+              {/* ── Right/Left: Metrics side ── */}
+              <div class={`flex flex-col gap-6 ${isEven ? "" : "lg:[direction:ltr]"}`}>
+                {/* Key metric hero */}
+                <div class={`rounded-3xl p-8 text-center text-white shadow-xl ${accent.metricBg}`}>
+                  <p class="text-6xl sm:text-7xl font-black leading-none mb-2">{cs.keyMetric}</p>
+                  <p class="text-sm font-medium opacity-80 max-w-[200px] mx-auto leading-snug">{cs.keyMetricLabel}</p>
+                </div>
+
+                {/* Impact example table (if present) */}
+                {cs.impact.example && (
+                  <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden shadow-sm">
+                    <div class="px-5 py-3 border-b border-gray-100 dark:border-gray-800">
+                      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">{cs.impact.example.label}</p>
+                    </div>
+                    <div class="divide-y divide-gray-100 dark:divide-gray-800">
+                      {cs.impact.example.items.map((item) => (
+                        <div class="flex items-center justify-between px-5 py-3">
+                          <span class="text-sm text-gray-500 dark:text-gray-400">{item.label}</span>
+                          <span class={`text-sm font-bold ${accent.metric}`}>{item.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Why it worked callout */}
+                <div class="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-5 shadow-sm">
+                  <p class="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">Why It Worked</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{cs.whyItWorked}</p>
+                </div>
+              </div>
+
+            </div>
+          </Container>
+        </section>
+      );
+    })}
+
+    {/* ── CTA ── */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 py-20 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Ready to write your own success story?
+          </h2>
+          <p class="text-indigo-200 mb-8 text-lg">
+            Join companies that hire smarter, faster, and with more confidence.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://console.qualifyme.ai/sign-up"
+              class="inline-flex h-12 items-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 font-semibold text-sm transition-colors shadow-xl shadow-black/20"
+            >
+              Get Started Free
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="/book-demo"
+              class="inline-flex h-12 items-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 font-semibold text-sm text-white transition-colors backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

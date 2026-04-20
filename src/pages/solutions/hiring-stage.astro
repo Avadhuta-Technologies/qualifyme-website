@@ -1,0 +1,585 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+---
+
+<Layout
+  title="By Hiring Stage — QualifyMe"
+  description="Use QualifyMe at the beginning to manage volume, at the middle to go deep, and at the end to decide with confidence. See how the platform maps to every stage of your hiring funnel."
+  keywords="hiring funnel, screening stage, candidate evaluation stage, hiring decision, AI screening, cognitive simulations hiring"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-gradient-to-br from-indigo-700 via-indigo-800 to-violet-900 dark:from-slate-950 dark:via-indigo-950 dark:to-slate-900">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-50"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[120px]"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-violet-600/15 blur-[100px]"></div>
+      </div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center mb-14">
+          <div class="flex items-center justify-center gap-2 mb-5 reveal">
+            <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-300">Solutions · By Hiring Stage</span>
+          </div>
+          <h1 class="font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+            One platform.<br />
+            <span class="text-gradient">Built for every stage of<br />the hiring decision.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-indigo-100 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto reveal reveal-delay-2">
+            Use QualifyMe at the beginning to manage volume. At the middle to go deep. At the end to decide with confidence. Or run all three — as a single connected workflow.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-12 reveal reveal-delay-3">
+            <a
+              href="https://console.qualifyme.ai/sign-up"
+              class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-base font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/book-demo"
+              class="inline-flex h-12 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Book a Demo
+            </a>
+          </div>
+
+          {/* Pipeline diagram */}
+          <div class="reveal reveal-delay-3">
+            <div class="flex items-stretch justify-center gap-0">
+              {[
+                { n: "01", label: "Screening", sub: "Volume reduction", color: "bg-green-500", tag: "Live now", tagColor: "bg-green-400/20 text-green-300 border-green-400/30", href: "#stage-1-screening" },
+                { n: "02", label: "Evaluation", sub: "Deep capability", color: "bg-amber-500", tag: "Early access", tagColor: "bg-amber-400/20 text-amber-300 border-amber-400/30", href: "#stage-2-evaluation" },
+                { n: "03", label: "Decision", sub: "Final confidence", color: "bg-indigo-400", tag: "Combined", tagColor: "bg-indigo-400/20 text-indigo-200 border-indigo-400/30", href: "#stage-3-decision" },
+              ].map((stage, i) => (
+                <div class="flex items-center">
+                  <a
+                    href={stage.href}
+                    class="group rounded-xl border border-white/15 bg-white/8 hover:bg-white/15 backdrop-blur-sm px-5 py-4 text-center transition-all duration-200 min-w-[120px] sm:min-w-[150px]"
+                  >
+                    <div class={`w-8 h-8 rounded-full ${stage.color} text-white font-black text-sm flex items-center justify-center mx-auto mb-2 shadow-lg`}>
+                      {stage.n}
+                    </div>
+                    <p class="text-sm font-bold text-white mb-0.5">{stage.label}</p>
+                    <p class="text-xs text-indigo-200/70 mb-2">{stage.sub}</p>
+                    <span class={`inline-block border rounded-full px-2 py-0.5 text-[10px] font-semibold ${stage.tagColor}`}>{stage.tag}</span>
+                  </a>
+                  {i < 2 && (
+                    <div class="flex items-center px-2">
+                      <div class="w-8 h-px bg-white/20 relative">
+                        <span class="absolute right-0 top-1/2 -translate-y-1/2 text-white/30 text-xs">›</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Container>
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none hidden dark:block"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FUNNEL OVERVIEW
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto text-center mb-14 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">How It Fits Together</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+            How hiring actually works —<br class="hidden sm:block" />and where QualifyMe fits.
+          </h2>
+          <p class="text-lg text-gray-500 dark:text-gray-400 leading-relaxed">
+            Most platforms solve one stage. Screening tools help you filter. Assessment tools help you evaluate. But the data never connects, and the decision at the end still rests on whoever interviewed last. QualifyMe is built across the full funnel — so the signal from Stage 1 informs Stage 2, and the evidence from Stage 2 supports the decision in Stage 3.
+          </p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-3 reveal reveal-delay-1">
+          {[
+            {
+              stage: "Stage 1",
+              name: "Screening",
+              tagText: "Live now",
+              tagClass: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-700",
+              dotClass: "bg-green-500",
+              body: "Volume reduction — filter at scale without losing good candidates",
+              icon: "uil:filter",
+              href: "#stage-1-screening",
+            },
+            {
+              stage: "Stage 2",
+              name: "Evaluation",
+              tagText: "Early access",
+              tagClass: "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-700",
+              dotClass: "bg-amber-500",
+              body: "Quality signal — see how shortlisted candidates actually perform",
+              icon: "uil:scenery",
+              href: "#stage-2-evaluation",
+            },
+            {
+              stage: "Stage 3",
+              name: "Decision",
+              tagText: "Combined",
+              tagClass: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 border-indigo-200 dark:border-indigo-700",
+              dotClass: "bg-indigo-500",
+              body: "Final confidence — make a defensible hire, not a guess",
+              icon: "uil:thumbs-up",
+              href: "#stage-3-decision",
+            },
+          ].map((item) => (
+            <a
+              href={item.href}
+              class="group rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <span class="inline-flex w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/50 items-center justify-center">
+                  <span class="iconify text-primary w-5 h-5" data-icon={item.icon} aria-hidden="true"></span>
+                </span>
+                <div>
+                  <p class="text-xs text-gray-400 uppercase tracking-wider">{item.stage}</p>
+                  <p class="text-sm font-bold text-gray-900 dark:text-white">{item.name}</p>
+                </div>
+              </div>
+              <span class={`inline-block border rounded-full px-2.5 py-0.5 text-xs font-semibold mb-3 ${item.tagClass}`}>{item.tagText}</span>
+              <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+              <p class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-4 group-hover:underline">Learn more →</p>
+            </a>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        STAGE 1 — SCREENING
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="stage-1-screening" class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="reveal">
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="rounded-full bg-gray-200 dark:bg-gray-800 px-3 py-1 text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest">Stage 1</span>
+              <span class="rounded-full bg-green-100 dark:bg-green-900/30 border border-green-200 dark:border-green-700 px-3 py-1 text-xs font-bold text-green-700 dark:text-green-400 uppercase tracking-widest">Live now</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-3">
+              Move fast.<br />Don't miss anyone.
+            </h2>
+            <p class="text-lg font-medium text-gray-600 dark:text-gray-300 mb-6">AI Screening turns a 300-applicant pile into a ranked shortlist — before your first human review.</p>
+
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
+              When volume is the constraint, the most expensive thing you can do is spend senior hiring time on initial filtering. Every hour a recruiter or engineering lead spends reviewing unqualified CVs is an hour not spent on the candidates who matter.
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              Manual screening has two failure modes: too slow (days spent on what AI handles in minutes), and too blunt (keyword-based filters eliminate strong candidates who don't write for robots).
+            </p>
+
+            <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">How QualifyMe handles Stage 1</h3>
+            <ol class="space-y-4 mb-8">
+              {[
+                { n: "1", title: "Auto-generate the assessment", body: "Paste in your job description. QualifyMe builds a role-specific assessment — MCQs, coding challenges, video Q&A — matched to the technical and domain requirements. No configuration required." },
+                { n: "2", title: "Every applicant completes it", body: "The assessment runs before any human review. Candidates complete on their own device, within your set window. No scheduling. No coordination overhead." },
+                { n: "3", title: "AI evaluates and ranks", body: "Every response is scored automatically against a consistent rubric. You get a ranked candidate list in real time as candidates complete." },
+                { n: "4", title: "Your team reviews the shortlist", body: "Recruiters and hiring managers spend their time on the top performers — already ranked, already scored, already explained." },
+              ].map((step) => (
+                <li class="flex gap-4">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-black text-xs flex items-center justify-center">{step.n}</span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{step.title}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <a
+              href="/product/ai-screening"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              Explore AI Screening →
+            </a>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            {/* Capabilities */}
+            <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden mb-5">
+              <div class="bg-gray-100 dark:bg-gray-800/80 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Stage 1 capabilities</p>
+              </div>
+              <ul class="divide-y divide-gray-100 dark:divide-gray-800">
+                {[
+                  "Role-specific MCQs auto-generated from job description",
+                  "Coding challenges across common tech stacks",
+                  "Video Q&A with AI response evaluation",
+                  "Instant candidate ranking with score breakdowns",
+                  "Custom multi-round workflows",
+                  "Branded candidate portal",
+                ].map((cap) => (
+                  <li class="flex items-center gap-3 px-6 py-3.5 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                      <span class="iconify text-green-600 dark:text-green-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                    </span>
+                    {cap}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Stats */}
+            <div class="grid grid-cols-3 gap-3">
+              {[
+                { metric: "70%", label: "faster time-to-shortlist" },
+                { metric: "90%+", label: "reduction in interview-stage candidates" },
+                { metric: "0", label: "manual resume reviews required" },
+              ].map((stat) => (
+                <div class="rounded-xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 p-4 text-center">
+                  <p class="text-xl font-black text-indigo-600 dark:text-indigo-400 mb-1">{stat.metric}</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-400 leading-tight">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-5 rounded-xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/50 p-4">
+              <p class="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                <span class="font-bold">What comes next:</span> Screening tells you who passed. It doesn't tell you who'll thrive. For the roles that matter most, the shortlist from Stage 1 feeds directly into Stage 2.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        STAGE 2 — EVALUATION
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="stage-2-evaluation" class="bg-white dark:bg-gray-950 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="order-2 lg:order-1 reveal reveal-delay-2">
+            {/* Stage 1 → Stage 2 handoff visual */}
+            <div class="rounded-2xl bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/30 dark:via-gray-900 dark:to-violet-950/20 border border-indigo-100 dark:border-indigo-900/50 p-6 mb-5">
+              <p class="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-5">Stage 1 → Stage 2 handoff</p>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="flex-1 rounded-xl bg-white dark:bg-gray-800/60 border border-gray-100 dark:border-white/8 p-3 text-center">
+                  <p class="text-xs text-gray-500 mb-1">Stage 1 shortlist</p>
+                  <p class="text-sm font-bold text-gray-900 dark:text-white">20 candidates</p>
+                </div>
+                <span class="iconify text-indigo-400 w-5 h-5 flex-shrink-0" data-icon="uil:arrow-right" aria-hidden="true"></span>
+                <div class="flex-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-800 p-3 text-center">
+                  <p class="text-xs text-indigo-500 dark:text-indigo-400 mb-1">Simulation finalists</p>
+                  <p class="text-sm font-bold text-indigo-700 dark:text-indigo-300">4 candidates</p>
+                </div>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Candidates who pass the Stage 1 threshold can be automatically progressed to a simulation invitation. No manual export. No second setup.</p>
+            </div>
+
+            {/* Capabilities */}
+            <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
+              <div class="bg-gray-100 dark:bg-gray-800/80 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Stage 2 capabilities</p>
+              </div>
+              <ul class="divide-y divide-gray-100 dark:divide-gray-800">
+                {[
+                  "Cognitive simulation scenarios matched to job description",
+                  "Consequence-based decisions — no scripted correct path",
+                  "Adaptive difficulty escalation based on performance",
+                  "Full decision trace — every action timestamped",
+                  "Phase-by-phase performance breakdown",
+                  "Candidate comparison view — same scenario, multiple candidates",
+                  "Full audit trail — every recommendation reproducible",
+                ].map((cap) => (
+                  <li class="flex items-center gap-3 px-6 py-3.5 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 w-4 h-4 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+                      <span class="iconify text-amber-600 dark:text-amber-400 w-2.5 h-2.5" data-icon="uil:check" aria-hidden="true"></span>
+                    </span>
+                    {cap}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2 reveal">
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="rounded-full bg-gray-200 dark:bg-gray-800 px-3 py-1 text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest">Stage 2</span>
+              <span class="rounded-full bg-amber-100 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-400 uppercase tracking-widest">Early Access</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-3">
+              You have a shortlist.<br />
+              <span class="text-gradient">Now find out who can<br />actually do the job.</span>
+            </h2>
+            <p class="text-lg font-medium text-gray-600 dark:text-gray-300 mb-6">Cognitive Simulations put shortlisted candidates into realistic work scenarios. You see how they think, decide, and perform — before the offer.</p>
+
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
+              The shortlist from Stage 1 is a list of people who passed a knowledge test. That's valuable — but it's not enough for a hire you'll live with for years. Interview rounds at this stage introduce new problems: scheduling overhead, inconsistent questions, interviewer bias, and a selection process where the most confident candidate — not the most capable — often advances.
+            </p>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              What you need at this stage isn't more conversation. It's performance evidence.
+            </p>
+
+            <div class="space-y-4 mb-8">
+              {[
+                { title: "Scenario-matched to the role", body: "The Stage 1 shortlist enters a cognitive simulation generated for the specific job — an SRE faces a production incident, a PM walks into a cross-functional conflict, a sales leader enters a high-stakes negotiation mid-turn." },
+                { title: "Candidates perform — they don't answer", body: "There's no correct answer to recall. The scenario requires real decisions with consequences. Every choice the candidate makes changes what they face next." },
+                { title: "Adaptive difficulty reveals the ceiling", body: "If the baseline scenario can't separate strong from exceptional, the simulation escalates. Calibrated to reveal how candidates adapt and recover when their first approach stops working." },
+              ].map((item) => (
+                <div class="flex gap-4">
+                  <div class="flex-shrink-0 w-1.5 rounded-full bg-amber-300 dark:bg-amber-700"></div>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white mb-1">{item.title}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="/product/simulations"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              Explore Cognitive Simulations →
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        STAGE 3 — DECISION
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section id="stage-3-decision" class="bg-gray-50 dark:bg-gray-900 py-24 lg:py-32 scroll-mt-20">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+          <div class="reveal">
+            <div class="flex flex-wrap items-center gap-2 mb-5">
+              <span class="rounded-full bg-gray-200 dark:bg-gray-800 px-3 py-1 text-xs font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest">Stage 3</span>
+              <span class="rounded-full bg-indigo-100 dark:bg-indigo-900/40 border border-indigo-200 dark:border-indigo-700 px-3 py-1 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-widest">Combined Insights</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-3">
+              One recommendation.<br />Backed by everything<br />you've measured.
+            </h2>
+            <p class="text-lg font-medium text-gray-600 dark:text-gray-300 mb-6">The final hiring decision is the hardest part. QualifyMe gives the hiring team a clear, evidence-based recommendation — not a stack of interview notes to reconcile.</p>
+
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-4">
+              Final hiring decisions are where bias concentrates. By Stage 3, a shortlist of strong candidates has been filtered down to 2–4 finalists — and the difference between them is often small, ambiguous, and dependent on who happened to interview them.
+            </p>
+
+            <div class="space-y-3 mb-8">
+              {[
+                { title: "Consensus decision-making", body: "The team defaults to the candidate everyone liked, not the candidate who performed best." },
+                { title: "Conflicting interview feedback", body: "Different interviewers weighted different things, and there's no unified framework for comparing them." },
+                { title: "The gut feel close", body: "\"I just had a good feeling about Candidate C.\" The decision is made, but it can't be explained or defended if questioned." },
+              ].map((item) => (
+                <div class="flex gap-3 rounded-xl bg-red-50/50 dark:bg-red-950/10 border border-red-100 dark:border-red-900/30 p-4">
+                  <span class="flex-shrink-0 text-red-400 font-bold text-xs mt-0.5">✗</span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-0.5">{item.title}</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{item.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">How QualifyMe supports Stage 3</h3>
+            <ul class="space-y-3 mb-8">
+              {[
+                { title: "Combined scoring view", body: "Stage 1 screening scores + Stage 2 simulation performance combined in a single candidate comparison view." },
+                { title: "Hiring recommendation", body: "Hire / Consider / Pass — with the specific behavioral evidence that supports it. Not an AI opinion. A summary of observed actions." },
+                { title: "Cross-candidate comparison", body: "Put two or three finalists side by side on the same simulation. Same scenario, same difficulty — direct comparison on the dimensions that matter." },
+                { title: "Audit trail", body: "Every recommendation is traceable to a specific candidate action. If the decision is questioned, QualifyMe can show exactly why each candidate ranked where they did." },
+              ].map((item) => (
+                <li class="flex gap-3 text-sm text-gray-600 dark:text-gray-300">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center mt-0.5">
+                    <span class="iconify text-indigo-600 dark:text-indigo-400 w-3 h-3" data-icon="uil:check" aria-hidden="true"></span>
+                  </span>
+                  <div>
+                    <span class="font-semibold text-gray-900 dark:text-white">{item.title} — </span>
+                    {item.body}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/book-demo"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              Book a Demo →
+            </a>
+          </div>
+
+          <div class="reveal reveal-delay-2">
+            <div class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden">
+              <div class="bg-gray-100 dark:bg-gray-800/80 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-500">Stage 3 output</p>
+              </div>
+              <ul class="divide-y divide-gray-100 dark:divide-gray-800">
+                {[
+                  { icon: "uil:chart-bar", text: "Combined Stage 1 + Stage 2 candidate scores" },
+                  { icon: "uil:thumbs-up", text: "Simulation hiring recommendation per candidate (Hire / Consider / Pass)" },
+                  { icon: "uil:list-ul", text: "Behavioral evidence summary — key decision points and what they revealed" },
+                  { icon: "uil:users-alt", text: "Cross-candidate comparison on the same scenario" },
+                  { icon: "uil:shield-check", text: "Full audit log — timestamped, reproducible, exportable" },
+                ].map((item) => (
+                  <li class="flex items-center gap-3 px-6 py-3.5 text-sm text-gray-600 dark:text-gray-300">
+                    <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center">
+                      <span class="iconify text-primary w-4 h-4" data-icon={item.icon} aria-hidden="true"></span>
+                    </span>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-5 rounded-xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/50 p-5">
+              <p class="text-sm font-semibold text-gray-900 dark:text-white mb-2">Defensible, not just confident.</p>
+              <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                The goal isn't certainty — hiring never has it. It's confidence grounded in evidence. The hiring team makes a decision they can stand behind and explain.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FULL-FUNNEL COMPARISON
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12 reveal">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-primary mb-4">Flexibility</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+              Use one stage. Or run the full pipeline.
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              QualifyMe isn't an all-or-nothing platform. Start with AI Screening alone, run Cognitive Simulations alone, or connect both as a unified pipeline.
+            </p>
+          </div>
+
+          <div class="reveal reveal-delay-1 rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden shadow-sm">
+            <div class="grid grid-cols-4 bg-gray-100 dark:bg-gray-800/80 border-b border-gray-200 dark:border-gray-700">
+              <div class="py-4 px-5 border-r border-gray-200 dark:border-gray-700">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider"></p>
+              </div>
+              <div class="py-4 px-5 border-r border-gray-200 dark:border-gray-700">
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Screening Only</p>
+              </div>
+              <div class="py-4 px-5 border-r border-gray-200 dark:border-gray-700">
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Simulations Only</p>
+              </div>
+              <div class="py-4 px-5 bg-indigo-50 dark:bg-indigo-950/30">
+                <p class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Full Pipeline</p>
+                <span class="text-[10px] text-indigo-500 dark:text-indigo-400">Recommended</span>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-gray-900 divide-y divide-gray-100 dark:divide-gray-800">
+              {[
+                ["Best for", "High-volume, junior/mid roles", "Senior roles, small pipelines", "Critical roles with competitive pipelines"],
+                ["Stage 1: Screening", "✓", "—", "✓"],
+                ["Stage 2: Simulation", "—", "✓", "✓"],
+                ["Stage 3: Decision", "Screening-based ranking", "Simulation recommendation", "Combined evidence"],
+                ["Candidate portal", "✓", "✓", "✓"],
+                ["Audit trail", "✓", "✓", "✓"],
+              ].map((row, i) => (
+                <div class="grid grid-cols-4">
+                  <div class="py-3.5 px-5 text-sm font-semibold text-gray-600 dark:text-gray-400 border-r border-gray-100 dark:border-gray-800">{row[0]}</div>
+                  <div class="py-3.5 px-5 text-sm text-gray-500 dark:text-gray-400 border-r border-gray-100 dark:border-gray-800">{row[1]}</div>
+                  <div class="py-3.5 px-5 text-sm text-gray-500 dark:text-gray-400 border-r border-gray-100 dark:border-gray-800">{row[2]}</div>
+                  <div class={`py-3.5 px-5 text-sm font-medium text-indigo-700 dark:text-indigo-300 ${i % 2 === 0 ? "bg-indigo-50/50 dark:bg-indigo-950/10" : "bg-indigo-50/30 dark:bg-indigo-950/5"}`}>{row[3]}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-8 text-center reveal">
+            <a
+              href="/pricing"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              See Pricing →
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        TRUST BLOCK
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 py-20">
+      <Container>
+        <div class="max-w-2xl mx-auto reveal">
+          <div class="rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-8 text-center shadow-sm">
+            <span class="inline-flex w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 items-center justify-center mb-5 mx-auto">
+              <span class="iconify text-primary w-6 h-6" data-icon="uil:shield-check" aria-hidden="true"></span>
+            </span>
+            <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Same candidate. Same scenario. Same result. Every time.</h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-5">
+              QualifyMe's scoring is deterministic — not AI-inferred. Every score is traceable to a specific response or action. No interviewer subjectivity. No rubric inconsistency across candidates.
+            </p>
+            <a
+              href="/technology"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              How our scoring works →
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        FINAL CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-white/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
+            Start at the stage that<br />
+            <span class="text-gradient">matters most right now.</span>
+          </h2>
+          <p class="text-lg text-indigo-200 dark:text-slate-400 mb-10">
+            AI Screening is live. Cognitive Simulations are in early access.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-6">
+            <a
+              href="https://console.qualifyme.ai/sign-up"
+              class="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-8 text-base font-semibold shadow-xl shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Get Started Free — Screening
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/contact"
+              class="inline-flex h-13 items-center justify-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-8 text-base font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              Join Early Access — Simulations
+            </a>
+          </div>
+          <p class="text-sm text-indigo-200/70 dark:text-slate-500">No credit card required. First assessment in under 5 minutes.</p>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>

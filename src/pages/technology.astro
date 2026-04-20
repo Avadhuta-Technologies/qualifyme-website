@@ -1,0 +1,493 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+---
+
+<Layout
+  title="Technology — QualifyMe"
+  description="QualifyMe is built on a deterministic scoring core, structured AI guardrails, and integrity mechanisms designed for accountable hiring decisions."
+  keywords="hiring technology, AI assessment engine, deterministic scoring, candidate evaluation, anti-gaming, scoring methodology, hiring intelligence"
+>
+  <main>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        HERO
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative pt-32 pb-24 lg:pt-44 lg:pb-32 overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 dark:from-gray-950 dark:via-indigo-950 dark:to-gray-950">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-30"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-32 left-1/4 w-[600px] h-[600px] rounded-full bg-indigo-700/15 blur-[140px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-violet-700/10 blur-[100px]"></div>
+      </div>
+
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <div class="flex items-center justify-center gap-2 mb-6 reveal">
+            <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+            <span class="text-xs font-bold uppercase tracking-widest text-indigo-300">Built for trust. Designed for precision.</span>
+          </div>
+          <h1 class="font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.08] text-white mb-6 reveal reveal-delay-1">
+            The technology behind<br />
+            <span class="text-gradient">confident hiring</span>
+          </h1>
+          <p class="text-lg text-indigo-100/80 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto reveal reveal-delay-2">
+            QualifyMe isn't a chatbot with a job description. It's a purpose-built hiring intelligence layer — with a deterministic scoring core, structured AI guardrails, and integrity mechanisms built in from day one.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 reveal reveal-delay-3">
+            <a
+              href="/book-demo"
+              class="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 text-sm font-semibold shadow-lg shadow-black/20 transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Book a Technical Demo
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+            <a
+              href="/customers/case-studies"
+              class="inline-flex h-12 items-center justify-center rounded-full border border-white/25 bg-white/10 hover:bg-white/20 px-7 text-sm font-semibold text-white transition-all duration-200 backdrop-blur-sm"
+            >
+              View Case Studies
+            </a>
+          </div>
+        </div>
+      </Container>
+
+      <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-gray-950 to-transparent pointer-events-none hidden dark:block"></div>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 1 — PHILOSOPHY
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">Our Design Philosophy</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+            We separate AI assistance<br />from AI decision-making
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+            Most hiring tools let AI do too much. We don't. QualifyMe uses AI where it accelerates the process — and steps it back where accuracy and accountability matter most. Every score a recruiter acts on is traceable, repeatable, and explainable.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3 reveal reveal-delay-1">
+          {[
+            {
+              icon: "uil:lock",
+              title: "Deterministic Scoring",
+              body: "Same answer, same score. Always. No variance based on who reviews the application or when it was submitted.",
+              color: "indigo",
+            },
+            {
+              icon: "uil:sliders-v-alt",
+              title: "Bounded AI",
+              body: "AI assists in defined, visible ways. It doesn't rank candidates or make hire/no-hire calls — your team does.",
+              color: "violet",
+            },
+            {
+              icon: "uil:file-search-alt",
+              title: "Full Explainability",
+              body: "Every output ties directly back to candidate behavior on a defined assessment. Nothing is inferred in the dark.",
+              color: "cyan",
+            },
+          ].map((p) => (
+            <div class={`rounded-2xl border p-8 ${
+              p.color === "indigo"
+                ? "border-indigo-100 dark:border-indigo-900/50 bg-indigo-50/50 dark:bg-indigo-950/20"
+                : p.color === "violet"
+                ? "border-violet-100 dark:border-violet-900/50 bg-violet-50/50 dark:bg-violet-950/20"
+                : "border-cyan-100 dark:border-cyan-900/50 bg-cyan-50/50 dark:bg-cyan-950/20"
+            }`}>
+              <div class={`inline-flex items-center justify-center w-11 h-11 rounded-xl mb-5 ${
+                p.color === "indigo"
+                  ? "bg-indigo-100 dark:bg-indigo-900/50"
+                  : p.color === "violet"
+                  ? "bg-violet-100 dark:bg-violet-900/50"
+                  : "bg-cyan-100 dark:bg-cyan-900/50"
+              }`}>
+                <span class={`iconify w-5 h-5 ${
+                  p.color === "indigo"
+                    ? "text-indigo-600 dark:text-indigo-400"
+                    : p.color === "violet"
+                    ? "text-violet-600 dark:text-violet-400"
+                    : "text-cyan-600 dark:text-cyan-400"
+                }`} data-icon={p.icon} aria-hidden="true"></span>
+              </div>
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{p.title}</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 2 — PLATFORM LAYERS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 border-y border-gray-100 dark:border-gray-800 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">Platform Architecture</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+            Three layers. One hiring signal.
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+            Each layer has a single job. Together, they produce a score your team can act on with confidence.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4 reveal reveal-delay-1">
+          {[
+            {
+              num: "01",
+              label: "Assessment Engine",
+              heading: "Create. Deliver. Capture.",
+              body: "Handles how assessments are created, delivered, and captured. Supports MCQs, coding problems, open-ended responses, and video Q&A. AI helps generate role-specific questions from a job description — but once the assessment is live, the question set is fixed and identical for every candidate.",
+              color: "indigo",
+            },
+            {
+              num: "02",
+              label: "Evaluation Layer",
+              heading: "Score against defined criteria.",
+              body: "Scores candidate responses against the assessment's pre-defined expectations. Objective question types use rule-based scoring. For open-ended and video responses, structured rubrics — defined before evaluation begins — guide AI-assisted review. Scoring criteria are set at job creation, not inferred after the fact.",
+              color: "violet",
+            },
+            {
+              num: "03",
+              label: "Confidence Engine",
+              heading: "Produce a comparable signal.",
+              body: "Aggregates response scores, behavioral signals, and completion patterns into the QualifyMeScore — a normalized, comparable score that lets you rank candidates fairly across the same role, regardless of when they applied or who was available to review them.",
+              color: "cyan",
+            },
+          ].map((layer) => (
+            <div class={`relative rounded-2xl border p-7 md:p-8 bg-white dark:bg-gray-950 overflow-hidden ${
+              layer.color === "indigo"
+                ? "border-indigo-100 dark:border-indigo-900/50"
+                : layer.color === "violet"
+                ? "border-violet-100 dark:border-violet-900/50"
+                : "border-cyan-100 dark:border-cyan-900/50"
+            }`}>
+              {/* Left accent bar */}
+              <div class={`absolute left-0 top-0 bottom-0 w-1 ${
+                layer.color === "indigo" ? "bg-indigo-500" : layer.color === "violet" ? "bg-violet-500" : "bg-cyan-500"
+              }`}></div>
+              <div class="flex items-start gap-5">
+                <div class="flex-shrink-0">
+                  <span class={`text-3xl font-black ${
+                    layer.color === "indigo"
+                      ? "text-indigo-100 dark:text-indigo-900"
+                      : layer.color === "violet"
+                      ? "text-violet-100 dark:text-violet-900"
+                      : "text-cyan-100 dark:text-cyan-900"
+                  }`}>{layer.num}</span>
+                </div>
+                <div>
+                  <span class={`inline-block text-xs font-bold uppercase tracking-widest mb-1 ${
+                    layer.color === "indigo"
+                      ? "text-indigo-500 dark:text-indigo-400"
+                      : layer.color === "violet"
+                      ? "text-violet-500 dark:text-violet-400"
+                      : "text-cyan-500 dark:text-cyan-400"
+                  }`}>{layer.label}</span>
+                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{layer.heading}</h3>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{layer.body}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 3 — AI USAGE BOUNDARIES
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">AI Usage Boundaries</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+            Where AI helps — and where it doesn't
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+            We publish these boundaries because trust requires transparency.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto reveal reveal-delay-1">
+          {/* AI is used for */}
+          <div class="rounded-2xl border border-emerald-100 dark:border-emerald-900/40 bg-emerald-50/50 dark:bg-emerald-950/20 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center flex-shrink-0">
+                <span class="iconify w-4 h-4 text-emerald-600 dark:text-emerald-400" data-icon="uil:check" aria-hidden="true"></span>
+              </div>
+              <h3 class="font-bold text-gray-900 dark:text-white">AI is used for</h3>
+            </div>
+            <ul class="space-y-3">
+              {[
+                "Generating role-specific questions from job descriptions",
+                "Structuring evaluation rubrics for open-ended responses",
+                "Surfacing behavioral anomalies during assessments",
+                "Producing human-readable summaries for recruiting teams",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                  <span class="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* AI does not */}
+          <div class="rounded-2xl border border-red-100 dark:border-red-900/40 bg-red-50/50 dark:bg-red-950/20 p-8">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900/50 flex items-center justify-center flex-shrink-0">
+                <span class="iconify w-4 h-4 text-red-600 dark:text-red-400" data-icon="uil:times" aria-hidden="true"></span>
+              </div>
+              <h3 class="font-bold text-gray-900 dark:text-white">AI does not</h3>
+            </div>
+            <ul class="space-y-3">
+              {[
+                "Score objective question types — that's rule-based",
+                "Rank or compare candidates without a pre-defined rubric",
+                "Make a hire or no-hire recommendation",
+                "Use candidate data for model training",
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300">
+                  <span class="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-red-400"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 4 — SCORING METHODOLOGY
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-gray-50 dark:bg-gray-900 border-y border-gray-100 dark:border-gray-800 py-24 lg:py-32">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="reveal">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">Scoring Methodology</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+              Scores your team<br />can stand behind
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed mb-8">
+              The QualifyMeScore is composite — not a black box. Each component is weighted based on the role's requirements as configured at job creation. Weights are visible to the hiring team before any candidates take the assessment.
+            </p>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 transition-colors"
+            >
+              See a sample report
+              <span class="iconify w-4 h-4" data-icon="uil:arrow-right" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="space-y-4 reveal reveal-delay-1">
+            {[
+              {
+                num: "1",
+                title: "Task Performance",
+                body: "How accurately did the candidate answer what was asked, measured against defined criteria set before the assessment went live.",
+                color: "indigo",
+              },
+              {
+                num: "2",
+                title: "Behavioral Consistency",
+                body: "Did the candidate engage with the assessment as intended? Time-on-task, response patterns, and completion signals.",
+                color: "violet",
+              },
+              {
+                num: "3",
+                title: "Communication Quality",
+                body: "For open-ended and video responses: clarity, structure, and specificity — not personality. Applied only where relevant.",
+                color: "cyan",
+                note: "Where applicable",
+              },
+            ].map((s) => (
+              <div class={`flex gap-5 rounded-2xl border p-6 bg-white dark:bg-gray-950 ${
+                s.color === "indigo"
+                  ? "border-indigo-100 dark:border-indigo-900/50"
+                  : s.color === "violet"
+                  ? "border-violet-100 dark:border-violet-900/50"
+                  : "border-cyan-100 dark:border-cyan-900/50"
+              }`}>
+                <div class={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-sm font-black text-white ${
+                  s.color === "indigo" ? "bg-indigo-600" : s.color === "violet" ? "bg-violet-600" : "bg-cyan-600"
+                }`}>{s.num}</div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white">{s.title}</h3>
+                    {s.note && (
+                      <span class="text-xs text-gray-400 dark:text-gray-500 italic">{s.note}</span>
+                    )}
+                  </div>
+                  <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{s.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 5 — ASSESSMENT INTEGRITY
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="order-2 lg:order-1 reveal">
+            <div class="grid grid-cols-2 gap-4">
+              {[
+                { icon: "uil:shuffle", label: "Randomized question ordering" },
+                { icon: "uil:clock", label: "Per-question time limits" },
+                { icon: "uil:desktop", label: "Browser-activity monitoring" },
+                { icon: "uil:video", label: "Video proctoring" },
+                { icon: "uil:analytics", label: "Response pattern analysis" },
+                { icon: "uil:user-check", label: "Identity verification" },
+              ].map((f) => (
+                <div class="flex items-start gap-3 rounded-xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-4">
+                  <div class="flex-shrink-0 w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center mt-0.5">
+                    <span class="iconify w-4 h-4 text-indigo-600 dark:text-indigo-400" data-icon={f.icon} aria-hidden="true"></span>
+                  </div>
+                  <p class="text-xs font-medium text-gray-700 dark:text-gray-300 leading-snug">{f.label}</p>
+                </div>
+              ))}
+            </div>
+            <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 leading-relaxed">
+              No assessment results are hidden from the hiring team — including integrity flags, so you make the call.
+            </p>
+          </div>
+
+          <div class="order-1 lg:order-2 reveal reveal-delay-1">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">Assessment Integrity</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+              Built for integrity,<br />not just functionality
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 leading-relaxed">
+              Assessments are only valuable if they measure real performance. QualifyMe is designed to make gaming difficult — and to surface it when it happens. Every mechanism below is active by default, visible to the hiring team, and audit-ready.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 6 — CONSISTENCY GUARANTEE
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-indigo-600 dark:bg-indigo-700 py-24 lg:py-32 overflow-hidden relative">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+      <Container>
+        <div class="relative z-10 max-w-3xl mx-auto text-center reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-300 mb-5">Consistency Guarantee</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
+            Same role. Same bar. Every candidate.
+          </h2>
+          <p class="text-indigo-100 leading-relaxed mb-12">
+            When two candidates apply for the same role, they receive the same question set, the same evaluation rubric, and their scores are computed against the same baseline. No interviewer variance. No resume lottery.
+          </p>
+          <div class="grid sm:grid-cols-3 gap-4 text-left">
+            {[
+              {
+                heading: "Fair comparison",
+                body: "Compare a candidate who applied Monday with one who applied Friday — on equal terms.",
+              },
+              {
+                heading: "Reusable standards",
+                body: "Reopen a role and hold new applicants to the exact same bar as the previous round.",
+              },
+              {
+                heading: "Full audit trail",
+                body: "Any score can be broken down and reviewed by hiring managers at any time.",
+              },
+            ].map((g) => (
+              <div class="rounded-2xl bg-white/10 border border-white/15 p-6 backdrop-blur-sm">
+                <h3 class="font-bold text-white mb-2">{g.heading}</h3>
+                <p class="text-sm text-indigo-100 leading-relaxed">{g.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        SECTION 7 — WHY THIS MATTERS
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="bg-white dark:bg-gray-950 py-24 lg:py-32">
+      <Container>
+        <div class="max-w-3xl mx-auto reveal">
+          <span class="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-4">Why This Matters</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+            Hiring decisions have consequences
+          </h2>
+          <div class="space-y-6 text-gray-500 dark:text-gray-400 leading-relaxed">
+            <p>
+              A bad hire costs 3–5× the role's salary. The tools you use to make that decision should be designed to make it <em>less likely</em> — not just faster.
+            </p>
+            <p>
+              Most AI hiring products optimize for speed. QualifyMe optimizes for correctness, then speed.
+            </p>
+            <p class="text-gray-700 dark:text-gray-200 font-medium text-lg border-l-4 border-indigo-400 pl-5">
+              The quality of a hire should depend on candidate capability — not on who reviewed the resume, or which interviewer showed up that day.
+            </p>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    {/* ════════════════════════════════════════════════════════════════════════
+        CTA
+    ════════════════════════════════════════════════════════════════════════ */}
+    <section class="relative bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 py-20 overflow-hidden">
+      <div aria-hidden="true" class="absolute inset-0 hero-dots opacity-20"></div>
+      <Container>
+        <div class="relative z-10 text-center max-w-2xl mx-auto reveal">
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            See the system in action
+          </h2>
+          <p class="text-indigo-200 mb-8 text-lg leading-relaxed">
+            Book a technical demo. We'll walk you through assessment creation, scoring logic, and what a candidate report looks like — end to end.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/book-demo"
+              class="inline-flex h-12 items-center gap-2 rounded-full bg-white text-indigo-700 hover:bg-indigo-50 px-7 font-semibold text-sm transition-colors shadow-xl shadow-black/20"
+            >
+              Book a Technical Demo
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="/customers/case-studies"
+              class="inline-flex h-12 items-center rounded-full border border-white/30 bg-white/10 hover:bg-white/20 px-7 font-semibold text-sm text-white transition-colors backdrop-blur-sm"
+            >
+              View Case Studies
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+  </main>
+</Layout>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+  );
+  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+</script>
