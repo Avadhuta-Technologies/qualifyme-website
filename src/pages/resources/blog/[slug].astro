@@ -33,7 +33,7 @@ const { Content } = await post.render();
   title={`${post.data.title} - QualifyMe Blog`}
   description={post.data.description}
   keywords={`${post.data.title}, ${post.data.category}, ${post.data.tags?.join(', ') || ''}, QualifyMe blog, AI recruitment`}
-  ogImage={post.data.thumbnail || '/images/og-preview.svg'}
+  ogImage={post.data.thumbnail || '/images/og-preview.png'}
   canonicalURL={`https://qualifyme.ai/resources/blog/${slug}`}
 >
   <main class="space-y-20 mb-20">
@@ -817,7 +817,7 @@ const { Content } = await post.render();
     description: post.data.description,
     image: post.data.thumbnail
       ? new URL(post.data.thumbnail, 'https://qualifyme.ai').toString()
-      : 'https://qualifyme.ai/images/og-preview.svg',
+      : 'https://qualifyme.ai/images/og-preview.png',
     datePublished: post.data.publishDate.toISOString(),
     dateModified: post.data.publishDate.toISOString(),
     author: {
